@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:demon_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:nether_star"
+    }
+  ],
+  "output": {
+    "item": "opweapons:nether_shard",
+    "count": 10
+  }
+}

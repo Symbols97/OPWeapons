@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    " s ",
+    "nsn",
+    "www"
+  ],
+  "key": {
+    "s": {
+       "item": "minecraft:stick"
+    },
+    "n": {
+      "item": "minecraft:stone"
+    },
+    "w": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "opweapons:club_handle"
+  }
+}

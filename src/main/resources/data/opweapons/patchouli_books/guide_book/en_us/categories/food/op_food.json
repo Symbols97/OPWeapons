@@ -1,0 +1,7 @@
+{
+    "name": "OP Food",
+    "description": "OP Foods focus on general attributes to boost the player's abilities.",
+    "icon": "opweapons:magic_food",
+    "sortnum": 1,
+    "parent": "opweapons:food"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "ww ",
+    "ww "
+  ],
+  "key": {
+    "w": {
+      "item": "opweapons:frost_log"
+    }
+  },
+  "result": {
+    "item": "opweapons:frost_wood",
+    "count": 3
+  }
+}

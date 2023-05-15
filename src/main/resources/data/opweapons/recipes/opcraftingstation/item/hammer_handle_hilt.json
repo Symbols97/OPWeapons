@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "lil",
+    "lil",
+    "ccc"
+  ],
+  "key": {
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "c": {
+      "item": "minecraft:brown_terracotta"
+    }
+  },
+  "result": {
+    "item": "opweapons:hammer_handle_hilt"
+  }
+}

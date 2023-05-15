@@ -1,0 +1,12 @@
+{
+	"name": "Snow Cone",
+	"icon": "opweapons:snow_cone",
+	"category": "opweapons:food/frost_food",
+	"sortnum": 1,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Snow Cone grants these effects upon consumption: $(br)$(li)Water Breathing - 2:00 Minutes$(li)Speed 2 - 2:00 Minutes"
+		}
+	]
+}

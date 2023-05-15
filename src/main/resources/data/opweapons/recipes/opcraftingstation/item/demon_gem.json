@@ -1,0 +1,26 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "gng",
+    "gsg",
+    "fff"
+  ],
+  "key": {
+    "g": {
+      "item": "opweapons:op_gem"
+    },
+    "n": {
+      "item": "minecraft:nether_wart"
+    },
+    "s": {
+      "item": "opweapons:nether_shard"
+    },
+    "f": {
+      "item": "opweapons:encapsulated_flame"
+    }
+  },
+  "result": {
+    "item": "opweapons:demon_gem",
+    "count": 3
+  }
+}

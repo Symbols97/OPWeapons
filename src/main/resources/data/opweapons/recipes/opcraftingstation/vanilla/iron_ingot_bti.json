@@ -1,0 +1,15 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "i"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_block"
+      }
+  },
+  "result": {
+    "item": "minecraft:iron_ingot",
+    "count": 9
+  }
+}

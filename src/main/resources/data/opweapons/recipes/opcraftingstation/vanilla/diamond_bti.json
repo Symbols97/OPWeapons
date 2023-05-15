@@ -1,0 +1,15 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "d"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:diamond_block"
+      }
+  },
+  "result": {
+    "item": "minecraft:diamond",
+    "count": 9
+  }
+}

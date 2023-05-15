@@ -1,0 +1,18 @@
+{
+	"name": "Frost Gold Ore",
+	"icon": "opweapons:frost_gold_ore",
+	"category": "opweapons:materials",
+	"sortnum": 4,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Frost Gold is used to make the Frost Ring. This allows for instant teleportation to the Frost Zone $(li)Mininum tool: §1OP $(li)Located in: §1Frost Zone Biome$(li2)Y: §1 0 - 45. $(li2)Max vien size: §1 5.$(li2)Max viens per chunk: §1 7."
+		},
+		{
+			"type": "patchouli:image",
+			"images": [
+				"opweapons:textures/gui/book/frost_gold_ore.png"
+			]
+		}
+	]
+}

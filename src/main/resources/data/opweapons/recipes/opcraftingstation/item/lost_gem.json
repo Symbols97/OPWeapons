@@ -1,0 +1,32 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "dog",
+    "fsf",
+    "bbb"
+  ],
+  "key": {
+    "d": {
+      "item": "opweapons:demon_gem"
+    },
+    "o": {
+      "item": "opweapons:op_gem"
+    },
+    "g": {
+      "item": "opweapons:frost_gem"
+    },
+    "f": {
+      "item": "opweapons:encapsulated_flame"
+    },
+    "s": {
+      "item": "opweapons:nether_shard"
+    },
+    "b": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "opweapons:lost_gem",
+    "count": 3
+  }
+}

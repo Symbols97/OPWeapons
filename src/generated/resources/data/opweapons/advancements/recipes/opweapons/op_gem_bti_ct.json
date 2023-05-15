@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "opweapons:op_gem_bti_ct"
+    ]
+  },
+  "criteria": {
+    "has_block_of_op_gem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "opweapons:block_of_op_gem"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:op_gem_bti_ct"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_block_of_op_gem",
+      "has_the_recipe"
+    ]
+  ]
+}

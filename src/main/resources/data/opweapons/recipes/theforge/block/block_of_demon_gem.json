@@ -1,0 +1,16 @@
+{
+	"type": "opweapons:the_forge",
+	"pattern": [
+		"uuu",
+		"uuu",
+		"uuu"
+	],
+	"key": {
+		"u": {
+			"item": "opweapons:demon_gem"
+		}
+	},
+	"result": {
+		"item": "opweapons:block_of_demon_gem"
+	}
+}

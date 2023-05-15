@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:demon_furnace",
+  "ingredients": [
+    {
+      "item": "opweapons:steel_scrap_ore"
+    }
+  ],
+  "output": {
+    "item": "opweapons:steel_scrap",
+    "count": 1
+  }
+}

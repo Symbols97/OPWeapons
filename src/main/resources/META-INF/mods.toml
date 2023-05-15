@@ -1,0 +1,41 @@
+modLoader="javafml"
+loaderVersion="[39,)"
+license="MIT"
+[[mods]]
+modId="opweapons"
+version="${file.jarVersion}"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/op-weapons-mod-symbols97"
+updateJSONURL="https://raw.githubusercontent.com/Symbols97/1.18.2-OPWeapons-github/main/update.json"
+displayName="OPWeapons"
+logoFile="opweaponslogo.png"
+credits=""
+authors="Symbols97"
+description='''
+
+'''
+
+[[dependencies.opweapons]] 
+    modId="forge"
+    mandatory=true
+    versionRange="[40.2.1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.opweapons]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.1,1.19)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.opweapons]]
+    modId="geckolib3"
+    mandatory=true
+    versionRange="[3.0.41,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.opweapons]]
+    modId="terrablender"
+    mandatory=true
+    versionRange="[1.2.0.126,)"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "lsl",
+    " i ",
+    " s "
+  ],
+  "key": {
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    },
+    "s": {
+      "item": "minecraft:iron_ingot"
+      }
+  },
+  "result": {
+    "item": "opweapons:frost_axe_handle"
+  }
+}

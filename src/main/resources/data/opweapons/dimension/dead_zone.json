@@ -1,0 +1,13 @@
+{
+  "type": "opweapons:dead_zone",
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 1978805440,
+    "settings": "minecraft:overworld",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "opweapons:dead_zone_biome"
+    }
+  },
+  "forge:use_server_seed": true
+}

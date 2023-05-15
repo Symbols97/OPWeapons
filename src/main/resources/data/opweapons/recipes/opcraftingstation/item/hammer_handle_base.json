@@ -1,0 +1,16 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    " i ",
+    " i ",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "opweapons:hammer_handle_base"
+  }
+}

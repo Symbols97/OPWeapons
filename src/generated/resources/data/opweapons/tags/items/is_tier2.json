@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "opweapons:op_bow",
+    "opweapons:lapiz_arrow",
+    "opweapons:fire_sword",
+    "opweapons:ice_sword"
+  ]
+}

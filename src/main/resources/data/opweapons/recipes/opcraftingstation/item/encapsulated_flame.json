@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    " f ",
+    " n ",
+    " c "
+  ],
+  "key": {
+    "f": {
+      "item": "opweapons:op_flint_and_steel"
+    },
+    "n": {
+      "item": "minecraft:netherrack"
+    },
+    "c": {
+      "item": "opweapons:capsule"
+    }
+  },
+  "result": {
+    "item": "opweapons:encapsulated_flame"
+  }
+}

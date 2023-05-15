@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:op_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond"
+  }
+}

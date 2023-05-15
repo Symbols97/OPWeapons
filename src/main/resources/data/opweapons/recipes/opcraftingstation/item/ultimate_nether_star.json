@@ -1,0 +1,25 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "dsd",
+    "gng",
+    "dsd"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "s": {
+      "item": "opweapons:nether_shard"
+    },
+    "g": {
+      "item": "opweapons:op_gem"
+    },
+    "n": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "opweapons:ultimate_nether_star"
+  }
+}

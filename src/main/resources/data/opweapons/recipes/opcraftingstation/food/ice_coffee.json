@@ -1,0 +1,24 @@
+{
+	"type": "opweapons:opcraftingstation",
+	"pattern": [
+		"igi",
+		"gwg",
+		"igi"
+	],
+	"key": {
+		"g": {
+			"item": "opweapons:frost_gem"
+		},
+		"w": {
+			"type": "forge:nbt",
+			"item": "minecraft:potion",
+			"nbt": "{Potion:'minecraft:water'}"
+		},
+		"i": {
+			"item": "minecraft:packed_ice"
+		}
+	},
+	"result": {
+		"item": "opweapons:ice_coffee"
+	}
+}

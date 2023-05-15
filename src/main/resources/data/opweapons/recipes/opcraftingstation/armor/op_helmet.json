@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "ggg",
+    "ghg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "opweapons:op_gem"
+    },
+    "h": {
+      "item": "minecraft:diamond_helmet"
+    }
+  },
+  "result": {
+    "item": "opweapons:op_helmet"
+  }
+}

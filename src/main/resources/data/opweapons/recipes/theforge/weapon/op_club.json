@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "h",
+    "c",
+    "b"
+  ],
+  "key": {
+    "h": {
+      "item": "opweapons:club_head"
+    },
+    "c": {
+      "item": "opweapons:op_gem_core"
+    },
+    "b": {
+      "item": "opweapons:club_handle"
+    }
+  },
+  "result": {
+    "item": "opweapons:op_club"
+  }
+}

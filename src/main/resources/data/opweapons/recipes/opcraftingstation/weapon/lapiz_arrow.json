@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "lll",
+    "lal",
+    "lll"
+  ],
+  "key": {
+    "l": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "a": {
+      "item": "minecraft:arrow"
+    }
+  },
+  "result": {
+    "item": "opweapons:lapiz_arrow"
+  }
+}

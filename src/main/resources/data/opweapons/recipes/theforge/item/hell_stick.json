@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "uuu",
+    "ubu",
+    "uuu"
+  ],
+  "key": {
+    "u": {
+      "item": "opweapons:demon_gem"
+    },
+    "b": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "result": {
+    "item": "opweapons:hell_stick"
+  }
+}

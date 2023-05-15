@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:demon_furnace",
+  "ingredients": [
+    {
+      "item": "opweapons:frost_gold_ore"
+    }
+  ],
+  "output": {
+    "item": "opweapons:frost_gold",
+    "count": 1
+  }
+}

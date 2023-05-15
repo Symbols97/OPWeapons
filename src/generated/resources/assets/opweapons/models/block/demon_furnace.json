@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "particle": "opweapons:block/demon_furnace_bottom",
+    "front": "opweapons:block/demon_furnace",
+    "side": "opweapons:block/demon_furnace_side",
+    "top": "opweapons:block/demon_furnace_bottom"
+    
+    
+  }
+}

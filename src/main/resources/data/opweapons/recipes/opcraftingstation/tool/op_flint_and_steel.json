@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "gig",
+    "ifi",
+    "gig"
+  ],
+  "key": {
+    "g": {
+      "item": "opweapons:block_of_op_gem"
+    },
+    "f": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "opweapons:op_flint_and_steel"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:demon_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:zombie_head"
+    }
+  ],
+  "output": {
+    "item": "minecraft:skeleton_skull",
+    "count": 1
+  }
+}

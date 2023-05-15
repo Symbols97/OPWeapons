@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "ggg",
+    "gcg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "opweapons:demon_gem"
+    },
+    "c": {
+      "item": "opweapons:op_gem_core"
+    }
+  },
+  "result": {
+    "item": "opweapons:demon_gem_core"
+  }
+}

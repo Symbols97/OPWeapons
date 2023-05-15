@@ -1,0 +1,98 @@
+{
+  "display": {
+    "icon": {
+      "item": "opweapons:the_forge"
+    },
+    "title": "Tier Completion",
+    "description": "You made every Tier item!",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "opweapons:tier_4_completion",
+  "criteria": {
+    "op_pickaxe_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/tool/op_pickaxe"
+      }
+    },
+    "op_axe_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/tool/op_axe"
+      }
+    },
+    "op_sword_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/weapon/op_sword"
+      }
+    },
+    "op_shovel_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/tool/op_shovel"
+      }
+    },
+    "op_hoe_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/tool/op_hoe"
+      }
+    },
+    "fire_sword_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/weapon/fire_sword"
+      }
+    },
+    "ice_sword_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/weapon/ice_sword"
+      }
+    },
+    "op_bow_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/weapon/op_bow"
+      }
+    },
+    "lapiz_arrow_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:opcraftingstation/weapon/lapiz_arrow"
+      }
+    },
+    "demon_slayer_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/demon_slayer"
+      }
+    },
+    "frost_slayer_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/frost_slayer"
+      }
+    },
+    "op_club_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/op_club"
+      }
+    },
+    "demon_hammer_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/demon_hammer"
+      }
+    },
+    "frost_axe_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/frost_axe"
+      }
+    }
+  }
+}

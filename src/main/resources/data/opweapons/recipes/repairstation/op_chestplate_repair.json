@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:repair_station",
+  "ingredients": [
+    {
+      "item": "opweapons:op_chestplate"
+    }
+  ],
+  "output": {
+    "item": "opweapons:op_chestplate"
+  }
+}

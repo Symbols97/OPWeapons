@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=north": {
+			"model": "opweapons:block/demon_statue"
+		},
+		"facing=east": {
+			"model": "opweapons:block/demon_statue",
+			"y": 90
+		},
+		"facing=south": {
+			"model": "opweapons:block/demon_statue",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "opweapons:block/demon_statue",
+			"y": 270
+		}
+	}
+}

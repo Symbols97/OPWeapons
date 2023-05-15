@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:repair_station",
+  "ingredients": [
+    {
+      "item": "opweapons:fire_sword"
+    }
+  ],
+  "output": {
+    "item": "opweapons:fire_sword"
+  }
+}

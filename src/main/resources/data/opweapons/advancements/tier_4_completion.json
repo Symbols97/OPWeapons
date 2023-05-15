@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "opweapons:frost_axe"
+    },
+    "title": "Tier 4 Completion",
+    "description": "You made every Tier 4 item!",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "opweapons:tier_3_completion",
+  "criteria": {
+    "demon_hammer_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/demon_hammer"
+      }
+    },
+    "frost_axe_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/frost_axe"
+      }
+    }
+  }
+}

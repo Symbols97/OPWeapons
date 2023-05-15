@@ -1,0 +1,16 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "eee",
+    "eee",
+    "eee"
+  ],
+  "key": {
+    "e": {
+      "item": "minecraft:emerald"
+      }
+  },
+  "result": {
+    "item": "minecraft:emerald_block"
+  }
+}

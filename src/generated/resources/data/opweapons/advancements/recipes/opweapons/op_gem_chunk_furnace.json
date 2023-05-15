@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "opweapons:op_gem_chunk_furnace"
+    ]
+  },
+  "criteria": {
+    "has_op_gem_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "opweapons:op_gem_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:op_gem_chunk_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_op_gem_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

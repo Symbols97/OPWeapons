@@ -1,0 +1,16 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "s  ",
+    " s ",
+    "  s"
+  ],
+  "key": {
+    "s": {
+      "item": "opweapons:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "opweapons:steel_pipe"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "opweapons:repair_station_v2"
+    }
+  ],
+  "result": {
+    "item": "opweapons:repair_station"
+  }
+}

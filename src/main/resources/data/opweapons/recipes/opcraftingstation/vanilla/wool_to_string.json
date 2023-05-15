@@ -1,0 +1,15 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "w"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:white_wool"
+      }
+  },
+  "result": {
+    "item": "minecraft:string",
+    "count": 4
+  }
+}

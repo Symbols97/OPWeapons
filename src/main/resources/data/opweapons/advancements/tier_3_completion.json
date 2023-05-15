@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "opweapons:demon_slayer"
+    },
+    "title": "Tier 3 Completion",
+    "description": "You made every Tier 3 item!",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "opweapons:tier_2_completion",
+  "criteria": {
+    "demon_slayer_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/demon_slayer"
+      }
+    },
+    "frost_slayer_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/frost_slayer"
+      }
+    },
+    "op_club_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/op_club"
+      }
+    }
+  }
+}

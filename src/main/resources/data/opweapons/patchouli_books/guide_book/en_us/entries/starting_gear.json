@@ -1,0 +1,16 @@
+{
+	"name": "Starting Gear",
+	"icon": "opweapons:op_chestplate",
+	"category": "opweapons:getting_started",
+	"sortnum": 1,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Gear in this mod is sectioned into \"Tiers\" (More info $(l:opweapons:tier_system/what_are_tiers)here$()). Even with the most basic gear you will still be extremely durable"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "To begin start by crafting OP Armor. $(br)OP Armor is a Tier 1 suit that will start your journey into OP Weapons. This armor has a durability of 7,500. When wearing it you will not take any damage as the armor absord 100% of any damage inflicted on you. This armor will repair itself in the Plains biome (if wearing the full set). $(li)Leggings grant you Speed 1$(li)Boots negate all fall damage."
+		}
+	]
+}

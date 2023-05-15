@@ -1,0 +1,16 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "fff",
+    "fff",
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "opweapons:block_of_frost_gem"
+    }
+  },
+  "result": {
+    "item": "opweapons:condensedbofg"
+  }
+}

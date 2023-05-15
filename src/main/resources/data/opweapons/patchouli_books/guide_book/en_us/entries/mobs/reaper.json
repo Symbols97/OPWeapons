@@ -1,0 +1,22 @@
+{
+	"name": "Reaper",
+	"icon": "opweapons:reaper_spawn_egg",
+	"category": "opweapons:mobs",
+	"sortnum": 6,
+	"pages": [
+		{
+			"type": "patchouli:image",
+			"title": "Reaper",
+			"images": [
+				"opweapons:textures/gui/book/reaper.png"
+			],
+			"text": "        Size: 1x Scale"
+		},
+		{
+			"type": "patchouli:text",
+			"title": "Description",
+			"text": "Reapers are an ancient race that are able to inflict pain rather than damage. They bypass all armor and are §1able §1to drop a player to one §1heart. §cKill on site; or run!. $(br)Locations:§1 Jungle / Dark §1Forrest$(br)Variants:§1 N/A $(br)Weapon: §1Scythe$(br)Hostility:§1 Hostile; unless §1wearing the Reaper Armor$(br)Health:§1 15,000 $(br)Damage:§1 0.5 $(br)Tier:§1 3"
+		}
+	]
+}
+}

@@ -1,0 +1,111 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 32],
+	"textures": {
+		"0": "opweapons:item/demon_hammer",
+		"particle": "opweapons:item/demon_hammer"
+	},
+	"elements": [
+		{
+			"name": "Handle1",
+			"from": [7, 4.5, 7],
+			"to": [9, 23.5, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-1, 24, -1]},
+			"faces": {
+				"north": {"uv": [0.5, 1, 1, 10.5], "texture": "#0"},
+				"east": {"uv": [0, 1, 0.5, 10.5], "texture": "#0"},
+				"south": {"uv": [1.5, 1, 2, 10.5], "texture": "#0"},
+				"west": {"uv": [1, 1, 1.5, 10.5], "texture": "#0"},
+				"up": {"uv": [1, 1, 0.5, 0], "texture": "#0"},
+				"down": {"uv": [1.5, 0, 1, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "HammerHead1",
+			"from": [4.5, 17, 2],
+			"to": [11.5, 23, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-3.5, 23.5, -5.5]},
+			"faces": {
+				"north": {"uv": [9, 12.5, 10.75, 15.5], "texture": "#0"},
+				"east": {"uv": [6, 12.5, 9, 15.5], "texture": "#0"},
+				"south": {"uv": [13.75, 12.5, 15.5, 15.5], "texture": "#0"},
+				"west": {"uv": [10.75, 12.5, 13.75, 15.5], "texture": "#0"},
+				"up": {"uv": [10.75, 12.5, 9, 6.5], "texture": "#0"},
+				"down": {"uv": [12.5, 6.5, 10.75, 12.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Knotch1",
+			"from": [6, 1, 6],
+			"to": [10, 5, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-2, 5.5, -2]},
+			"faces": {
+				"north": {"uv": [1.25, 14, 2.25, 16], "texture": "#0"},
+				"east": {"uv": [0.25, 14, 1.25, 16], "texture": "#0"},
+				"south": {"uv": [3.25, 14, 4.25, 16], "texture": "#0"},
+				"west": {"uv": [2.25, 14, 3.25, 16], "texture": "#0"},
+				"up": {"uv": [2.25, 14, 1.25, 12], "texture": "#0"},
+				"down": {"uv": [3.25, 12, 2.25, 14], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Handgrip1",
+			"from": [6.5, 7.5, 6.5],
+			"to": [9.5, 12.5, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-1.5, 13, -1.5]},
+			"faces": {
+				"north": {"uv": [4, 1.5, 4.75, 4], "texture": "#0"},
+				"east": {"uv": [3.25, 1.5, 4, 4], "texture": "#0"},
+				"south": {"uv": [5.5, 1.5, 6.25, 4], "texture": "#0"},
+				"west": {"uv": [4.75, 1.5, 5.5, 4], "texture": "#0"},
+				"up": {"uv": [4.75, 1.5, 4, 0], "texture": "#0"},
+				"down": {"uv": [5.5, 0, 4.75, 1.5], "texture": "#0"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -4, 2.5]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -4, 2.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [10, 0, 0],
+			"translation": [2, 1.5, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"firstperson_lefthand": {
+			"rotation": [10, 0, 0],
+			"translation": [2, 1.5, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"ground": {
+			"rotation": [0, 0, 180],
+			"translation": [0, 10.25, 0]
+		},
+		"gui": {
+			"rotation": [90, 45, -90],
+			"translation": [-3.25, -3.25, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"head": {
+			"rotation": [0, 0, 180],
+			"translation": [0, 21.5, 0]
+		},
+		"fixed": {
+			"rotation": [-90, 45, 90],
+			"translation": [2.5, -2.75, 0],
+			"scale": [0.75, 0.75, 0.75]
+		}
+	},
+	"groups": [
+		{
+			"name": "Hammer",
+			"origin": [0, 24, 0],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

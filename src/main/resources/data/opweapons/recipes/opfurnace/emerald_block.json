@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:op_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_block"
+    }
+  ],
+  "output": {
+    "item": "minecraft:emerald_block"
+  }
+}

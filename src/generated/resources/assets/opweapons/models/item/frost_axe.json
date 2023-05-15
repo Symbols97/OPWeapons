@@ -1,0 +1,111 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "opweapons:item/frost_axe",
+		"particle": "opweapons:item/frost_axe"
+	},
+	"elements": [
+		{
+			"name": "Handle1",
+			"from": [7, 14, 7.7],
+			"to": [9, 32, 10.7],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-1, 32.3, -1.3]},
+			"faces": {
+				"north": {"uv": [0.75, 1, 1.25, 5.5], "texture": "#0"},
+				"east": {"uv": [0, 1, 0.75, 5.5], "texture": "#0"},
+				"south": {"uv": [2, 1, 2.5, 5.5], "texture": "#0"},
+				"west": {"uv": [1.25, 1, 2, 5.5], "texture": "#0"},
+				"up": {"uv": [1.25, 1, 0.75, 0.25], "texture": "#0"},
+				"down": {"uv": [1.75, 0.25, 1.25, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Handle 2",
+			"from": [7, 6.5, 7.2],
+			"to": [9, 14.5, 10.2],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-1, 14.5, -1.8]},
+			"faces": {
+				"north": {"uv": [0.75, 6.5, 1.25, 8.5], "texture": "#0"},
+				"east": {"uv": [0, 6.5, 0.75, 8.5], "texture": "#0"},
+				"south": {"uv": [2, 6.5, 2.5, 8.5], "texture": "#0"},
+				"west": {"uv": [1.25, 6.5, 2, 8.5], "texture": "#0"},
+				"up": {"uv": [1.25, 6.5, 0.75, 5.75], "texture": "#0"},
+				"down": {"uv": [1.75, 5.75, 1.25, 6.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Handle3",
+			"from": [6.5, 3, 7.7],
+			"to": [9.5, 7, 10.7],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-1.5, 7, -1.3]},
+			"faces": {
+				"north": {"uv": [0.75, 9.75, 1.5, 10.75], "texture": "#0"},
+				"east": {"uv": [0, 9.75, 0.75, 10.75], "texture": "#0"},
+				"south": {"uv": [2.25, 9.75, 3, 10.75], "texture": "#0"},
+				"west": {"uv": [1.5, 9.75, 2.25, 10.75], "texture": "#0"},
+				"up": {"uv": [1.5, 9.75, 0.75, 9], "texture": "#0"},
+				"down": {"uv": [2.25, 9, 1.5, 9.75], "texture": "#0"}
+			}
+		},
+		{
+			"name": "AxeHead1",
+			"from": [8, 23.3, 0],
+			"to": [8, 31.3, 17],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 31.3, -9]},
+			"faces": {
+				"north": {"uv": [10, 4.25, 10, 6.25], "texture": "#0"},
+				"east": {"uv": [5.75, 4.25, 10, 6.25], "texture": "#0"},
+				"south": {"uv": [14.25, 4.25, 14.25, 6.25], "texture": "#0"},
+				"west": {"uv": [10, 4.25, 14.25, 6.25], "texture": "#0"},
+				"up": {"uv": [10, 4.25, 10, 0], "texture": "#0"},
+				"down": {"uv": [10, 0, 10, 4.25], "texture": "#0"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -4.75, 1.75]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -4.75, 1.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [10, 0, 0],
+			"translation": [1.75, 0, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"firstperson_lefthand": {
+			"rotation": [10, 0, 0],
+			"translation": [1.75, 0, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"ground": {
+			"rotation": [0, 0, 90],
+			"translation": [10.25, -3.5, 0.75]
+		},
+		"gui": {
+			"rotation": [-90, -45, -90],
+			"translation": [-4.25, -5.25, 0],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"head": {
+			"rotation": [-90, 45, 90],
+			"translation": [20.75, -6, 0]
+		},
+		"fixed": {
+			"rotation": [-90, 45, 90],
+			"translation": [4.25, -5.25, 0],
+			"scale": [0.55, 0.55, 0.55]
+		}
+	},
+	"groups": [
+		{
+			"name": "FrostAxe",
+			"origin": [0, 24, 0],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

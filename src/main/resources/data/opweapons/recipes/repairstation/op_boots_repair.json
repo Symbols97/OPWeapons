@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:repair_station",
+  "ingredients": [
+    {
+      "item": "opweapons:op_boots"
+    }
+  ],
+  "output": {
+    "item": "opweapons:op_boots"
+  }
+}

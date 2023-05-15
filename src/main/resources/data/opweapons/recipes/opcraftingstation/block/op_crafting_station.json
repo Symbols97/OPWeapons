@@ -1,0 +1,25 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    " w ",
+    "ici",
+    "bbb"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:crafting_table"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "c": {
+      "item": "opweapons:op_gem_core"
+    },
+    "b": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "opweapons:op_crafting_station"
+  }
+}

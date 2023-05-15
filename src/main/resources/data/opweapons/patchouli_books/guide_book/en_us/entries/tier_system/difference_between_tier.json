@@ -1,0 +1,16 @@
+{
+    "name": "Differences in Tiers",
+    "icon": "opweapons:repair_module",
+    "category": "opweapons:tier_system",
+    "sortnum": 2,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "§1Tier 1$(li)This is the base level gear. OP Armor and OP Tools (excluding the OP Bow).$(li)Easy to craft and $(l:opweapons:materials/op_gem_ore)materials$() are easy to find.$(br)§1Tier 2$(li)The next step in the tier system.$(li)These weapons are slightly more complicated to make however the damage is 65% higher than Teir 1 weapons"
+        },
+        {
+            "type": "patchouli:text",
+            "text": "§1Tier 3$(li)This tiers contains the strongest weapons, and the strongest mobs.$(li)Much more complicated to make$(li)Consisting of the Slayers, Demon/Frost Armor, and OP Hammer$(br)§1Tier 4$(li)These weapons are less damage than a teir 3, however focus in more mystical abilites.$(li)Demon hammer can summon lightning and build lava walls$(li)Frost Axe can affect the weather, build ice walls, and allows the player to walk on water."
+        }
+    ]
+}

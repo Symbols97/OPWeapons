@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "cgc",
+    "gbg",
+    "cgc"
+  ],
+  "key": {
+    "g": {
+      "item": "opweapons:op_gem"
+    },
+    "c": {
+      "item": "opweapons:op_gem_chunk"
+    },
+    "b": {
+      "item": "minecraft:cooked_beef"
+    }
+  },
+  "result": {
+    "item": "opweapons:magic_food"
+  }
+}

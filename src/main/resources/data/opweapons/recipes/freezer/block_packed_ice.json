@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:freezer",
+  "ingredients": [
+    {
+      "item": "minecraft:ice"
+    }
+  ],
+  "output": {
+    "item": "minecraft:packed_ice"
+  }
+}

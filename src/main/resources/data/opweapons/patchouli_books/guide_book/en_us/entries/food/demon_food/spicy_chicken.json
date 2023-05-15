@@ -1,0 +1,12 @@
+{
+	"name": "Spicy Chicken",
+	"icon": "opweapons:spicy_chicken",
+	"category": "opweapons:food/demon_food",
+	"sortnum": 1,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Spicy Chicken grants these effects upon consumption: $(br)$(li)Speed 2 - 2:00 Minutes$(li)Fire Resistance - 2:00 Minutes"
+		}
+	]
+}

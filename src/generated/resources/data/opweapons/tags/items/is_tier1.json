@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "opweapons:op_sword",
+    "opweapons:op_axe",
+    "opweapons:op_pickaxe",
+    "opweapons:op_shovel",
+    "opweapons:op_hoe"
+  ]
+}

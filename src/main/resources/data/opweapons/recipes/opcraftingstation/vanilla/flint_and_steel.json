@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "if ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:flint"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "minecraft:flint_and_steel"
+  }
+}

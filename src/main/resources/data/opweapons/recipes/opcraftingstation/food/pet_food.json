@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "sss",
+    "mmm",
+    " b "
+  ],
+  "key": {
+    "s": {
+      "item": "opweapons:mini_soul"
+    },
+    "m": {
+      "item": "opweapons:magic_food"
+    },
+    "b": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "result": {
+    "item": "opweapons:pet_food"
+  }
+}

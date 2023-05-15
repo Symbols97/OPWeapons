@@ -1,0 +1,12 @@
+{
+	"name": "Ice Coffee",
+	"icon": "opweapons:ice_coffee",
+	"category": "opweapons:food/frost_food",
+	"sortnum": 2,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Ice Coffee grants these effects upon consumption: $(br)$(li)Jump Boost 2 - 5:00 Minutes$(li)Absorption 2 - 5:00 Minutes$(li)Water Breathing - 5:00 Minutes$(li)Speed 2 - 5:00 Minutes$(li)Regeneration 4 - 5:00 Minutes"
+		}
+	]
+}

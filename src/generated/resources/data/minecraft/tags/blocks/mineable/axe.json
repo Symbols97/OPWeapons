@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "opweapons:op_crafting_station",
+    "opweapons:repair_station",
+    "opweapons:repair_station_v2",
+    "opweapons:demon_log",
+    "opweapons:stripped_demon_log",
+    "opweapons:demon_wood",
+    "opweapons:demon_planks",
+    "opweapons:frost_log",
+    "opweapons:stripped_frost_log",
+    "opweapons:frost_wood",
+    "opweapons:frost_planks"
+  ]
+}

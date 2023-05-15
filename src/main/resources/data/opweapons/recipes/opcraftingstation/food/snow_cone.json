@@ -1,0 +1,24 @@
+{
+	"type": "opweapons:opcraftingstation",
+	"pattern": [
+		" s ",
+		"sws",
+		"iii"
+	],
+	"key": {
+		"s": {
+			"item": "minecraft:snowball"
+		},
+		"w": {
+			"type": "forge:nbt",
+			"item": "minecraft:potion",
+			"nbt": "{Potion:'minecraft:water'}"
+		},
+		"i": {
+			"item": "minecraft:packed_ice"
+		}
+	},
+	"result": {
+		"item": "opweapons:snow_cone"
+	}
+}

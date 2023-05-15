@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "ooo",
+    "obo",
+    "ooo"
+  ],
+  "key": {
+    "o": {
+      "item": "opweapons:op_gem"
+    },
+    "b": {
+      "item": "minecraft:bow"
+    }
+  },
+  "result": {
+    "item": "opweapons:op_bow"
+  }
+}

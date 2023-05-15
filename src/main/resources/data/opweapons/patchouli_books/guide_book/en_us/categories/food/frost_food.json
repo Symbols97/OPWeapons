@@ -1,0 +1,7 @@
+{
+    "name": "Frost Food",
+    "description": "Frost Food Specializes in giving the player decent abilities while also focusing on assiting the player in the colder enviroments.",
+    "icon": "opweapons:snow_cone",
+    "sortnum": 3,
+    "parent": "opweapons:food"
+}

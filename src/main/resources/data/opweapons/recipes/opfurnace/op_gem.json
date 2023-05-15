@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:op_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:emerald"
+    }
+  ],
+  "output": {
+    "item": "opweapons:op_gem"
+  }
+}

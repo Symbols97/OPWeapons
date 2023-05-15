@@ -1,0 +1,30 @@
+{
+	"type": "opweapons:the_forge",
+	"pattern": [
+		"sfs",
+		"pip",
+		"sas"
+	],
+	"key": {
+		"s": {
+			"item": "opweapons:nether_shard"
+		},
+		"p": {
+			"item": "minecraft:packed_ice"
+		},
+		"i": {
+			"type": "forge:nbt",
+			"item": "opweapons:ice_sword",
+			"nbt": "{Damage:0}"
+		},
+		"a": {
+			"item": "opweapons:ultimate_nether_star"
+		},
+		"f": {
+			"item": "opweapons:frost_gem"
+		}
+	},
+	"result": {
+		"item": "opweapons:frost_blade"
+	}
+}

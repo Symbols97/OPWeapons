@@ -1,0 +1,16 @@
+{
+	"type": "opweapons:the_forge",
+	"pattern": [
+		"lll",
+		"lll",
+		"lll"
+	],
+	"key": {
+		"l": {
+			"item": "opweapons:lost_gem"
+		}
+	},
+	"result": {
+		"item": "opweapons:block_of_lost_gem"
+	}
+}

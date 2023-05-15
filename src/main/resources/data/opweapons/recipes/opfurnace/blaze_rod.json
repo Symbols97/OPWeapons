@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:op_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ],
+  "output": {
+    "item": "minecraft:blaze_powder",
+    "count": 9
+  }
+}

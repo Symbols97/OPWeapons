@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "particle": "opweapons:block/op_crafting_station",
+    "north": "opweapons:block/op_crafting_station",
+    "south": "opweapons:block/op_crafting_station",
+    "east": "opweapons:block/op_crafting_station",
+    "west": "opweapons:block/op_crafting_station",
+    "up": "opweapons:block/op_crafting_station_top",
+    "down": "opweapons:block/op_crafting_station_bottom"
+    
+    
+  }
+}

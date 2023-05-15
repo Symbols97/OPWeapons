@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:op_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_nugget"
+    }
+  ],
+  "output": {
+    "item": "opweapons:gold_particle",
+    "count": 2
+  }
+}

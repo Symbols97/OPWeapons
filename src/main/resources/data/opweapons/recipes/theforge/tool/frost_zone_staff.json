@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "fff",
+    "fsf",
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "opweapons:frost_gem"
+    },
+    "s": {
+      "item": "opweapons:neutral_staff"
+    }
+  },
+  "result": {
+    "item": "opweapons:frost_zone_staff"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "sss",
+    "sii",
+    "ii "
+  ],
+  "key": {
+    "s": {
+      "item": "opweapons:steel_scrap"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "opweapons:steel_ingot"
+  }
+}

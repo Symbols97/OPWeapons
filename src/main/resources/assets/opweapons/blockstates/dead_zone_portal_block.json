@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=z": { "model": "opweapons:block/dead_zone_portal_block_ew" },
+    "axis=x": { "model": "opweapons:block/dead_zone_portal_block_ns" }
+  }
+}

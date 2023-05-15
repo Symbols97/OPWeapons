@@ -1,0 +1,16 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    " s ",
+    "sss",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "opweapons:nether_shard"
+    }
+  },
+  "result": {
+    "item": "minecraft:nether_star"
+  }
+}

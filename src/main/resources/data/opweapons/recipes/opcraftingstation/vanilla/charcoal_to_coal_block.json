@@ -1,0 +1,16 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "ccc",
+    "ccc",
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:charcoal"
+      }
+  },
+  "result": {
+    "item": "minecraft:coal_block"
+  }
+}

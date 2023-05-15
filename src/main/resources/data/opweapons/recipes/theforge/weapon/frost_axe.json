@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "b",
+    "c",
+    "h"
+  ],
+  "key": {
+    "b": {
+      "item": "opweapons:frost_axe_blade"
+    },
+    "c": {
+      "item": "opweapons:frost_gem_core"
+    },
+    "h": {
+      "item": "opweapons:frost_axe_handle"
+    }
+  },
+  "result": {
+    "item": "opweapons:frost_axe"
+  }
+}

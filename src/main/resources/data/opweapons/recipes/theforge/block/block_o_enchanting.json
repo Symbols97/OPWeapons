@@ -1,0 +1,20 @@
+{
+	"type": "opweapons:the_forge",
+	"pattern": [
+		"xxx",
+		"xex",
+		"xxx"
+	],
+	"key": {
+		"x": {
+			"item": "opweapons:lost_gem"
+		},
+		"e": {
+			"item": "minecraft:experience_bottle"
+		}
+	},
+	"result": {
+		"item": "opweapons:block_o_enchanting",
+		"count": 64
+	}
+}

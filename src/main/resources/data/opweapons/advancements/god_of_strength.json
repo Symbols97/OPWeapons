@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "opweapons:op_club"
+    },
+    "title": "God of Strength",
+    "description": "You made the OP Club",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "opweapons:tier_completion",
+  "criteria": {
+    "demon_hammer": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:theforge/weapon/op_club"
+      }
+    }
+  }
+}

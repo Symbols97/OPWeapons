@@ -1,0 +1,21 @@
+{
+	"type": "opweapons:the_forge",
+	"pattern": [
+		"lll",
+		"lgl",
+		"lll"
+	],
+	"key": {
+		"l": {
+			"item": "opweapons:lost_gem"
+		},
+		"g": {
+			"type": "forge:nbt",
+			"item": "opweapons:op_chestplate",
+			"nbt": "{Damage:0}"
+		}
+	},
+	"result": {
+		"item": "opweapons:lost_chestplate"
+	}
+}

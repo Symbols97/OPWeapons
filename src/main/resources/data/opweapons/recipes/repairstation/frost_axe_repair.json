@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:repair_station_tier4",
+  "ingredients": [
+    {
+      "item": "opweapons:frost_axe"
+    }
+  ],
+  "output": {
+    "item": "opweapons:frost_axe"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "ggg",
+    "pir",
+    "vbc"
+  ],
+  "key": {
+    "g": {
+      "tag": "forge:glass"
+    },
+    "p": {
+      "item": "opweapons:triple_steel_pipe"
+    },
+    "i": {
+      "item": "minecraft:packed_ice"
+    },
+    "r":{
+      "item": "minecraft:redstone"
+    },
+    "v":{
+      "item": "opweapons:vent"
+    },
+    "b":{
+      "item": "opweapons:condensedbofg"
+    },
+    "c":{
+      "item": "opweapons:frost_gem_core"
+      }
+  },
+  "result": {
+    "item": "opweapons:freezer"
+  }
+}

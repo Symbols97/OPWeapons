@@ -1,0 +1,6 @@
+{
+    "name": "Tier System",
+    "description": "Tiers? What are they? How do they work?$(br2)You can also view the tiers and the items that belong in that tier in both Repair Stations.",
+    "icon": "opweapons:op_sword",
+    "sortnum": 2
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cic",
+    "drd",
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "opweapons:op_gem_chunk"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "r": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "item": "opweapons:op_gem_core"
+  }
+}

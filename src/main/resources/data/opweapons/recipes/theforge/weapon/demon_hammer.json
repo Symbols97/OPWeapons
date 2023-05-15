@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "h",
+    "d",
+    "b"
+  ],
+  "key": {
+    "h": {
+      "item": "opweapons:hammer_head"
+    },
+    "d": {
+      "item": "opweapons:demon_gem_core"
+    },
+    "b": {
+      "item": "opweapons:hammer_handle"
+    }
+  },
+  "result": {
+    "item": "opweapons:demon_hammer"
+  }
+}

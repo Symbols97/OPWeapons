@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:cooler",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "output": {
+    "item": "minecraft:snowball",
+    "count": 16
+  }
+}

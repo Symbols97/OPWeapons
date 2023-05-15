@@ -1,0 +1,14 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "v"
+  ],
+  "key": {
+    "v": {
+     "item": "opweapons:repair_station_v2"
+    }
+  },
+  "result": {
+    "item": "opweapons:repair_station"
+  }
+}

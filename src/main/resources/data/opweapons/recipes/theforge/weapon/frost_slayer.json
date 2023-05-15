@@ -1,0 +1,28 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "fbf",
+    "pcp",
+    "fhf"
+  ],
+  "key": {
+    "f": {
+      "item": "opweapons:frost_gem"
+    },
+    "b": {
+      "item": "opweapons:frost_blade"
+    },
+    "p": {
+      "item": "minecraft:packed_ice"
+    },
+    "c": {
+      "item": "opweapons:frost_gem_core"
+    },
+    "h": {
+      "item": "opweapons:frost_stick"
+    }
+  },
+  "result": {
+    "item": "opweapons:frost_slayer"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:op_furnace",
+  "ingredients": [
+    {
+      "item": "minecraft:mutton"
+    }
+  ],
+  "output": {
+    "item": "minecraft:cooked_mutton",
+    "count": 2
+  }
+}

@@ -1,0 +1,21 @@
+{
+	"type": "opweapons:the_forge",
+	"pattern": [
+		"uuu",
+		"ugu",
+		"uuu"
+	],
+	"key": {
+		"u": {
+			"item": "opweapons:demon_gem"
+		},
+		"g": {
+			"type": "forge:nbt",
+			"item": "opweapons:op_boots",
+			"nbt": "{Damage:0}"
+		}
+	},
+	"result": {
+		"item": "opweapons:demon_boots"
+	}
+}

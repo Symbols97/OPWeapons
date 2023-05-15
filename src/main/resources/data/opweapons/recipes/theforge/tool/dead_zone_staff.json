@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "ddd",
+    "dsd",
+    "ddd"
+  ],
+  "key": {
+    "d": {
+      "item": "opweapons:demon_gem"
+    },
+    "s": {
+      "item": "opweapons:neutral_staff"
+    }
+  },
+  "result": {
+    "item": "opweapons:dead_zone_staff"
+  }
+}

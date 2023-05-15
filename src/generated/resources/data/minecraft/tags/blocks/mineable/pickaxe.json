@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "opweapons:op_gem_ore",
+    "opweapons:block_of_op_gem",
+    "opweapons:block_of_demon_gem",
+    "opweapons:block_of_frost_gem",
+    "opweapons:block_of_lost_gem",
+    "opweapons:steel_scrap_ore",
+    "opweapons:condensedbodg",
+    "opweapons:condensedbofg",
+    "opweapons:the_forge",
+    "opweapons:op_furnace",
+    "opweapons:demon_furnace",
+    "opweapons:freezer",
+    "opweapons:soul_ore",
+    "opweapons:frozen_soul_ore",
+    "opweapons:block_o_enchanting",
+    "opweapons:demon_gold_ore",
+    "opweapons:frost_gold_ore",
+    "opweapons:demon_light",
+    "opweapons:frost_light"
+  ]
+}

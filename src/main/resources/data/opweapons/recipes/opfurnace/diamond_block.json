@@ -1,0 +1,11 @@
+{
+  "type": "opweapons:op_furnace",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/coal"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond_block"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "fff",
+    "fcf",
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "opweapons:frost_gem"
+    },
+    "c": {
+      "item": "opweapons:op_gem_core"
+    }
+  },
+  "result": {
+    "item": "opweapons:frost_gem_core"
+  }
+}

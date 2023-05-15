@@ -1,0 +1,12 @@
+{
+	"name": "Pet Food",
+	"icon": "opweapons:pet_food",
+	"category": "opweapons:food/op_food",
+	"sortnum": 3,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "Pet Food will fully heal the tameable animals in this mod."
+		}
+	]
+}

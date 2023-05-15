@@ -1,0 +1,16 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "ddd",
+    "ddd",
+    "ddd"
+  ],
+  "key": {
+    "d": {
+      "item": "opweapons:demon_gem"
+    }
+  },
+  "result": {
+    "item": "opweapons:block_of_demon_gem"
+  }
+}

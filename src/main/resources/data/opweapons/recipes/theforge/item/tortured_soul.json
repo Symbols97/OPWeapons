@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "dsd",
+    "sbs",
+    "dsd"
+  ],
+  "key": {
+    "d": {
+      "item": "opweapons:defrosted_soul"
+    },
+    "s": {
+      "item": "opweapons:mini_soul"
+    },
+    "b": {
+      "item": "minecraft:soul_sand"
+    }
+  },
+  "result": {
+    "item": "opweapons:tortured_soul"
+  }
+}

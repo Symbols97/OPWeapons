@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "opweapons:repair_station_v1_ct"
+    ]
+  },
+  "criteria": {
+    "has_repair_station_v2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "opweapons:repair_station_v2"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "opweapons:repair_station_v1_ct"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_repair_station_v2",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "opweapons:the_forge",
+  "pattern": [
+    "fff",
+    "fbf",
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "opweapons:frost_gem"
+    },
+    "b": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "result": {
+    "item": "opweapons:frost_stick"
+  }
+}

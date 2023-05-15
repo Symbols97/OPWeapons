@@ -1,0 +1,18 @@
+{
+	"name": "Frozen Soul Ore",
+	"icon": "opweapons:frozen_soul_ore",
+	"category": "opweapons:materials",
+	"sortnum": 6,
+	"pages": [
+		{
+			"type": "patchouli:text",
+			"text": "One of the rawest materials needed to crate the Soul Havester; which is used to transform into the Reaper.$(li)50% chance mining this ore drops the Frozen Soul. $(li)Mininum tool: §1OP $(li)Located in: §1Frost Zone Biome$(li2)Y: §1 0 - 15. $(li2)Max vien size: §1 4.$(li2)Max viens per chunk: §1 5."
+		},
+		{
+			"type": "patchouli:image",
+			"images": [
+				"opweapons:textures/gui/book/frozen_soul_ore.png"
+			]
+		}
+	]
+}

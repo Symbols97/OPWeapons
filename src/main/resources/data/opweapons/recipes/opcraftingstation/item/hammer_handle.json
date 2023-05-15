@@ -1,0 +1,22 @@
+{
+  "type": "opweapons:opcraftingstation",
+  "pattern": [
+    "   ",
+    "gbg",
+    " h "
+  ],
+  "key": {
+    "g": {
+      "item": "opweapons:hammer_handle_grip"
+    },
+    "b": {
+      "item": "opweapons:hammer_handle_base"
+    },
+    "h": {
+      "item": "opweapons:hammer_handle_hilt"
+    }
+  },
+  "result": {
+    "item": "opweapons:hammer_handle"
+  }
+}

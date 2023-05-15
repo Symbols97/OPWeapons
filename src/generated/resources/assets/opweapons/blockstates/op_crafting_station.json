@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "opweapons:block/op_crafting_station"
+    }
+  }
+}

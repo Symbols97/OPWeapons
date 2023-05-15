@@ -1,0 +1,7 @@
+{
+    "name": "Demon Food",
+    "description": "Demon Food Specializes in giving the player decent abilities while also focusing on the element of Fire.",
+    "icon": "opweapons:spicy_chicken",
+    "sortnum": 2,
+    "parent": "opweapons:food"
+}

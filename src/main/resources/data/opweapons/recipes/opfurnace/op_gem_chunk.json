@@ -1,0 +1,12 @@
+{
+  "type": "opweapons:op_furnace",
+  "ingredients": [
+    {
+      "item": "opweapons:op_gem_ore"
+    }
+  ],
+  "output": {
+    "item": "opweapons:op_gem_chunk",
+    "count": 8
+  }
+}
