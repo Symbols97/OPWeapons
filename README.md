@@ -1,3 +1,3 @@
 # OPWeapons Source Code, a Minecraft Mod
-Maven: website-does.at.ply.gg
+Maven: http://website-does.at.ply.gg:50903/#/
  
