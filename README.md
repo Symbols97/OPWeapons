@@ -1,2 +1,2 @@
-# OPWeapons Source Code
+# OPWeapons Source Code, a Minecraft Mod
  
