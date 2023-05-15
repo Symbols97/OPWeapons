@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "opweapons:item/dead_zone_staff"
-  }
-}

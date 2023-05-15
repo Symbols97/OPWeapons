@@ -2,341 +2,313 @@ package com.Symbols97.OPWeapons.blocks;
 
 import java.util.Random;
 
-import javax.annotation.Nullable;
+import com.Symbols97.OPWeapons.OPUtils;
+import com.Symbols97.OPWeapons.OPWeapons;
+import com.Symbols97.OPWeapons.Dimension.DimensionRegistry;
+import com.Symbols97.OPWeapons.Dimension.DeadZone.DeadZoneTeleporter;
 
-import com.Symbols97.OPWeapons.blocks.init.OPWBlocks;
-import com.Symbols97.OPWeapons.world.dimension.OPWDimensions;
-import com.Symbols97.OPWeapons.world.dimension.portal.DZTeleporter;
-
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceKey;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockPortal;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.eventbus.api.Cancelable;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
+public class DeadZonePortal extends BlockPortal {	
+	
+	/** location of portal frame blocks relative to the lower left portal block (omitting z-coords) */
+	private static int[][] frameLocs = {{-1,0},{-1,1},{-1,2},{0,3},{1,3},{2,2},{2,1},{2,0},{1,-1},{0,-1}};
+	/** location of portal blocks relative to the lower left portal block (omitting z-coords) */
+	private static int[][] portalLocs = {{0,0},{0,1},{0,2},{1,0},{1,1},{1,2}};
+	private static Block frameBlock = OPWeapons.condensedbodg;
 
-public class DeadZonePortal extends Block {
-    public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
-    protected static final VoxelShape X_AABB = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
-    protected static final VoxelShape Z_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
+	public DeadZonePortal() 
+	{
+		super();//(Material.portal);
+		this.setHardness(-1F);
+		this.setBlockName("Dead_Zone_Portal");
+		//this.setBlockTextureName("opweapons:textures/models/RepairStationModel.png");
+	}
 
-    public DeadZonePortal() {
-        super(Properties.of(Material.PORTAL)
-                .strength(-1F)
-                .noCollission()
-                .lightLevel((state) -> 10)
-                .noDrops()
-        );
-        registerDefaultState(stateDefinition.any().setValue(AXIS, Direction.Axis.X));
-    }
-
-    @Override
-    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
-        switch(state.getValue(AXIS)) {
-            case Z:
-                return Z_AABB;
-            case X:
-            default:
-                return X_AABB;
-        }
-    }
-
-    public boolean trySpawnPortal(LevelAccessor worldIn, BlockPos pos) {
-        DeadZonePortal.Size DeadZonePortal$size = this.isPortal(worldIn, pos);
-        if (DeadZonePortal$size != null && !onTrySpawnPortal(worldIn, pos, DeadZonePortal$size)) {
-        	DeadZonePortal$size.placePortalBlocks();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean onTrySpawnPortal(LevelAccessor world, BlockPos pos, DeadZonePortal.Size size) {
-        return MinecraftForge.EVENT_BUS.post(new PortalSpawnEvent(world, pos, world.getBlockState(pos), size));
-    }
-
-    @Cancelable
-    public static class PortalSpawnEvent extends BlockEvent {
-        private final DeadZonePortal.Size size;
-
-        public PortalSpawnEvent(LevelAccessor world, BlockPos pos, BlockState state, DeadZonePortal.Size size) {
-            super(world, pos, state);
-            this.size = size;
-        }
-
-        public DeadZonePortal.Size getPortalSize()
-        {
-            return size;
-        }
-    }
-
-    @Nullable
-    public DeadZonePortal.Size isPortal(LevelAccessor worldIn, BlockPos pos) {
-        DeadZonePortal.Size DeadZonePortal$size = new Size(worldIn, pos, Direction.Axis.X);
-        if (DeadZonePortal$size.isValid() && DeadZonePortal$size.portalBlockCount == 0) {
-            return DeadZonePortal$size;
-        } else {
-            DeadZonePortal.Size DeadZonePortal$size1 = new Size(worldIn, pos, Direction.Axis.Z);
-            return DeadZonePortal$size1.isValid() && DeadZonePortal$size1.portalBlockCount == 0 ? DeadZonePortal$size1 : null;
-        }
-    }
-
-    @SuppressWarnings("deprecation")
 	@Override
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
-        Direction.Axis direction$axis = facing.getAxis();
-        Direction.Axis direction$axis1 = stateIn.getValue(AXIS);
-        boolean flag = direction$axis1 != direction$axis && direction$axis.isHorizontal();
-        return !flag && facingState.getBlock() != this && !(new Size(worldIn, currentPos, direction$axis1)).validatePortal() ?
-                Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	public void updateTick(World worldIn, int x, int y, int z, Random rand)
+	{
+		super.updateTick(worldIn, x, y, z, rand);
+	}
+	
+	 /**
+     * Called whenever the block is added into the world. Args: world, x, y, z
+     */
+	@Override
+    public void onBlockAdded(World worldIn, int x, int y, int z) 
+    {
+		// if it's not touching another portal, try to make a portal -- if that fails, remove this block
+    	if(!OPUtils.isTouchingBlock(worldIn, x, y, z, this) && !this.tryAddPortalBlocks(worldIn, x, y, z))
+    	{
+    		worldIn.setBlockToAir(x, y, z);
+    	}
     }
 
-    @Override
-    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entity) {
-        if(!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions()) {
-            if(entity.isOnPortalCooldown()) {
-                entity.setPortalCooldown();
-            }
-            else {
-                if(!entity.level.isClientSide && !pos.equals(entity.portalEntrancePos)) {
-                    entity.portalEntrancePos = pos.immutable();
-                }
-                Level entityWorld = entity.level;
-                if(entityWorld != null) {
-                    MinecraftServer minecraftserver = entityWorld.getServer();
-                    ResourceKey<Level> destination = entity.level.dimension() == OPWDimensions.DZ_KEY
-                            ? Level.OVERWORLD : OPWDimensions.DZ_KEY;
-                    if(minecraftserver != null) {
-                        ServerLevel destinationWorld = minecraftserver.getLevel(destination);
-                        if(destinationWorld != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
-                            entity.level.getProfiler().push("dz_portal");
-                            entity.setPortalCooldown();
-                            entity.changeDimension(destinationWorld, new DZTeleporter(destinationWorld));
-                            entity.level.getProfiler().pop();
-                        }
-                    }
-                }
-            }
-        }
-    }
+	@Override
+	public void onEntityCollidedWithBlock(World worldIn, int x, int y, int z, Entity entity)
+	{
+		if (entity.ridingEntity == null && entity.riddenByEntity == null && (entity instanceof EntityPlayerMP))
+		{
+			EntityPlayerMP thePlayer = (EntityPlayerMP)entity;
+			MinecraftServer mcServer = MinecraftServer.getServer();
+			int dimID = DimensionRegistry.DZdimensionId;
 
-    @SuppressWarnings("unused")
-	@OnlyIn(Dist.CLIENT)
-    @Override
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
-        if (rand.nextInt(100) == 0) {
-            worldIn.playLocalSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D,
-                    (double)pos.getZ() + 0.5D, SoundEvents.PORTAL_AMBIENT,
-                    SoundSource.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
-        }
+			if(thePlayer.timeUntilPortal > 0)
+			{
+				thePlayer.timeUntilPortal = 10;
+			}
+			else if(thePlayer.dimension != dimID)
+			{
+				thePlayer.timeUntilPortal = 10;
+				mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, dimID, new DeadZoneTeleporter(mcServer.worldServerForDimension(dimID)));
+			}
+			else if(thePlayer.dimension == dimID)
+			{
+				thePlayer.timeUntilPortal = 10;
+				mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new DeadZoneTeleporter(mcServer.worldServerForDimension(0)));
+			}
+		}
+	}
+	
+	public boolean tryAddPortalBlocks(World worldIn, int x, int y, int z)
+	{
+		if(this.isFrameValid(worldIn, x, y, z))
+		{
+			boolean isXAligned = worldIn.getBlock(x - 1, y, z) == this.frameBlock || worldIn.getBlock(x + 1, y, z) == this.frameBlock;
+			int offsetY = getOffsetY(worldIn, x, y, z);
+			int offsetXZ = getOffsetXZ(worldIn, x, y, z);
+			for(int i = 0, j = portalLocs.length; i < j; ++i)
+			{
+				if(isXAligned)
+				{
+					OPUtils.setBlockIfAir(worldIn, x + offsetXZ + portalLocs[i][0], y + offsetY + portalLocs[i][1], z, this);
+				}
+				else
+				{
+					OPUtils.setBlockIfAir(worldIn, x, y + offsetY + portalLocs[i][1], z + offsetXZ + portalLocs[i][0], this);
+				}
+			}
+			return true;
+		}
+		return false;
+	}
 
-        for(int i = 0; i < 4; ++i) {
-            double x = (double)pos.getX() + rand.nextDouble();
-            double y = (double)pos.getY() + rand.nextDouble();
-            double z = (double)pos.getZ() + rand.nextDouble();
-            double xSpeed = ((double)rand.nextFloat() - 0.5D) * 0.5D;
-            double ySpeed = ((double)rand.nextFloat() - 0.5D) * 0.5D;
-            double zSpeed = ((double)rand.nextFloat() - 0.5D) * 0.5D;
-            int j = rand.nextInt(2) * 2 - 1;
-            if (!worldIn.getBlockState(pos.west()).is(this) && !worldIn.getBlockState(pos.east()).is(this)) {
-                x = (double)pos.getX() + 0.5D + 0.25D * (double)j;
-                xSpeed = rand.nextFloat() * 2.0F * (float)j;
-            } else {
-                z = (double)pos.getZ() + 0.5D + 0.25D * (double)j;
-                zSpeed = rand.nextFloat() * 2.0F * (float)j;
-            }
+	/**
+	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
+	 * their own) Args: x, y, z, neighbor Block
+	 */
+	@Override
+	public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block block)
+	{	
+		if(!this.isFrameValid(worldIn, x, y, z))
+		{
+			worldIn.setBlockToAir(x, y, z);
+		}
+	}
+	
+	/**
+	 * Checks that there are 10 blocks in the correct spots for a portal frame
+	 * X,Y,Z passed is where the portal block should appear if the frame IS valid
+	 */
+	public boolean isFrameValid(World worldIn, int x, int y, int z)
+	{
+		boolean isXAligned = worldIn.getBlock(x - 1, y, z) == this.frameBlock || worldIn.getBlock(x + 1, y, z) == this.frameBlock;
+		int offsetY = this.getOffsetY(worldIn, x, y, z);
+		int offsetXZ = this.getOffsetXZ(worldIn, x, y, z);
+		int xPos = x;
+		int yPos = y;
+		int zPos = z;
+		
+		if(offsetY == 8 || offsetXZ == 8) return false; // if a value still equals the default value, return
 
-            // TODO: Particles
-            // worldIn.addParticle(PARTICLE_TYPE, x, y, z, xSpeed, ySpeed, zSpeed);
-        }
-    }
+		for(int i = 0, j = frameLocs.length; i < j; i++)
+		{
+			// first checks on x-axis
+			if(!(worldIn.getBlock(x + offsetXZ + frameLocs[i][0], y + offsetY + frameLocs[i][1], z) == this.frameBlock))
+			{
+				// next checks on z-axis
+				if(!(worldIn.getBlock(x, y + offsetY + frameLocs[i][1], z + offsetXZ + frameLocs[i][0]) == this.frameBlock))
+				{
+					// debug: System.out.print("\nFrame is not valid at " + xPos + ", " + yPos + ", " + zPos + " (This block is at " + x + ", " + y + ", " + z + ")");
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	private int getOffsetY(World worldIn, int x, int y, int z)
+	{
+		int offsetY = 8; //default value -- will be checked to see if it never found a frame block
 
-    @Override
-    public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return ItemStack.EMPTY;
-    }
+		for(int i = 0; i < 3; i++)
+		{
+			if(worldIn.getBlock(x, y - 1 - i, z) == this.frameBlock)
+			{
+				offsetY = -i;
+			}
+		}
+		return offsetY;
+	}
 
-    @Override
-    public BlockState rotate(BlockState state, Rotation rot) {
-        switch(rot) {
-            case COUNTERCLOCKWISE_90:
-            case CLOCKWISE_90:
-                switch(state.getValue(AXIS)) {
-                    case Z:
-                        return state.setValue(AXIS, Direction.Axis.X);
-                    case X:
-                        return state.setValue(AXIS, Direction.Axis.Z);
-                    default:
-                        return state;
-                }
-            default:
-                return state;
-        }
-    }
+	private int getOffsetXZ(World worldIn, int x, int y, int z)
+	{	
+		if(worldIn.getBlock(x - 1, y, z) == this.frameBlock || worldIn.getBlock(x, y, z - 1) == this.frameBlock)
+		{
+			return 0;
+		}
+		else if(worldIn.getBlock(x + 1, y, z) == this.frameBlock || worldIn.getBlock(x, y, z + 1) == this.frameBlock)
+		{
+			return -1;
+		}
+		else return 8;
+	}
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(AXIS);
-    }
+	/**
+	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
+	 */
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess iaccess, int x, int y, int z)
+	{
+		int l = metaFunction(iaccess.getBlockMetadata(x, y, z));
 
-    public static class Size {
-        private final LevelAccessor level;
-        private final Direction.Axis axis;
-        private final Direction rightDir;
-        private final Direction leftDir;
-        private int portalBlockCount;
-        @Nullable
-        private BlockPos bottomLeft;
-        private int height;
-        private int width;
+		if (l == 0)
+		{
+			if (iaccess.getBlock(x - 1, y, z) != this && iaccess.getBlock(x + 1, y, z) != this)
+			{
+				l = 2;
+			}
+			else
+			{
+				l = 1;
+			}
 
-        public Size(LevelAccessor level, BlockPos pos, Direction.Axis axis) {
-            this.level = level;
-            this.axis = axis;
-            if (axis == Direction.Axis.X) {
-                this.leftDir = Direction.EAST;
-                this.rightDir = Direction.WEST;
-            } else {
-                this.leftDir = Direction.NORTH;
-                this.rightDir = Direction.SOUTH;
-            }
+			if (iaccess instanceof World && !((World)iaccess).isRemote)
+			{
+				((World)iaccess).setBlockMetadataWithNotify(x, y, z, l, 2);
+			}
+		}
 
-            for(BlockPos blockpos = pos; pos.getY() > blockpos.getY() - 21 && pos.getY() > 0 && this.canConnect(level.getBlockState(pos.below())); pos = pos.below()) {
-            }
+		float f = 0.125F;
+		float f1 = 0.125F;
 
-            int i = this.getDistanceUntilEdge(pos, this.leftDir) - 1;
-            if (i >= 0) {
-                this.bottomLeft = pos.relative(this.leftDir, i);
-                this.width = this.getDistanceUntilEdge(this.bottomLeft, this.rightDir);
-                if (this.width < 2 || this.width > 21) {
-                    this.bottomLeft = null;
-                    this.width = 0;
-                }
-            }
+		if (l == 1)
+		{
+			f = 0.5F;
+		}
 
-            if (this.bottomLeft != null) {
-                this.height = this.calculatePortalHeight();
-            }
+		if (l == 2)
+		{
+			f1 = 0.5F;
+		}
 
-        }
+		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f1, 0.5F + f, 1.0F, 0.5F + f1);
+	}
 
-        protected int getDistanceUntilEdge(BlockPos pos, Direction directionIn) {
-            int i;
-            for(i = 0; i < 22; ++i) {
-                BlockPos blockpos = pos.relative(directionIn, i);
-                if(!this.canConnect(this.level.getBlockState(blockpos)) ||
-                        !(this.level.getBlockState(blockpos.below()).is(OPWBlocks.condensedbodg.get()))) {
-                    break;
-                }
-            }
+	/**
+	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
+	 * cleared to be reused)
+	 */
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
+	{
+		return null;
+	}
 
-            BlockPos framePos = pos.relative(directionIn, i);
-            return this.level.getBlockState(framePos).is(OPWBlocks.condensedbodg.get()) ? i : 0;
-        }
+	/**
+	 * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
+	 */
+	public boolean renderAsNormalBlock()
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
 
-        public int getHeight() {
-            return this.height;
-        }
+	/**
+	 * Gets an item for the block being called on. Args: world, x, y, z
+	 */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Item getItem(World worldIn, int x, int y, int z)
+	{
+		return Item.getItemById(0);
+	}
 
-        public int getWidth() {
-            return this.width;
-        }
+	/**
+	 * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
+	 */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getRenderBlockPass()
+	{
+		return 1;
+	}
 
-        protected int calculatePortalHeight() {
-            label56:
-            for(this.height = 0; this.height < 21; ++this.height) {
-                for(int i = 0; i < this.width; ++i) {
-                    BlockPos blockpos = this.bottomLeft.relative(this.rightDir, i).above(this.height);
-                    BlockState blockstate = this.level.getBlockState(blockpos);
-                    if (!this.canConnect(blockstate)) {
-                        break label56;
-                    }
+	public static int metaFunction(int i)
+	{
+		return i & 3;
+	}
 
-                    Block block = blockstate.getBlock();
-                    if (block == OPWBlocks.dead_zone_portal_block.get()) {
-                        ++this.portalBlockCount;
-                    }
+	/**
+	 * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
+	 * coordinates.  Args: blockAccess, x, y, z, side
+	 */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean shouldSideBeRendered(IBlockAccess iaccess, int x, int y, int z, int side)
+	{
+		int i1 = 0;
 
-                    if (i == 0) {
-                        BlockPos framePos = blockpos.relative(this.leftDir);
-                        if (!(this.level.getBlockState(framePos).is(OPWBlocks.condensedbodg.get()))) {
-                            break label56;
-                        }
-                    } else if (i == this.width - 1) {
-                        BlockPos framePos = blockpos.relative(this.rightDir);
-                        if (!(this.level.getBlockState(framePos).is(OPWBlocks.condensedbodg.get()))) {
-                            break label56;
-                        }
-                    }
-                }
-            }
+		if (iaccess.getBlock(x, y, z) == this)
+		{
+			i1 = metaFunction(iaccess.getBlockMetadata(x, y, z));
 
-            for(int j = 0; j < this.width; ++j) {
-                BlockPos framePos = this.bottomLeft.relative(this.rightDir, j).above(this.height);
-                if (!(this.level.getBlockState(framePos).is(OPWBlocks.condensedbodg.get()))) {
-                    this.height = 0;
-                    break;
-                }
-            }
+			if (i1 == 0)
+			{
+				return false;
+			}
 
-            if (this.height <= 21 && this.height >= 3) {
-                return this.height;
-            } else {
-                this.bottomLeft = null;
-                this.width = 0;
-                this.height = 0;
-                return 0;
-            }
-        }
+			if (i1 == 2 && side != 5 && side != 4)
+			{
+				return false;
+			}
 
-        protected boolean canConnect(BlockState pos) {
-            Block block = pos.getBlock();
-            return pos.isAir() || block == OPWBlocks.dead_zone_portal_block.get();
-        }
+			if (i1 == 1 && side != 3 && side != 2)
+			{
+				return false;
+			}
+		}
 
-        public boolean isValid() {
-            return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
-        }
-
-        public void placePortalBlocks() {
-            for(int i = 0; i < this.width; ++i) {
-                BlockPos blockpos = this.bottomLeft.relative(this.rightDir, i);
-
-                for(int j = 0; j < this.height; ++j) {
-                    this.level.setBlock(blockpos.above(j), OPWBlocks.dead_zone_portal_block.get().defaultBlockState().setValue(DeadZonePortal.AXIS, this.axis), 18);
-                }
-            }
-
-        }
-
-        private boolean isPortalCountValidForSize() {
-            return this.portalBlockCount >= this.width * this.height;
-        }
-
-        public boolean validatePortal() {
-            return this.isValid() && this.isPortalCountValidForSize();
-        }
-    }
+		boolean flag = iaccess.getBlock(x - 1, y, z) == this && iaccess.getBlock(x - 2, y, z) != this;
+		boolean flag1 = iaccess.getBlock(x + 1, y, z) == this && iaccess.getBlock(x + 2, y, z) != this;
+		boolean flag2 = iaccess.getBlock(x, y, z - 1) == this && iaccess.getBlock(x, y, z - 2) != this;
+		boolean flag3 = iaccess.getBlock(x, y, z + 1) == this && iaccess.getBlock(x, y, z + 2) != this;
+		boolean flag4 = flag || flag1 || i1 == 1;
+		boolean flag5 = flag2 || flag3 || i1 == 2;
+		return flag4 && side == 4 ? true : (flag4 && side == 5 ? true : (flag5 && side == 2 ? true : flag5 && side == 3));
+	}
+	
+	/**
+	 * Returns the quantity of items to drop on block destruction.
+	 */
+	@Override
+	public int quantityDropped(Random p_149745_1_)
+	{
+		return 0;
+	}	
 }

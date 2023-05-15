@@ -2,29 +2,15 @@ package com.Symbols97.OPWeapons.items;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-//import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-
-public class OPGemChunk extends Item {
-
-	public OPGemChunk(Properties p_41383_) {
-		super(p_41383_);
-		// TODO Auto-generated constructor stub
-	}
-
+public class opGemChunk extends Item {
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-
-		tooltip.add(new TextComponent("§aUsed to create the OP Gem"));
-
-		super.appendHoverText(stack, level, tooltip, flag);
-	}
-
+	 public void addInformation(ItemStack itemStack, EntityPlayer entityPlayer, List textList, boolean useAdvancedItemTooltips)
+	 {
+		 textList.add(com.mojang.realmsclient.gui.ChatFormatting.GREEN + "Used to create the OP Gem");
+		// textList.add(com.mojang.realmsclient.gui.ChatFormatting.ITALIC + "");
+	 }
 }

@@ -2,28 +2,22 @@ package com.Symbols97.OPWeapons.items;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SimpleFoiledItem;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-
-public class UltimateNetherStar extends SimpleFoiledItem {
-
-	public UltimateNetherStar(Properties p_41383_) {
-		super(p_41383_);
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-
-		tooltip.add(new TextComponent("§7Has various uses. Can also repair special weapons"));
-
-		super.appendHoverText(stack, level, tooltip, flag);
-	}
-
+public class UltimateNetherStar extends Item {
+	 @Override
+	    public boolean hasEffect(ItemStack par1ItemStack)
+	    {
+		    return true;
+	    }
+	 
+	 
+	 public void addInformation(ItemStack itemStack, EntityPlayer entityPlayer, List textList, boolean useAdvancedItemTooltips)
+	 {
+		 textList.add(com.mojang.realmsclient.gui.ChatFormatting.GRAY + "Has various uses. Can also repair special weapons");
+		// textList.add(com.mojang.realmsclient.gui.ChatFormatting.ITALIC + "");
+	 }
+	 
 }

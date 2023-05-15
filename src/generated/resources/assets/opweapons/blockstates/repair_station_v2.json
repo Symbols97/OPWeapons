@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "opweapons:block/repair_station_v2" },
-    "facing=east": { "model": "opweapons:block/repair_station_v2", "y": 90 },
-    "facing=south": { "model": "opweapons:block/repair_station_v2", "y": 180 },
-    "facing=west": { "model": "opweapons:block/repair_station_v2", "y": 270 }
-  }
-}

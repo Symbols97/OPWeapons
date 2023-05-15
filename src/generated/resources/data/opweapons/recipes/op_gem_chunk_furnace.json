@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "opweapons:op_gem_ore"
-  },
-  "result": "opweapons:op_gem_chunk",
-  "experience": 1.0,
-  "cookingtime": 100
-}

@@ -1,6 +1,0 @@
-{
-    "name": "Food",
-    "description": "OPWeapons' food give the Player specific potion effects that will make them more powerful in certion situations depending on what food is chosen.",
-    "icon": "opweapons:magic_food",
-    "sortnum": 4
-}

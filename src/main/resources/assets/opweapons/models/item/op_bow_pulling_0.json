@@ -1,6 +1,0 @@
-{
-    "parent": "opweapons:item/op_bow",
-    "textures": {
-        "layer0": "opweapons:item/op_bow_pulling_0"
-    }
-}

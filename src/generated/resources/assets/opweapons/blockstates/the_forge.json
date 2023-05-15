@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "opweapons:block/the_forge" },
-    "facing=east": { "model": "opweapons:block/the_forge", "y": 90 },
-    "facing=south": { "model": "opweapons:block/the_forge", "y": 180 },
-    "facing=west": { "model": "opweapons:block/the_forge", "y": 270 }
-  }
-}

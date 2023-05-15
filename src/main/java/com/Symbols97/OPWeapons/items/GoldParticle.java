@@ -2,24 +2,24 @@ package com.Symbols97.OPWeapons.items;
 
 import java.util.List;
 
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
-public class GoldParticle extends Item{
-
-	public GoldParticle(Properties p_41383_) {
-		super(p_41383_);
-		// TODO Auto-generated constructor stub
-	}
+public class goldParticle extends Item {
+	 
+	public goldParticle()
+	    {
+	        this.setCreativeTab(CreativeTabs.tabMaterials);
+	    }
 	
 	@Override
-	public void appendHoverText(ItemStack p_41421_, Level p_41422_, List<Component> tooltip, TooltipFlag p_41424_) {
-		tooltip.add(new TextComponent("§6Burn Gold Nuggets to get the Gold Particle\nWrap around Iron Ingots to make Synthetic Gold"));
-		super.appendHoverText(p_41421_, p_41422_, tooltip, p_41424_);
-	}
-
+	 public void addInformation(ItemStack itemStack, EntityPlayer entityPlayer, List textList, boolean useAdvancedItemTooltips)
+	 {
+		textList.add(com.mojang.realmsclient.gui.ChatFormatting.GOLD + "Burn Gold Nuggets to get the Gold Particle");
+		 textList.add(com.mojang.realmsclient.gui.ChatFormatting.GOLD + "Wrap around Iron Ingots to make Synthetic Gold");
+		// textList.add(com.mojang.realmsclient.gui.ChatFormatting.ITALIC + "");
+	 }
 }

@@ -1,0 +1,17 @@
+[
+{
+  "modid": "opweapons",
+  "name": "OPWeapons",
+  "description": "Fun and extremely overpowered weapons and foods.",
+  "version": "8.2",
+  "mcversion": "1.7.10",
+  "url": "https://discord.gg/qcqAA98",
+  "updateUrl": "",
+  "authorList": ["Symbols97, Cathynightingale"],
+  "credits": "Code - Symbols97, Designs - CathyNightingale",
+  "logoFile": "/assets/opweapons/textures/OPWeaonsLOGO.png",
+  "screenshots": [],
+  "dependencies": ["NotEnoughItems"]
+  "useDependencyInformation": "true"
+}
+]

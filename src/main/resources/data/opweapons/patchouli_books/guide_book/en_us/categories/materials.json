@@ -1,7 +1,0 @@
-{
-    "name": "Materials",
-    "description": "Every item in the mod can be made from these ores. These are the rawest items used in the mod.",
-    "icon": "opweapons:op_gem_ore",
-    "sortnum": 1,
-    "parent": "opweapons:getting_started"
-}

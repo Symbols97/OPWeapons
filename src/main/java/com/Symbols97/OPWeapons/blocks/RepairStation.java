@@ -1,120 +1,99 @@
 package com.Symbols97.OPWeapons.blocks;
 
-import javax.annotation.Nullable;
+import com.Symbols97.OPWeapons.OPWeapons;
+import com.Symbols97.OPWeapons.TileEntity.TileEntityRepairStation;
 
-import com.Symbols97.OPWeapons.blocks.entity.RepairStationBlockEntity;
-import com.Symbols97.OPWeapons.blocks.init.BlockEntities;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.network.NetworkHooks;
+public class repairstation extends BlockContainer{
 
-public class RepairStation extends BaseEntityBlock {
+	public repairstation(Material material) {
+		super(material);
+		this.setHardness(2.0F);
+		this.setHarvestLevel("hand", 0);
+		this.setStepSound(soundTypeWood);
+		this.setBlockBounds(0F, 0F, 0F, 1F, 0.875F, 1F);
+}
 
-	public RepairStation(Properties properties) {
-		super(properties);
-	}
-
-	/* FACING */
-
-	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-
-	private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 14, 16);
-
-	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return SHAPE;
-	}
-
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-	}
-
-	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
-	}
-
-	@Override
-	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(FACING);
-	}
-
-	/* BLOCK ENTITY */
-
-	@Override
-	public RenderShape getRenderShape(BlockState pState) {
-		return RenderShape.MODEL;
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-		if (pState.getBlock() != pNewState.getBlock()) {
-			BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-			if (blockEntity instanceof RepairStationBlockEntity) {
-				((RepairStationBlockEntity) blockEntity).drops();
-			}
-		}
-		super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-	}
-
-	@Override
-	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
-			BlockHitResult pHit) {
-		if (!pLevel.isClientSide()) {
-			BlockEntity entity = pLevel.getBlockEntity(pPos);
-			
-			if (entity instanceof RepairStationBlockEntity) {
-				NetworkHooks.openGui(((ServerPlayer) pPlayer), (RepairStationBlockEntity) entity, pPos);
-			} else {
-				throw new IllegalStateException("Our Container provider is missing!");
-			}
-		}
-
-		return InteractionResult.sidedSuccess(pLevel.isClientSide());
-	}
-
+	//@SideOnly(Side.CLIENT)
+	//private IIcon repairstationTop;
 	
-	@Nullable
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new RepairStationBlockEntity(pPos, pState);
+	
+	//@SideOnly(Side.CLIENT)
+	//public IIcon getIcon (int side, int metadata) {
+	//	return side == 1 ? this.repairstationTop : this.blockIcon;
+	//}
+	
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister) {
+		this.blockIcon = iconRegister.registerIcon("opweapons:Repair_Station");
+		
 	}
 
-	@Nullable
+		//Full Block Textures
+		//this.blockIcon = iconRegister.registerIcon("OPWeapons:repairstationSide");
+		//this.repairstationTop = iconRegister.registerIcon("OPWeapons:repairstationTop");
+	
+	
+	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9)
+    {
+	    if (!player.isSneaking())
+   {
+    player.openGui(OPWeapons.instance, OPWeapons.GUIRepairStation, var1, var2, var3, var4);
+    return true;
+   }
+   else
+   {
+    return false;
+   } 
+    }
+
+
+	public int getRenderType() {
+		return -1;
+	}
+	
+	public boolean isOpaqueCube() {
+		return false;
+	}
+	
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
+	
+	
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState,
-			BlockEntityType<T> pBlockEntityType) {
-		return createTickerHelper(pBlockEntityType, BlockEntities.repair_station_block_entity.get(),
-				RepairStationBlockEntity::tick);
+	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+		return new TileEntityRepairStation();
+	}
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityplayer, ItemStack itemstack) {
+		int l = MathHelper.floor_double((double)(entityplayer.rotationYaw * 4.0F / 360.F) + 0.5D) & 3;
+		
+		if(l == 0) {
+			world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+		}
+		
+		if(l == 1) {
+			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+		}
+		
+		if(l == 2) {
+			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+		}
+		
+		if(l == 3) {
+			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+		}
+		
 	}
 }

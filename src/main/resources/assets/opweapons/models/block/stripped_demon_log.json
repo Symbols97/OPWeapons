@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "opweapons:block/stripped_demon_log_top",
-    "side": "opweapons:block/stripped_demon_log"
-  }
-}
