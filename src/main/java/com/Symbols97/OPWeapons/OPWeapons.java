@@ -44,7 +44,7 @@ import terrablender.api.SurfaceRuleManager;
 public class OPWeapons {
 
 	public static final String MOD_ID = "opweapons";
-	public static final String ModVersion = "1.1.6";
+	public static final String ModVersion = "1.1.7";
 	
 	public static final Logger LOGGER = LogManager.getLogger();
 	  
