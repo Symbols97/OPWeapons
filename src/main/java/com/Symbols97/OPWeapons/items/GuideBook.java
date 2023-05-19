@@ -3,7 +3,7 @@ package com.Symbols97.OPWeapons.items;
 import com.Symbols97.OPWeapons.screen.helpscreens.BookSplashScreen;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -29,7 +29,7 @@ public class GuideBook extends Item {
 
 		if (level.isClientSide()) {
 			if(!ModList.get().isLoaded("patchouli")) {
-				Minecraft.getInstance().setScreen(new BookSplashScreen(new TextComponent("")));
+				Minecraft.getInstance().setScreen(new BookSplashScreen(Component.literal("")));
 			} else {
 				PatchouliAPI.get().openBookGUI(new ResourceLocation("opweapons:guide_book"));
 			}

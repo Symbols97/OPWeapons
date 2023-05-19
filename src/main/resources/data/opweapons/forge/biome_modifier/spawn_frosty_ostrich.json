@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "opweapons:frost_zone_biome"
+  ],
+  "spawners": {
+    "type": "opweapons:frosty_ostrich",
+    "weight": 19,
+    "minCount": 3,
+    "maxCount": 4
+  }
+}

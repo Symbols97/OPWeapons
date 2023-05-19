@@ -8,17 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class DemonModel extends AnimatedGeoModel<DemonEntity> {
 	
     @Override
-    public ResourceLocation getModelLocation(DemonEntity object) {
+    public ResourceLocation getModelResource(DemonEntity object) {
         return new ResourceLocation(OPWeapons.MOD_ID, "geo/demon.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(DemonEntity object) {
+    public ResourceLocation getTextureResource(DemonEntity object) {
     	return new ResourceLocation(OPWeapons.MOD_ID, "textures/models/entity/demon.png");
     }
 
     @Override
-    public ResourceLocation getAnimationFileLocation(DemonEntity animatable) {
+    public ResourceLocation getAnimationResource(DemonEntity animatable) {
         return new ResourceLocation(OPWeapons.MOD_ID, "animations/demon.animation.json");
     }
 

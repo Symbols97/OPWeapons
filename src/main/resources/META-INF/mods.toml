@@ -17,25 +17,25 @@ description='''
 [[dependencies.opweapons]] 
     modId="forge"
     mandatory=true
-    versionRange="[40.2.1,)"
+    versionRange="[43.2.11,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.opweapons]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.1,1.19)"
+    versionRange="[1.19,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.opweapons]]
     modId="geckolib3"
     mandatory=true
-    versionRange="[3.0.41,)"
+    versionRange="[3.1.40,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.opweapons]]
     modId="terrablender"
     mandatory=true
-    versionRange="[1.2.0.126,)"
+    versionRange="[2.0.1.128,)"
     ordering="NONE"
     side="BOTH"

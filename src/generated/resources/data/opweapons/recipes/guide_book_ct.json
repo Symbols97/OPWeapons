@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "b": {
+      "item": "minecraft:book"
+    },
+    "g": {
+      "item": "opweapons:op_gem_chunk"
+    }
+  },
   "pattern": [
     "ggg",
     "gbg",
     "ggg"
   ],
-  "key": {
-    "g": {
-      "item": "opweapons:op_gem_chunk"
-    },
-    "b": {
-      "item": "minecraft:book"
-    }
-  },
   "result": {
     "item": "opweapons:guide_book"
   }

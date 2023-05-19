@@ -3,13 +3,13 @@
     // If two or more structures in this list can spawn in a biome at a spot, a random one based on weight is chosen to spawn
   "structures": [
     {
-      "structure": "opweapons:sky_light",
+      "structure": "opweapons:frost_sky_light",
       "weight": 2
     }
   ],
   "placement": {
       // Make sure this is unique and does not match any other structure set's salt
-    "salt": 1486348640,
+    "salt": 48725987426,
 
       // The average distance apart in chunks for spawn attempts
     "spacing": 1,

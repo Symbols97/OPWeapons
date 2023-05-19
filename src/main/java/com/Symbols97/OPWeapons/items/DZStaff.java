@@ -12,7 +12,6 @@ import com.Symbols97.OPWeapons.world.dimension.OPWDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -57,7 +56,7 @@ public class DZStaff extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack p_41421_, Level p_41422_, List<Component> tooltip, TooltipFlag p_41424_) {
-		tooltip.add(new TextComponent("§cIgnites the Dead Zone Portal"));
+		tooltip.add(Component.literal("§cIgnites the Dead Zone Portal"));
 		super.appendHoverText(p_41421_, p_41422_, tooltip, p_41424_);
 	}
 

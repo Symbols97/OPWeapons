@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "frost_gold_ore",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "opweapons:frost_gold_ore"
         }
-      ]
+      ],
+      "name": "blocks/frost_gold_ore",
+      "rolls": 1.0
     }
   ]
 }

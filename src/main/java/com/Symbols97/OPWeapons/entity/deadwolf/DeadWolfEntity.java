@@ -38,10 +38,11 @@ import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class DeadWolfEntity extends Wolf implements IAnimatable, ILoopType {
 
-	private AnimationFactory factory = new AnimationFactory(this);
+	private AnimationFactory factory =  GeckoLibUtil.createFactory(this);
 
 	static double baseHealth = 10000.0;
 	static double tamedHealth = 50000.0;
@@ -107,7 +108,7 @@ public class DeadWolfEntity extends Wolf implements IAnimatable, ILoopType {
 						itemstack.shrink(1);
 					}
 
-					this.gameEvent(GameEvent.MOB_INTERACT, this.eyeBlockPosition());
+					this.gameEvent(GameEvent.EAT, this);
 					return InteractionResult.SUCCESS;
 				}
 

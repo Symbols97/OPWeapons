@@ -1,4 +1,5 @@
 {
+  "render_type" : "translucent",
   "textures": {
     "particle": "opweapons:block/frost_zone_portal_block",
     "portal": "opweapons:block/frost_zone_portal_block"

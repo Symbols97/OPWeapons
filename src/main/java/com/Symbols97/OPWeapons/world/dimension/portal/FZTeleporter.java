@@ -46,7 +46,7 @@ public class FZTeleporter implements ITeleporter {
         poiManager.ensureLoadedAndValid(this.level, pos, 64);
         Optional<PoiRecord> optional = poiManager.getInSquare((poiType) ->
         	//**CHANGE PORTAL POI
-                poiType == OPWPOIs.FZ_Portal.get(), pos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((poi) ->
+                poiType.get() == OPWPOIs.FZ_Portal.get(), pos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((poi) ->
                 poi.getPos().distSqr(pos)).thenComparingInt((poi) ->
                 poi.getPos().getY())).filter((poi) ->
                 this.level.getBlockState(poi.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).findFirst();

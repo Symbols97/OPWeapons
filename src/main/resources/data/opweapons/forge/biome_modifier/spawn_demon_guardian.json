@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "opweapons:dead_zone_biome"
+  ],
+  "spawners": {
+    "type": "opweapons:demon_guardian",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 4
+  }
+}

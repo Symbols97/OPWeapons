@@ -11,7 +11,6 @@ import com.Symbols97.OPWeapons.management.Management;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -47,29 +46,29 @@ public class FrostArmor extends ArmorItem implements IDamageHandlingArmor {
 	public void appendHoverText(ItemStack itemStack, Level p_41422_, List<Component> textList, TooltipFlag p_41424_) {
 
 		if (itemStack.getItem().equals(OPWItems.frost_helmet.get())) {
-			textList.add(new TextComponent("§9Helmet grants Night Vision"));
+			textList.add(Component.literal("§9Helmet grants Night Vision"));
 		}
 		if (itemStack.getItem().equals(OPWItems.frost_chestplate.get())) {
-			textList.add(new TextComponent("§9Chestplate grants Strength"));
+			textList.add(Component.literal("§9Chestplate grants Strength"));
 		}
 		if (itemStack.getItem().equals(OPWItems.frost_leggings.get())) {
-			textList.add(new TextComponent("§9Leggings grant Speed 2"));
+			textList.add(Component.literal("§9Leggings grant Speed 2"));
 		}
 		if (itemStack.getItem().equals(OPWItems.frost_boots.get())) {
-			textList.add(new TextComponent("§9Boots grant Fall Damage Negation"));
+			textList.add(Component.literal("§9Boots grant Fall Damage Negation"));
 		}
 
 		if (Screen.hasShiftDown()) {
-			textList.add(new TextComponent("§9Full set grants:"));
-			textList.add(new TextComponent("§9 - Conduit Power"));
-			textList.add(new TextComponent("§9 - Frost Immunity"));
-			textList.add(new TextComponent("§9 * Immunity to:"));
-			textList.add(new TextComponent("§9      - Slowness"));
-			textList.add(new TextComponent("§9      - Weakness"));
-			textList.add(new TextComponent("§9      - Fatigue"));
-			textList.add(new TextComponent("§9      - Blindness"));
+			textList.add(Component.literal("§9Full set grants:"));
+			textList.add(Component.literal("§9 - Conduit Power"));
+			textList.add(Component.literal("§9 - Frost Immunity"));
+			textList.add(Component.literal("§9 * Immunity to:"));
+			textList.add(Component.literal("§9      - Slowness"));
+			textList.add(Component.literal("§9      - Weakness"));
+			textList.add(Component.literal("§9      - Fatigue"));
+			textList.add(Component.literal("§9      - Blindness"));
 		} else {
-			textList.add(new TextComponent("§9Hold §fSHIFT §9for more info"));
+			textList.add(Component.literal("§9Hold §fSHIFT §9for more info"));
 		}
 	}
 	

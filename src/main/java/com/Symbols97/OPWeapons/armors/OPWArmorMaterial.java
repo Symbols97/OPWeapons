@@ -12,6 +12,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 
+ 
 @SuppressWarnings("deprecation")
 public enum OPWArmorMaterial implements ArmorMaterial {
 	//String Name, Durability mult, How Much each armor protects (hp) , Enchant Value, Toughness , KnockBack Resistance

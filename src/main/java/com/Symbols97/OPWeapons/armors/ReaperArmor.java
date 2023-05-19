@@ -10,7 +10,6 @@ import com.Symbols97.OPWeapons.management.IDamageHandlingArmor;
 import com.Symbols97.OPWeapons.management.Management;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -29,10 +28,11 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.item.GeoArmorItem;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class ReaperArmor extends GeoArmorItem implements IDamageHandlingArmor, IAnimatable {
 
-	private AnimationFactory factory = new AnimationFactory(this);
+	private AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
 	public static boolean isWearingReaperArmorClient = false;
 	public static float durabilityPercent = 0;
@@ -46,16 +46,16 @@ public class ReaperArmor extends GeoArmorItem implements IDamageHandlingArmor, I
 	@Override
 	public void appendHoverText(ItemStack itemStack, Level p_41422_, List<Component> list, TooltipFlag p_41424_) {
 		if (itemStack.getItem().equals(OPWItems.reaper_helmet.get())) {
-			list.add(new TextComponent("§7Head grants Night Vision"));
+			list.add(Component.literal("§7Head grants Night Vision"));
 		}
 		if (itemStack.getItem().equals(OPWItems.reaper_leggings.get())) {
-			list.add(new TextComponent("§7Leggings grant Speed 2"));
+			list.add(Component.literal("§7Leggings grant Speed 2"));
 		}
 		if (itemStack.getItem().equals(OPWItems.reaper_boots.get())) {
-			list.add(new TextComponent("§7Boots grant Fall Damage Negation"));
+			list.add(Component.literal("§7Boots grant Fall Damage Negation"));
 		}
-		list.add(new TextComponent("§7The Reaper has flight, Vacuum Adaptaion,"));
-		list.add(new TextComponent("§7and Fire Resistance."));
+		list.add(Component.literal("§7The Reaper has flight, Vacuum Adaptaion,"));
+		list.add(Component.literal("§7and Fire Resistance."));
 	}
 
 	int tick = 0;
@@ -97,7 +97,7 @@ public class ReaperArmor extends GeoArmorItem implements IDamageHandlingArmor, I
 						player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 1, 500, false, false, true));
 
 						if (tick > 1) {
-							player.displayClientMessage(new TextComponent("§7The Reaper is now reborn!"), false);
+							player.displayClientMessage(Component.literal("§7The Reaper is now reborn!"), false);
 							tick = 0;
 						}
 					}

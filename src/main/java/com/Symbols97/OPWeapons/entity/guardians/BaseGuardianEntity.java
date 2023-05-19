@@ -5,7 +5,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -16,10 +15,11 @@ import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class BaseGuardianEntity extends Monster implements IAnimatable, ILoopType {
 
-	private AnimationFactory factory = new AnimationFactory(this);
+	private AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
 	public BaseGuardianEntity(EntityType<? extends Monster> p_21368_, Level p_21369_) {
 		super(p_21368_, p_21369_);
@@ -35,7 +35,7 @@ public class BaseGuardianEntity extends Monster implements IAnimatable, ILoopTyp
 	}
 
 	@Override
-	protected int getExperienceReward(Player p_21511_) {
+	public int getExperienceReward() {
 		return 75;
 	}
 	

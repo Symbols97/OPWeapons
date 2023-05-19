@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "opweapons:frost_zone_biome",
+  "features": "opweapons:frost_tree_placed",
+  "step": "vegetal_decoration"
+}

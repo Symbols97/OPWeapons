@@ -57,14 +57,14 @@ public class OPWLootTableProvider extends BaseLootTableProvider {
 	}
 
 	protected void silkTouchBlock(Block block, Block silk, int min, int max) {
-		add(block, createSilkTouchTableBlock(block.getRegistryName().getPath(), block, silk, min, max));
+		add(block, createSilkTouchTableBlock(block.getLootTable().getPath(), block, silk, min, max));
 	}
 	
 	protected void silkTouch(Block block, Item silk, int min, int max) {
-		add(block, createSilkTouchTable(block.getRegistryName().getPath(), block, silk, min, max));
+		add(block, createSilkTouchTable(block.getLootTable().getPath(), block, silk, min, max));
 	}
 
 	protected void dropSelf(Block block) {
-		add(block, createSimpleTable(block.getRegistryName().getPath(), block));
+		add(block, createSimpleTable(block.getLootTable().getPath(), block));
 	}
 }

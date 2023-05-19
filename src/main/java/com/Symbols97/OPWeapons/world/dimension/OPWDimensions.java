@@ -12,12 +12,12 @@ public class OPWDimensions {
 	
 	public static final ResourceKey<Level>  DZ_KEY = ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(OPWeapons.MOD_ID, "dead_zone"));
 	
-	public static final ResourceKey<DimensionType> DZ_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, DZ_KEY.getRegistryName());
+	public static final ResourceKey<DimensionType> DZ_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, new ResourceLocation(OPWeapons.MOD_ID, "dead_zone"));
 
 	
 	public static final ResourceKey<Level>  FZ_KEY = ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(OPWeapons.MOD_ID, "frost_zone"));
 	
-	public static final ResourceKey<DimensionType> FZ_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, FZ_KEY.getRegistryName());
+	public static final ResourceKey<DimensionType> FZ_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, new ResourceLocation(OPWeapons.MOD_ID, "frost_zone"));
 
 	
 	public static void register() {

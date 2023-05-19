@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+     "opweapons:dead_zone_biome"
+  ],
+  "spawners": {
+    "type": "opweapons:dead_wolf",
+    "weight": 85,
+    "minCount": 5,
+    "maxCount": 10
+  }
+}

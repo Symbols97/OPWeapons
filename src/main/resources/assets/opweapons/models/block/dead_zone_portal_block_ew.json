@@ -1,4 +1,5 @@
 {
+  "render_type" : "translucent",
   "textures": {
     "particle": "opweapons:block/dead_zone_portal_block",
     "portal": "opweapons:block/dead_zone_portal_block"

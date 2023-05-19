@@ -4,8 +4,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.jetbrains.annotations.Nullable;
-
 import com.Symbols97.OPWeapons.OPWeapons;
 import com.Symbols97.OPWeapons.screen.theforge.TheForgeMenu;
 import com.google.common.annotations.VisibleForTesting;
@@ -56,6 +54,9 @@ public class TheForgeRecipe implements Recipe<CraftingContainer> {
 	}
 
 	public boolean matches(CraftingContainer container, Level level) {
+		if(level.isClientSide) {
+    		return false;
+    	}
 		for (int i = 0; i <= container.getWidth() - this.width; ++i) {
 			for (int j = 0; j <= container.getHeight() - this.height; ++j) {
 				if (this.matches(container, i, j, true)) {
@@ -271,6 +272,7 @@ public class TheForgeRecipe implements Recipe<CraftingContainer> {
 		return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(object, true, true);
 	}
 
+	 
 	@SuppressWarnings("deprecation")
 	public static Item itemFromJson(JsonObject object) {
 		String s = GsonHelper.getAsString(object, "item");
@@ -329,26 +331,26 @@ public class TheForgeRecipe implements Recipe<CraftingContainer> {
 			buf.writeItem(recipe.result);
 		}
 
-		@Override
-		public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
-			return INSTANCE;
-		}
+//		@Override
+//		public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
+//			return INSTANCE;
+//		}
+//
+//		@Nullable
+//		@Override
+//		public ResourceLocation getRegistryName() {
+//			return ID;
+//		}
+//
+//		@Override
+//		public Class<RecipeSerializer<?>> getRegistryType() {
+//			return Serializer.castClass(RecipeSerializer.class);
+//		}
 
-		@Nullable
-		@Override
-		public ResourceLocation getRegistryName() {
-			return ID;
-		}
-
-		@Override
-		public Class<RecipeSerializer<?>> getRegistryType() {
-			return Serializer.castClass(RecipeSerializer.class);
-		}
-
-		@SuppressWarnings("unchecked") // Need this wrapper, because generics
-		private static <G> Class<G> castClass(Class<?> cls) {
-			return (Class<G>) cls;
-		}
+//      @SuppressWarnings("unchecked") // Need this wrapper, because generics
+//      private static <G> Class<G> castClass(Class<?> cls) {
+//          return (Class<G>)cls;
+//      }
 
 	}
 }

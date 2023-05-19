@@ -16,7 +16,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class OPFurnaceMenu extends AbstractContainerMenu {
@@ -39,7 +39,7 @@ public class OPFurnaceMenu extends AbstractContainerMenu {
         this.data = data;
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
-        this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
+        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
         	this.addSlot(new SlotItemHandler(handler, 0, 56, 17)); // input
         	this.addSlot(new SlotItemHandler(handler, 1, 56, 53)); // fuel
             this.addSlot(new OPWResultSlot(handler, 2, 116, 35)); // output

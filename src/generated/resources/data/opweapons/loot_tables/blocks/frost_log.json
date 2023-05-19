@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "frost_log",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "opweapons:frost_log"
         }
-      ]
+      ],
+      "name": "blocks/frost_log",
+      "rolls": 1.0
     }
   ]
 }

@@ -10,7 +10,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
@@ -46,10 +45,10 @@ public class TierHelpScreen extends Screen {
 		int x2 = (width - 128) / 2;
 		int y2 = (height - 172) / 2;
 		this.blit(pPoseStack, x2, y2, 0, 0, 256, 256);
-		this.font.draw(pPoseStack, new TextComponent("Repair Item"), x + 5, y + 5, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("Repair Item"), x + 5, y + 5, 0xffffff);
 		int xvalue = 0;
 		for (int i = 1; i <=4; i++) {
-			this.font.draw(pPoseStack, new TextComponent(String.format("| Tier %s", i)), (x + 96) + xvalue, y + 5, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format("| Tier %s", i)), (x + 96) + xvalue, y + 5, 0xffffff);
 			xvalue += 62;
 			if (i == 2) {
 				xvalue += 5;
@@ -58,12 +57,12 @@ public class TierHelpScreen extends Screen {
 				xvalue += 13;
 			}
 		}
-//		this.font.draw(pPoseStack, new TextComponent("| Tier 1"), x + 96, y + 5, 0xffffff);
-//		this.font.draw(pPoseStack, new TextComponent("| Tier 2"), x + 158, y + 5, 0xffffff);
-//		this.font.draw(pPoseStack, new TextComponent("| Tier 3"), x + 220, y + 5, 0xffffff);
-//		this.font.draw(pPoseStack, new TextComponent("| Tier 4"), x + 295, y + 5, 0xffffff);
-		this.font.draw(pPoseStack, new TextComponent("-------------------------------"), x + 0, y + 12, 0xffffff);
-		this.font.draw(pPoseStack, new TextComponent("---------------------------------"), x + 186, y + 12, 0xffffff);
+//		this.font.draw(pPoseStack, Component.literal("| Tier 1"), x + 96, y + 5, 0xffffff);
+//		this.font.draw(pPoseStack, Component.literal("| Tier 2"), x + 158, y + 5, 0xffffff);
+//		this.font.draw(pPoseStack, Component.literal("| Tier 3"), x + 220, y + 5, 0xffffff);
+//		this.font.draw(pPoseStack, Component.literal("| Tier 4"), x + 295, y + 5, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("-------------------------------"), x + 0, y + 12, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("---------------------------------"), x + 186, y + 12, 0xffffff);
 		
 		
 		@NotNull
@@ -76,14 +75,14 @@ public class TierHelpScreen extends Screen {
 		int j = 0;
 		String item = null;
 		for (int i = 1; i <= 4; i++) {
-			this.font.draw(pPoseStack, new TextComponent(String.format("Tier %s:", i)), x + 5, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format("Tier %s:", i)), x + 5, (y + 20) + k, 0xffffff);
 			k += 20;
 			if (i <= 3) {
 				item = "Repair Module";
 			} else if (i >= 4) {
 				item = "Ult Nether Star";
 			}
-			this.font.draw(pPoseStack, new TextComponent(String.format(" -" + item, i)), x + 5, (y + 30) + j, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format(" -" + item, i)), x + 5, (y + 30) + j, 0xffffff);
 			j += 20;
 		}
 		
@@ -91,38 +90,38 @@ public class TierHelpScreen extends Screen {
 		for (Item element : t1) {
 			name = element.toString().replace("_", " ");
 			name = Management.capatilize(name);
-			this.font.draw(pPoseStack, new TextComponent("|"), x + 96, (y + 20) + k, 0xffffff);
-			this.font.draw(pPoseStack, new TextComponent(String.format("%s", name)), x + 103, (y + 20) + k, 0xffffff);
-			this.font.draw(pPoseStack, new TextComponent("|"), x + 158, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal("|"), x + 96, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format("%s", name)), x + 103, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal("|"), x + 158, (y + 20) + k, 0xffffff);
 			k += 10;
 		}
 		k = 0;
 		for (Item element : t2) {
 			name = element.toString().replace("_", " ");
 			name = Management.capatilize(name);
-			this.font.draw(pPoseStack, new TextComponent(String.format("%s", name)), x + 163, (y + 20) + k, 0xffffff);
-			this.font.draw(pPoseStack, new TextComponent("|"), x + 158, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format("%s", name)), x + 163, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal("|"), x + 158, (y + 20) + k, 0xffffff);
 			k += 10;
 		}
 		k = 0;
 		for (Item element : t3) {
 			name = element.toString().replace("_", " ");
 			name = Management.capatilize(name);
-			this.font.draw(pPoseStack, new TextComponent(String.format("%s", name)), x + 230, (y + 20) + k, 0xffffff);
-			this.font.draw(pPoseStack, new TextComponent("|"), x + 225, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format("%s", name)), x + 230, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal("|"), x + 225, (y + 20) + k, 0xffffff);
 			k += 10;
 		}
 		k = 0;
 		for (Item element : t4) {
 			name = element.toString().replace("_", " ");
 			name = Management.capatilize(name);
-			this.font.draw(pPoseStack, new TextComponent(String.format("%s", name)), x + 305, (y + 20) + k, 0xffffff);
-			this.font.draw(pPoseStack, new TextComponent("|"), x + 300, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format("%s", name)), x + 305, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal("|"), x + 300, (y + 20) + k, 0xffffff);
 			k += 10;
 		}
 
 		this.addRenderableWidget(
-				new ExtendedButton(x + 365, y  + 2, 12, 12, new TextComponent("X"), button -> {
+				new ExtendedButton(x + 365, y  + 2, 12, 12, Component.literal("X"), button -> {
 					this.onClose();	
 				}));
 		

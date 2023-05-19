@@ -8,8 +8,10 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 
 public class OPWItemModelProvider extends ItemModelProvider {
 
@@ -17,195 +19,195 @@ public class OPWItemModelProvider extends ItemModelProvider {
 		super(generator, OPWeapons.MOD_ID, helper);
 	}
 
-	protected void blocks(Item item) {
-		getBuilder(item.getRegistryName().toString())
-				.parent(getExistingFile(modLoc("block/" + item.getRegistryName().getPath())));
+	protected void blocks(RegistryObject<Block> item) {
+		getBuilder(item.getId().toString())
+				.parent(getExistingFile(modLoc("block/" + item.getId().getPath())));
 	}
 
-	protected void items(Item item, ResourceLocation texture) {
+	protected void items(RegistryObject<Item> item, ResourceLocation texture) {
 		ResourceLocation itemTexture = new ResourceLocation(texture.getNamespace(), "item/" + texture.getPath());
 		if (existingFileHelper.exists(itemTexture, PackType.CLIENT_RESOURCES, ".png", "textures")) {
-			getBuilder(item.getRegistryName().getPath()).parent(getExistingFile(mcLoc("item/generated")))
+			getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc("item/generated")))
 					.texture("layer0", itemTexture);
 		} else {
 			System.out.println(
-					"Texture for " + item.getRegistryName().toString() + " not present at " + itemTexture.toString());
+					"Texture for " + item.getId().toString() + " not present at " + itemTexture.toString());
 		}
 	}
 	
-	protected void tools_weapons(Item item, ResourceLocation texture) {
+	protected void tools_weapons(RegistryObject<Item> item, ResourceLocation texture) {
 		ResourceLocation itemTexture = new ResourceLocation(texture.getNamespace(), "item/" + texture.getPath());
 		if (existingFileHelper.exists(itemTexture, PackType.CLIENT_RESOURCES, ".png", "textures")) {
-			getBuilder(item.getRegistryName().getPath()).parent(getExistingFile(mcLoc("item/handheld")))
+			getBuilder(item.getId().getPath()).parent(getExistingFile(mcLoc("item/handheld")))
 					.texture("layer0", itemTexture);
 		} else {
 			System.out.println(
-					"Texture for " + item.getRegistryName().toString() + " not present at " + itemTexture.toString());
+					"Texture for " + item.getId().toString() + " not present at " + itemTexture.toString());
 		}
 	}
 
 	
-	protected void items(Item item) {
-		items(item, item.getRegistryName());
+	protected void items(RegistryObject<Item> item) {
+		items(item, item.getId());
 	}
 	
-	protected void tools_weapons(Item item) {
-		tools_weapons(item, item.getRegistryName());
+	protected void tools_weapons(RegistryObject<Item> item) {
+		tools_weapons(item, item.getId());
 	}
 
 	@Override
 	protected void registerModels() {
 		
 		// Blocks
-		blocks(OPWBlocks.op_gem_ore.get().asItem());
-		blocks(OPWBlocks.op_crafting_station.get().asItem());
-		blocks(OPWBlocks.block_of_op_gem.get().asItem());
-		blocks(OPWBlocks.steel_scrap_ore.get().asItem());
-		blocks(OPWBlocks.repair_station.get().asItem());
-		blocks(OPWBlocks.repair_station_v2.get().asItem());
-		blocks(OPWBlocks.the_forge.get().asItem());
-		blocks(OPWBlocks.block_of_demon_gem.get().asItem());
-		blocks(OPWBlocks.block_of_frost_gem.get().asItem());
-		blocks(OPWBlocks.block_of_lost_gem.get().asItem());
-		blocks(OPWBlocks.op_furnace.get().asItem());
-		blocks(OPWBlocks.demon_furnace.get().asItem());
-		blocks(OPWBlocks.freezer.get().asItem());
-		blocks(OPWBlocks.condensedbodg.get().asItem());
-		blocks(OPWBlocks.condensedbofg.get().asItem());
-		blocks(OPWBlocks.soul_ore.get().asItem());
-		blocks(OPWBlocks.block_o_enchanting.get().asItem());
-		blocks(OPWBlocks.frozen_soul_ore.get().asItem());
-		blocks(OPWBlocks.demon_light.get().asItem());
-		blocks(OPWBlocks.frost_light.get().asItem());
-		blocks(OPWBlocks.demon_gold_ore.get().asItem());
-		blocks(OPWBlocks.frost_gold_ore.get().asItem());
+		blocks(OPWBlocks.op_gem_ore);
+		blocks(OPWBlocks.op_crafting_station);
+		blocks(OPWBlocks.block_of_op_gem);
+		blocks(OPWBlocks.steel_scrap_ore);
+		blocks(OPWBlocks.repair_station);
+		blocks(OPWBlocks.repair_station_v2);
+		blocks(OPWBlocks.the_forge);
+		blocks(OPWBlocks.block_of_demon_gem);
+		blocks(OPWBlocks.block_of_frost_gem);
+		blocks(OPWBlocks.block_of_lost_gem);
+		blocks(OPWBlocks.op_furnace);
+		blocks(OPWBlocks.demon_furnace);
+		blocks(OPWBlocks.freezer);
+		blocks(OPWBlocks.condensedbodg);
+		blocks(OPWBlocks.condensedbofg);
+		blocks(OPWBlocks.soul_ore);
+		blocks(OPWBlocks.block_o_enchanting);
+		blocks(OPWBlocks.frozen_soul_ore);
+		blocks(OPWBlocks.demon_light);
+		blocks(OPWBlocks.frost_light);
+		blocks(OPWBlocks.demon_gold_ore);
+		blocks(OPWBlocks.frost_gold_ore);
 		
-		blocks(OPWBlocks.demon_log.get().asItem());
-		blocks(OPWBlocks.stripped_demon_log.get().asItem());
-		blocks(OPWBlocks.demon_wood.get().asItem());
-		blocks(OPWBlocks.demon_planks.get().asItem());
-		blocks(OPWBlocks.demon_leaves.get().asItem());
-		blocks(OPWBlocks.demon_sapling.get().asItem());
+		blocks(OPWBlocks.demon_log);
+		blocks(OPWBlocks.stripped_demon_log);
+		blocks(OPWBlocks.demon_wood);
+		blocks(OPWBlocks.demon_planks);
+		blocks(OPWBlocks.demon_leaves);
+		blocks(OPWBlocks.demon_sapling);
 		
-		blocks(OPWBlocks.demon_statue.get().asItem());
+		blocks(OPWBlocks.demon_statue);
 		
-		blocks(OPWBlocks.frost_log.get().asItem());
-		blocks(OPWBlocks.stripped_frost_log.get().asItem());
-		blocks(OPWBlocks.frost_wood.get().asItem());
-		blocks(OPWBlocks.frost_planks.get().asItem());
-		blocks(OPWBlocks.frost_leaves.get().asItem());
-		blocks(OPWBlocks.frost_sapling.get().asItem());
+		blocks(OPWBlocks.frost_log);
+		blocks(OPWBlocks.stripped_frost_log);
+		blocks(OPWBlocks.frost_wood);
+		blocks(OPWBlocks.frost_planks);
+		blocks(OPWBlocks.frost_leaves);
+		blocks(OPWBlocks.frost_sapling);
 		
 		// Items
-		items(OPWItems.op_gem_chunk.get());
-		items(OPWItems.op_gem.get());
-		items(OPWItems.op_gem_core.get());
-		items(OPWItems.nether_shard.get());
-		items(OPWItems.capsule.get());
-		items(OPWItems.op_flint_and_steel.get());
-		items(OPWItems.encapsulated_flame.get());
-		items(OPWItems.steel_scrap.get());
-		items(OPWItems.steel_ingot.get());
-		items(OPWItems.demon_gem.get());
-		items(OPWItems.repair_module.get());
-		items(OPWItems.ultimate_nether_star.get());
-		items(OPWItems.demon_gem_core.get());
-		items(OPWItems.frost_gem.get());
-		items(OPWItems.lost_gem.get());
-		items(OPWItems.frost_gem_core.get());
-		items(OPWItems.neutral_core.get());
-		items(OPWItems.crimson_blade.get());
-		items(OPWItems.hell_stick.get());
-		items(OPWItems.frost_blade.get());
-		items(OPWItems.frost_stick.get());
-		items(OPWItems.lost_pages.get());
-		items(OPWItems.death_essence.get());
-		items(OPWItems.mini_soul.get());
-		items(OPWItems.tortured_soul.get());
-		items(OPWItems.frozen_soul.get());
-		items(OPWItems.defrosted_soul.get());
-		items(OPWItems.soul_harvester.get());
-		items(OPWItems.reaper_immunity_patch.get());
-		items(OPWItems.steel_pipe.get());
-		items(OPWItems.triple_steel_pipe.get());
-		items(OPWItems.vent.get());
-		items(OPWItems.gold_particle.get());
-		items(OPWItems.synthetic_gold.get());
-		items(OPWItems.demon_ring.get());
-		items(OPWItems.frost_ring.get());
-		items(OPWItems.club_head.get());
-		items(OPWItems.club_handle.get());
-		items(OPWItems.op_vial.get());
-		items(OPWItems.demon_vial.get());
-		items(OPWItems.frost_vial.get());
-		items(OPWItems.demon_gold.get());
-		items(OPWItems.frost_gold.get());
-		items(OPWItems.lapiz_arrow.get());
-		items(OPWItems.op_club.get());
-		items(OPWItems.demon_hammer.get());
-		items(OPWItems.hammer_head.get());
-		items(OPWItems.hammer_handle.get());
-		items(OPWItems.hammer_handle_base.get());
-		items(OPWItems.hammer_handle_grip.get());
-		items(OPWItems.hammer_handle_hilt.get());
-		items(OPWItems.frost_axe_blade.get());
-		items(OPWItems.frost_axe_handle.get());
-		items(OPWItems.guide_book.get());
+		items(OPWItems.op_gem_chunk);
+		items(OPWItems.op_gem);
+		items(OPWItems.op_gem_core);
+		items(OPWItems.nether_shard);
+		items(OPWItems.capsule);
+		items(OPWItems.op_flint_and_steel);
+		items(OPWItems.encapsulated_flame);
+		items(OPWItems.steel_scrap);
+		items(OPWItems.steel_ingot);
+		items(OPWItems.demon_gem);
+		items(OPWItems.repair_module);
+		items(OPWItems.ultimate_nether_star);
+		items(OPWItems.demon_gem_core);
+		items(OPWItems.frost_gem);
+		items(OPWItems.lost_gem);
+		items(OPWItems.frost_gem_core);
+		items(OPWItems.neutral_core);
+		items(OPWItems.crimson_blade);
+		items(OPWItems.hell_stick);
+		items(OPWItems.frost_blade);
+		items(OPWItems.frost_stick);
+		items(OPWItems.lost_pages);
+		items(OPWItems.death_essence);
+		items(OPWItems.mini_soul);
+		items(OPWItems.tortured_soul);
+		items(OPWItems.frozen_soul);
+		items(OPWItems.defrosted_soul);
+		items(OPWItems.soul_harvester);
+		items(OPWItems.reaper_immunity_patch);
+		items(OPWItems.steel_pipe);
+		items(OPWItems.triple_steel_pipe);
+		items(OPWItems.vent);
+		items(OPWItems.gold_particle);
+		items(OPWItems.synthetic_gold);
+		items(OPWItems.demon_ring);
+		items(OPWItems.frost_ring);
+		items(OPWItems.club_head);
+		items(OPWItems.club_handle);
+		items(OPWItems.op_vial);
+		items(OPWItems.demon_vial);
+		items(OPWItems.frost_vial);
+		items(OPWItems.demon_gold);
+		items(OPWItems.frost_gold);
+		items(OPWItems.lapiz_arrow);
+		items(OPWItems.op_club);
+		items(OPWItems.demon_hammer);
+		items(OPWItems.hammer_head);
+		items(OPWItems.hammer_handle);
+		items(OPWItems.hammer_handle_base);
+		items(OPWItems.hammer_handle_grip);
+		items(OPWItems.hammer_handle_hilt);
+		items(OPWItems.frost_axe_blade);
+		items(OPWItems.frost_axe_handle);
+		items(OPWItems.guide_book);
 		
 		//Foods
-		items(OPWItems.magic_food.get());
-		items(OPWItems.magic_mutton.get());
-		items(OPWItems.pet_food.get());
-		items(OPWItems.spicy_chicken.get());
-		items(OPWItems.snow_cone.get());
-		items(OPWItems.hot_coffee.get());
-		items(OPWItems.ice_coffee.get());
+		items(OPWItems.magic_food);
+		items(OPWItems.magic_mutton);
+		items(OPWItems.pet_food);
+		items(OPWItems.spicy_chicken);
+		items(OPWItems.snow_cone);
+		items(OPWItems.hot_coffee);
+		items(OPWItems.ice_coffee);
 		
 		
 		
 		//Armors
-		items(OPWItems.op_helmet.get());
-		items(OPWItems.op_chestplate.get());
-		items(OPWItems.op_leggings.get());
-		items(OPWItems.op_boots.get());
+		items(OPWItems.op_helmet);
+		items(OPWItems.op_chestplate);
+		items(OPWItems.op_leggings);
+		items(OPWItems.op_boots);
 		
-		items(OPWItems.demon_helmet.get());
-		items(OPWItems.demon_helmet_shaded.get());
-		items(OPWItems.demon_chestplate.get());
-		items(OPWItems.demon_leggings.get());
-		items(OPWItems.demon_boots.get());
+		items(OPWItems.demon_helmet);
+		items(OPWItems.demon_helmet_shaded);
+		items(OPWItems.demon_chestplate);
+		items(OPWItems.demon_leggings);
+		items(OPWItems.demon_boots);
 		
-		items(OPWItems.frost_helmet.get());
-		items(OPWItems.frost_chestplate.get());
-		items(OPWItems.frost_leggings.get());
-		items(OPWItems.frost_boots.get());
+		items(OPWItems.frost_helmet);
+		items(OPWItems.frost_chestplate);
+		items(OPWItems.frost_leggings);
+		items(OPWItems.frost_boots);
 		
-		items(OPWItems.reaper_helmet.get());
-		items(OPWItems.reaper_chestplate.get());
-		items(OPWItems.reaper_leggings.get());
-		items(OPWItems.reaper_boots.get());
+		items(OPWItems.reaper_helmet);
+		items(OPWItems.reaper_chestplate);
+		items(OPWItems.reaper_leggings);
+		items(OPWItems.reaper_boots);
 		
-		items(OPWItems.lost_helmet.get());
-		items(OPWItems.lost_chestplate.get());
-		items(OPWItems.lost_leggings.get());
-		items(OPWItems.lost_boots.get());
+		items(OPWItems.lost_helmet);
+		items(OPWItems.lost_chestplate);
+		items(OPWItems.lost_leggings);
+		items(OPWItems.lost_boots);
 		
 		//Tools / Weapons
-		tools_weapons(OPWItems.op_sword.get());
-		tools_weapons(OPWItems.op_pickaxe.get());
-		tools_weapons(OPWItems.op_axe.get());
-		tools_weapons(OPWItems.op_shovel.get());
-		tools_weapons(OPWItems.op_hoe.get());
-		tools_weapons(OPWItems.fire_sword.get());
-		tools_weapons(OPWItems.ice_sword.get());
-		tools_weapons(OPWItems.reaper_scythe.get());
-		tools_weapons(OPWItems.neutral_staff.get());
-		tools_weapons(OPWItems.dead_zone_staff.get());
-		tools_weapons(OPWItems.frost_zone_staff.get());
-		tools_weapons(OPWItems.lost_pickaxe.get());
-		tools_weapons(OPWItems.demon_slayer.get());
-		tools_weapons(OPWItems.frost_slayer.get());
-		tools_weapons(OPWItems.frost_axe.get());
+		tools_weapons(OPWItems.op_sword);
+		tools_weapons(OPWItems.op_pickaxe);
+		tools_weapons(OPWItems.op_axe);
+		tools_weapons(OPWItems.op_shovel);
+		tools_weapons(OPWItems.op_hoe);
+		tools_weapons(OPWItems.fire_sword);
+		tools_weapons(OPWItems.ice_sword);
+		tools_weapons(OPWItems.reaper_scythe);
+		tools_weapons(OPWItems.neutral_staff);
+		tools_weapons(OPWItems.dead_zone_staff);
+		tools_weapons(OPWItems.frost_zone_staff);
+		tools_weapons(OPWItems.lost_pickaxe);
+		tools_weapons(OPWItems.demon_slayer);
+		tools_weapons(OPWItems.frost_slayer);
+		tools_weapons(OPWItems.frost_axe);
 
 
 	}

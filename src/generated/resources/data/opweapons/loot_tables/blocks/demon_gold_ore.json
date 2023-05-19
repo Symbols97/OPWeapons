@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "demon_gold_ore",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "opweapons:demon_gold_ore"
         }
-      ]
+      ],
+      "name": "blocks/demon_gold_ore",
+      "rolls": 1.0
     }
   ]
 }

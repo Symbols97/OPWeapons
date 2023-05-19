@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "block_of_frost_gem",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "opweapons:block_of_frost_gem"
         }
-      ]
+      ],
+      "name": "blocks/block_of_frost_gem",
+      "rolls": 1.0
     }
   ]
 }

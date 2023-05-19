@@ -14,20 +14,18 @@ import com.Symbols97.OPWeapons.management.packets.PacketHandler;
 import com.Symbols97.OPWeapons.recipe.RecipeSerializers;
 import com.Symbols97.OPWeapons.screen.MenuTypes;
 import com.Symbols97.OPWeapons.world.OPWPOIs;
+import com.Symbols97.OPWeapons.world.biome.BiomeRegister;
 import com.Symbols97.OPWeapons.world.biome.OPWRegion;
 import com.Symbols97.OPWeapons.world.biome.OPWSurfaceRule;
 import com.Symbols97.OPWeapons.world.dimension.OPWDimensions;
-import com.Symbols97.OPWeapons.world.structures.OPWStructures;
+import com.Symbols97.OPWeapons.world.features.Features;
+import com.Symbols97.OPWeapons.world.features.PlacedFeatures;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -44,7 +42,7 @@ import terrablender.api.SurfaceRuleManager;
 public class OPWeapons {
 
 	public static final String MOD_ID = "opweapons";
-	public static final String ModVersion = "1.1.7";
+	public static final String ModVersion = "1.0";
 	
 	public static final Logger LOGGER = LogManager.getLogger();
 	  
@@ -59,14 +57,19 @@ public class OPWeapons {
 		OPWDimensions.register();
 		OPWPOIs.register(bus);
 		OPWEntities.register(bus);
-		OPWStructures.register(bus);
 		
+		BiomeRegister.BIOME_REGISTER.register(bus);
+		BiomeRegister.registerBiomes();
+		
+		Features.register(bus);
+		PlacedFeatures.register(bus);
+		Capabilities.setupCapabilities();
 		MinecraftForge.EVENT_BUS.register(this);
 		GeckoLib.initialize();
-		Capabilities.setupCapabilities();
+		
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, OPWeaponsClientConfig.SPEC, "OPWeapons/opweapons-client.toml");
 	    ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, OPWeaponsCommonConfig.SPEC, "OPWeapons/opweapons-common.toml");
-
+	    
 	}
 
 	public static final CreativeModeTab tabOPWeapons = new CreativeModeTab(MOD_ID) {
@@ -84,6 +87,7 @@ public class OPWeapons {
 	}
 
 	
+	 
 	private void setup(final FMLCommonSetupEvent event) {
 	
 		event.enqueueWork(PacketHandler::init);
@@ -97,60 +101,10 @@ public class OPWeapons {
 
             // Register our surface rules
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, OPWSurfaceRule.makeRules());
-            
-            SpawnPlacements.register(OPWEntities.DEADWOLF.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Animal::checkAnimalSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.FROSTYOSTRICH.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Animal::checkAnimalSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.OPGOBLIN.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.DEMONGOBLIN.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.FROSTGOBLIN.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.REAPER.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.DEMON.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.OPGUARDIAN.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.DEMONGUARDIAN.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-            
-            SpawnPlacements.register(OPWEntities.FROSTGUARDIAN.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-            
+   
         });
 		
 			
 	}
-
+	
 }

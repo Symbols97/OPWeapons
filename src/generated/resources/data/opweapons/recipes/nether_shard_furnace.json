@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 100,
+  "experience": 1.0,
   "ingredient": {
     "item": "minecraft:nether_star"
   },
-  "result": "opweapons:nether_shard",
-  "experience": 1.0,
-  "cookingtime": 100
+  "result": "opweapons:nether_shard"
 }

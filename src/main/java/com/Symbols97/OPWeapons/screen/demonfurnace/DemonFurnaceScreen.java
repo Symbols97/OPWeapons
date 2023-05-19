@@ -9,7 +9,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.client.gui.widget.ExtendedButton;
@@ -22,7 +21,7 @@ public class DemonFurnaceScreen extends AbstractContainerScreen<DemonFurnaceMenu
 
 	public DemonFurnaceScreen(DemonFurnaceMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
 		super(pMenu, pPlayerInventory, pTitle);
-		this.playerInventoryTitle = new TextComponent("§fInventory");
+		this.playerInventoryTitle = Component.literal("§fInventory");
 	}
 
 	@Override
@@ -30,8 +29,8 @@ public class DemonFurnaceScreen extends AbstractContainerScreen<DemonFurnaceMenu
 		 int x = (width - imageWidth) / 2;
 	     int y = (height - imageHeight) / 2;
 
-	        this.addRenderableWidget(new ExtendedButton(x + 155,y + 5,16, 16, new TextComponent("?"), (button) -> {
-	            Minecraft.getInstance().setScreen(new FuelScreen(new TextComponent(""), 2));
+	        this.addRenderableWidget(new ExtendedButton(x + 155,y + 5,16, 16, Component.literal("?"), (button) -> {
+	            Minecraft.getInstance().setScreen(new FuelScreen(Component.literal(""), 2));
 	        }));
 
 		super.init();

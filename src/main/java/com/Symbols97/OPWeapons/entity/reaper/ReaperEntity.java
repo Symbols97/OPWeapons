@@ -28,10 +28,11 @@ import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class ReaperEntity extends Monster implements IAnimatable, ILoopType {
 
-	private AnimationFactory factory = new AnimationFactory(this);
+	private AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
 	public ReaperEntity(EntityType<? extends Monster> p_21368_, Level p_21369_) {
 		super(p_21368_, p_21369_);
@@ -44,7 +45,7 @@ public class ReaperEntity extends Monster implements IAnimatable, ILoopType {
 	}
 
 	@Override
-	protected int getExperienceReward(Player p_21511_) {
+	public int getExperienceReward() {
 		return 100;
 	}
 

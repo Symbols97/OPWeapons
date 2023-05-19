@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "opweapons:dead_zone_biome",
+  "features": "opweapons:dead_zone_ore_placed",
+  "step": "underground_ores"
+}

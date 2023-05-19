@@ -21,7 +21,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class OPWEntities {
 
-	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, OPWeapons.MOD_ID);
+	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, OPWeapons.MOD_ID);
 
 	public static final RegistryObject<EntityType<DeadWolfEntity>> DEADWOLF = ENTITY_TYPES.register("dead_wolf",
 			() -> EntityType.Builder.of(DeadWolfEntity::new, MobCategory.CREATURE).sized(1.5f, 2.0f) // Hitbox

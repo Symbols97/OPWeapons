@@ -1,12 +1,11 @@
 package com.Symbols97.OPWeapons.items;
 
 import java.util.List;
-import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -22,19 +21,19 @@ public class RepairModule extends Item{
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
 
-		tooltip.add(new TextComponent("§7Repair your tools and weapons"));
+		tooltip.add(Component.literal("§7Repair your tools and weapons"));
 
 		super.appendHoverText(stack, level, tooltip, flag);
 	}
 	@Override
-	public boolean hasContainerItem(ItemStack itemstack) {
+	public boolean hasCraftingRemainingItem(ItemStack itemstack) {
 		return true;
 	}
 
 	@Override
-	public ItemStack getContainerItem(ItemStack stack) {
+	public ItemStack getCraftingRemainingItem(ItemStack stack) {
 		ItemStack result = stack.copy();
-		result.hurt(1, new Random(), null);
+		result.hurt(1, RandomSource.create(), null);
 
 		return result;
 	}

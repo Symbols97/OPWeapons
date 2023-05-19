@@ -18,7 +18,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -33,8 +32,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
@@ -168,7 +167,7 @@ public class OPFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 
 	@Override
 	public Component getDisplayName() {
-		return new TextComponent("§0OP Furnace");
+		return Component.literal("§0OP Furnace");
 	}
 
 	@Nullable
@@ -220,19 +219,19 @@ public class OPFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 			blockentity.litTime--;
 		}
 
-		if (!pLevel.isClientSide) {
+		if (!pLevel.isClientSide()) {
 			if (blockentity.litTime == 0 && canSmelt(blockentity)) {
 				blockentity.litDuration = blockentity.litTime = fuelBurnDuration(itemstack);
 
 				if (blockentity.isLit()) {
 					flag1 = true;
-					if (itemstack.hasContainerItem())
-						blockentity.items.set(1, itemstack.getContainerItem());
+					if (itemstack.hasCraftingRemainingItem())
+						blockentity.items.set(1, itemstack.getCraftingRemainingItem());
 					else if (!itemstack.isEmpty()) {
 						// Item item = itemstack.getItem();
 						itemstack.shrink(1);
 						if (itemstack.isEmpty()) {
-							blockentity.items.set(1, itemstack.getContainerItem());
+							blockentity.items.set(1, itemstack.getCraftingRemainingItem());
 						}
 					}
 
@@ -347,7 +346,7 @@ public class OPFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 	@Nonnull
 	@Override
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
-		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+		if (cap == ForgeCapabilities.ITEM_HANDLER) {
 			if (side == null) {
 				return lazyItemHandlerOptional.cast();
 			} else {

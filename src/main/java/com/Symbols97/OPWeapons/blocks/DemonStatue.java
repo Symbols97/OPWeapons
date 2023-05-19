@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -29,7 +28,7 @@ public class DemonStatue extends Block{
 	
 	@Override
 	public void appendHoverText(ItemStack p_49816_, BlockGetter p_49817_, List<Component> tooltip, TooltipFlag p_49819_) {
-		tooltip.add(new TextComponent("§cStrip Demon Wood to carve this statue"));
+		tooltip.add(Component.literal("§cStrip Demon Wood to carve this statue"));
 		super.appendHoverText(p_49816_, p_49817_, tooltip, p_49819_);
 	}
 	
@@ -54,6 +53,7 @@ public class DemonStatue extends Block{
 		return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
 	}
 
+	 
 	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState mirror(BlockState pState, Mirror pMirror) {

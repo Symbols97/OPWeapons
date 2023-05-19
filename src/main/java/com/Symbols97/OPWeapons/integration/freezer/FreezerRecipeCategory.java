@@ -2,6 +2,7 @@ package com.Symbols97.OPWeapons.integration.freezer;
 
 import com.Symbols97.OPWeapons.OPWeapons;
 import com.Symbols97.OPWeapons.blocks.init.OPWBlocks;
+import com.Symbols97.OPWeapons.integration.JEIOPWeaponsModePlugin;
 import com.Symbols97.OPWeapons.recipe.freezer.FreezerRecipe;
 
 import mezz.jei.api.constants.VanillaTypes;
@@ -10,9 +11,9 @@ import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -34,19 +35,19 @@ public class FreezerRecipeCategory implements IRecipeCategory<FreezerRecipe> {
 		ResourceLocation location = TEXTURE;
 		background = guiHelper.createDrawable(location, 8, 26, width, height);
 		icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(OPWBlocks.freezer.get()));
-		localizedName = new TextComponent("Freezer");
+		localizedName = Component.literal("Freezer");
 		
 	}
 
-	@Override
-	public ResourceLocation getUid() {
-		return UID;
-	}
-
-	@Override
-	public Class<? extends FreezerRecipe> getRecipeClass() {
-		return FreezerRecipe.class;
-	}
+//	@Override
+//	public ResourceLocation getUid() {
+//		return UID;
+//	}
+//
+//	@Override
+//	public Class<? extends FreezerRecipe> getRecipeClass() {
+//		return FreezerRecipe.class;
+//	}
 
 	@Override
 	public Component getTitle() {
@@ -72,5 +73,10 @@ public class FreezerRecipeCategory implements IRecipeCategory<FreezerRecipe> {
 		
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 9).addItemStack(recipe.getResultItem());
 
+	}
+
+	@Override
+	public RecipeType<FreezerRecipe> getRecipeType() {
+		return JEIOPWeaponsModePlugin.Freezer;
 	}
 }

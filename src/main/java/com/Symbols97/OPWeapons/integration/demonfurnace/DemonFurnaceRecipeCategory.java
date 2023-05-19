@@ -2,6 +2,7 @@ package com.Symbols97.OPWeapons.integration.demonfurnace;
 
 import com.Symbols97.OPWeapons.OPWeapons;
 import com.Symbols97.OPWeapons.blocks.init.OPWBlocks;
+import com.Symbols97.OPWeapons.integration.JEIOPWeaponsModePlugin;
 import com.Symbols97.OPWeapons.recipe.demonfurnace.DemonFurnaceRecipe;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -17,9 +18,9 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -44,7 +45,7 @@ public class DemonFurnaceRecipeCategory implements IRecipeCategory<DemonFurnaceR
 		ResourceLocation location = TEXTURE;
 		background = guiHelper.createDrawable(location, 0, 0, width, height);
 		icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(OPWBlocks.demon_furnace.get()));
-		localizedName = new TextComponent("Demon Furnace");
+		localizedName = Component.literal("Demon Furnace");
 		this.staticFlame = guiHelper.createDrawable(TEXTURE, 176, 0, 14, 14);
 		this.animatedFlame = guiHelper.createAnimatedDrawable(this.staticFlame, 300, IDrawableAnimated.StartDirection.TOP, true);
 		
@@ -56,15 +57,15 @@ public class DemonFurnaceRecipeCategory implements IRecipeCategory<DemonFurnaceR
 	        });
 	}
 
-	@Override
-	public ResourceLocation getUid() {
-		return UID;
-	}
-
-	@Override
-	public Class<? extends DemonFurnaceRecipe> getRecipeClass() {
-		return DemonFurnaceRecipe.class;
-	}
+//	@Override
+//	public ResourceLocation getUid() {
+//		return UID;
+//	}
+//
+//	@Override
+//	public Class<? extends DemonFurnaceRecipe> getRecipeClass() {
+//		return DemonFurnaceRecipe.class;
+//	}
 
 	@Override
 	public Component getTitle() {
@@ -106,5 +107,10 @@ public class DemonFurnaceRecipeCategory implements IRecipeCategory<DemonFurnaceR
 		builder.addSlot(RecipeIngredientRole.INPUT, 56 , 53).addIngredients(Ingredient.of((Items.IRON_BLOCK).getDefaultInstance()));
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 35).addItemStack(recipe.getResultItem());
 
+	}
+
+	@Override
+	public RecipeType<DemonFurnaceRecipe> getRecipeType() {
+		return JEIOPWeaponsModePlugin.Demon_Furnace;
 	}
 }

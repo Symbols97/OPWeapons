@@ -8,7 +8,6 @@ import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.gui.widget.ExtendedButton;
 
@@ -30,20 +29,20 @@ public class BookSplashScreen extends Screen{
 		int x = (width - 256) / 2;
 		int y = (height - 170) / 2;
 		this.blit(pPoseStack, x, y, 0, 0, 256, 256);
-		this.font.draw(pPoseStack, new TextComponent("Due to the complexity of the mod this book's full"), x + 5, y + 12, 0xffffff);
-		this.font.draw(pPoseStack, new TextComponent("potential is accessible using the mod Patchouli."), x + 5, y + 22, 0xffffff);
-		this.font.draw(pPoseStack, new TextComponent("Patchouli is §eHighly Recommended §fby not required."), x + 5, y + 32, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("Due to the complexity of the mod this book's full"), x + 5, y + 12, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("potential is accessible using the mod Patchouli."), x + 5, y + 22, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("Patchouli is §eHighly Recommended §fby not required."), x + 5, y + 32, 0xffffff);
 		
-		this.font.draw(pPoseStack, new TextComponent("Both the server and client must agree to both"), x + 5, y + 47, 0xffffff);
-		this.font.draw(pPoseStack, new TextComponent("have or not have Patchouli in order to work."), x + 5, y + 57, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("Both the server and client must agree to both"), x + 5, y + 47, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("have or not have Patchouli in order to work."), x + 5, y + 57, 0xffffff);
 		
-		this.font.draw(pPoseStack, new TextComponent("Recipe info is handled by JEI"), x + 55, y + 73, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("Recipe info is handled by JEI"), x + 55, y + 73, 0xffffff);
 		
-		this.font.draw(pPoseStack, new TextComponent("These links will take you directly to Curseforge"), x + 5, y + 93, 0xffffff);
-		this.font.draw(pPoseStack, new TextComponent("to download these mods if you so choose"), x + 5, y + 103, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("These links will take you directly to Curseforge"), x + 5, y + 93, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("to download these mods if you so choose"), x + 5, y + 103, 0xffffff);
 		
 		this.addRenderableWidget(
-				new ExtendedButton(x + 55, y + 123, 32, 16, new TextComponent("JEI"), button -> {
+				new ExtendedButton(x + 55, y + 123, 32, 16, Component.literal("JEI"), button -> {
 					String jei = "https://www.curseforge.com/minecraft/mc-mods/jei";
 					this.minecraft.setScreen(new ConfirmLinkScreen((p_169339_) -> {
 			            if (p_169339_) {
@@ -66,7 +65,7 @@ public class BookSplashScreen extends Screen{
 						
 				}));
 		this.addRenderableWidget(
-				new ExtendedButton(x + 145, y + 123, 64, 16, new TextComponent("Patchouli"), button -> {
+				new ExtendedButton(x + 145, y + 123, 64, 16, Component.literal("Patchouli"), button -> {
 					String patchouli = "https://www.curseforge.com/minecraft/mc-mods/patchouli";
 					this.minecraft.setScreen(new ConfirmLinkScreen((p_169339_) -> {
 			            if (p_169339_) {

@@ -10,7 +10,6 @@ import com.Symbols97.OPWeapons.management.IDamageHandlingArmor;
 import com.Symbols97.OPWeapons.management.Management;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -43,22 +42,22 @@ public class DemonArmor extends ArmorItem implements IDamageHandlingArmor {
 	@Override
 	public void appendHoverText(ItemStack itemStack, Level p_41422_, List<Component> list, TooltipFlag p_41424_) {
 		if (itemStack.getItem().equals(OPWItems.demon_helmet.get())) {
-			list.add(new TextComponent("§cHead grants Night Vision"));
+			list.add(Component.literal("§cHead grants Night Vision"));
 		}
 		if (itemStack.getItem().equals(OPWItems.demon_helmet_shaded.get())) {
-			list.add(new TextComponent("§7Shades only activate in the Dead Zone"));
-			list.add(new TextComponent("§cHead grants Night Vision"));
+			list.add(Component.literal("§7Shades only activate in the Dead Zone"));
+			list.add(Component.literal("§cHead grants Night Vision"));
 		}
 		if (itemStack.getItem().equals(OPWItems.demon_chestplate.get())) {
-			list.add(new TextComponent("§cChestplate grants Strength"));
+			list.add(Component.literal("§cChestplate grants Strength"));
 		}
 		if (itemStack.getItem().equals(OPWItems.demon_leggings.get())) {
-			list.add(new TextComponent("§cLeggings grant Speed 2"));
+			list.add(Component.literal("§cLeggings grant Speed 2"));
 		}
 		if (itemStack.getItem().equals(OPWItems.demon_boots.get())) {
-			list.add(new TextComponent("§cBoots grant Fall Damage Negation"));
+			list.add(Component.literal("§cBoots grant Fall Damage Negation"));
 		}
-		list.add(new TextComponent("§cFull set grants Fire Resistance"));
+		list.add(Component.literal("§cFull set grants Fire Resistance"));
 	}
 
 	@Override

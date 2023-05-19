@@ -32,25 +32,25 @@ public final class PacketHandler {
 		Instance.messageBuilder(ServerBoundRepairStation.class, index++, NetworkDirection.PLAY_TO_SERVER)
 				.encoder(ServerBoundRepairStation::encode)
 				.decoder(ServerBoundRepairStation::new)
-				.consumer(ServerBoundRepairStation::handle)
+				.consumerMainThread(ServerBoundRepairStation::handle)
 				.add();
 		Instance.messageBuilder(ClientBoundRepairStation.class, index++, NetworkDirection.PLAY_TO_CLIENT)
 		.encoder(ClientBoundRepairStation::encode)
 		.decoder(ClientBoundRepairStation::new)
-		.consumer(ClientBoundRepairStation::handle)
+		.consumerMainThread(ClientBoundRepairStation::handle)
 		.add();
 		
 		//RepairStation V2
 		Instance.messageBuilder(ServerBoundRepairStationV2.class, index++, NetworkDirection.PLAY_TO_SERVER)
 				.encoder(ServerBoundRepairStationV2::encode)
 				.decoder(ServerBoundRepairStationV2::new)
-				.consumer(ServerBoundRepairStationV2::handle)
+				.consumerMainThread(ServerBoundRepairStationV2::handle)
 				.add();
 		
 		Instance.messageBuilder(ClientBoundRepairStationV2.class, index++, NetworkDirection.PLAY_TO_CLIENT)
 		.encoder(ClientBoundRepairStationV2::encode)
 		.decoder(ClientBoundRepairStationV2::new)
-		.consumer(ClientBoundRepairStationV2::handle)
+		.consumerMainThread(ClientBoundRepairStationV2::handle)
 		.add();
 		
 		
@@ -58,13 +58,13 @@ public final class PacketHandler {
 		Instance.messageBuilder(ServerBoundFreezer.class, index++, NetworkDirection.PLAY_TO_SERVER)
 				.encoder(ServerBoundFreezer::encode)
 				.decoder(ServerBoundFreezer::new)
-				.consumer(ServerBoundFreezer::handle)
+				.consumerMainThread(ServerBoundFreezer::handle)
 				.add();
 
 		Instance.messageBuilder(ClientBoundFreezer.class, index++, NetworkDirection.PLAY_TO_CLIENT)
 				.encoder(ClientBoundFreezer::encode)
 				.decoder(ClientBoundFreezer::new)
-				.consumer(ClientBoundFreezer::handle)
+				.consumerMainThread(ClientBoundFreezer::handle)
 				.add();
 
 	}

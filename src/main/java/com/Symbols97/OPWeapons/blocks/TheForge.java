@@ -4,7 +4,6 @@ import com.Symbols97.OPWeapons.screen.theforge.TheForgeMenu;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -29,7 +28,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TheForge extends CraftingTableBlock {
 	
-	private static final Component CONTAINER_TITLE = new TextComponent("§0The Forge");
+	private static final Component CONTAINER_TITLE = Component.literal("§0The Forge");
 
 	public TheForge(Properties p_49795_) {
 		super(p_49795_);
@@ -73,6 +72,7 @@ public class TheForge extends CraftingTableBlock {
 		return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
 	}
 
+	 
 	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState mirror(BlockState pState, Mirror pMirror) {

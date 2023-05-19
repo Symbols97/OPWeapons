@@ -4,7 +4,7 @@ import com.Symbols97.OPWeapons.items.init.OPWItems;
 import com.Symbols97.OPWeapons.world.dimension.OPWDimensions;
 import com.Symbols97.OPWeapons.world.dimension.portal.BasicTeleporter;
 
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -47,7 +47,7 @@ public class DemonRing extends Item {
 								 
 								 String destinationString = player.level.dimension() == OPWDimensions.DZ_KEY ? "§cDead Zone" : "§fOverworld";
 								 
-								 player.displayClientMessage(new TextComponent(String.format("You have been teleported to the: %s", destinationString)), false);
+								 player.displayClientMessage(Component.literal(String.format("You have been teleported to the: %s", destinationString)), false);
 							}
 						}
 					}

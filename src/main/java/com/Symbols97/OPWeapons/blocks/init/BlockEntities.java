@@ -16,7 +16,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlockEntities {
 
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister
-			.create(ForgeRegistries.BLOCK_ENTITIES, OPWeapons.MOD_ID);
+			.create(ForgeRegistries.BLOCK_ENTITY_TYPES, OPWeapons.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<RepairStationBlockEntity>> repair_station_block_entity =
             BLOCK_ENTITIES.register("repair_station_block_entity", () ->

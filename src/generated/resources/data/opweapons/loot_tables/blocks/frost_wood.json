@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "frost_wood",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "opweapons:frost_wood"
         }
-      ]
+      ],
+      "name": "blocks/frost_wood",
+      "rolls": 1.0
     }
   ]
 }

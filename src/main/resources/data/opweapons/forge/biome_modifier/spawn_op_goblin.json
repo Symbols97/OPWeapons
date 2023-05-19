@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:plains","minecraft:meadow"
+  ],
+  "spawners": {
+    "type": "opweapons:op_goblin",
+    "weight": 45,
+    "minCount": 3,
+    "maxCount": 3
+  }
+}

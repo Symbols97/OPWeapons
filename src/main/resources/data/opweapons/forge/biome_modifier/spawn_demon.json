@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "opweapons:dead_zone_biome", "minecraft:nether_wastes"
+  ],
+  "spawners": {
+    "type": "opweapons:demon",
+    "weight": 7,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}

@@ -9,8 +9,9 @@ import com.Symbols97.OPWeapons.items.init.OPWItems;
 import com.Symbols97.OPWeapons.management.IDamageHandlingArmor;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -41,10 +42,10 @@ public class OPArmor extends ArmorItem implements IDamageHandlingArmor {
 	@Override
 	public void appendHoverText(ItemStack itemStack, Level p_41422_, List<Component> textList, TooltipFlag p_41424_) {
 		if (itemStack.getItem().equals(OPWItems.op_leggings.get())) {
-			textList.add(new TextComponent("§aLegging grants Speed"));
+			textList.add(Component.literal("§aLegging grants Speed"));
 		}
 		if (itemStack.getItem().equals(OPWItems.op_boots.get())) {
-			textList.add(new TextComponent("§aBoots grant Fall Damage Negation"));
+			textList.add(Component.literal("§aBoots grant Fall Damage Negation"));
 		}
 	}
 
@@ -103,9 +104,10 @@ public class OPArmor extends ArmorItem implements IDamageHandlingArmor {
 					BlockPos pos = entity.blockPosition();
 
 					Biome biome = level.getBiome(pos).value();
-
+					ResourceLocation rl = level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getKey(biome);
+					
 					if (capability.isWearingOPArmor() && OPWeaponsCommonConfig.canRepair.get() == true) {
-						if (biome.getRegistryName().equals(Biomes.PLAINS.location()) || biome.getRegistryName().equals(Biomes.MEADOW.location())) {
+						if (rl.equals(Biomes.PLAINS.location()) || rl.equals(Biomes.MEADOW.location())) {
 							if (itemstack.getDamageValue() > 0) {
 								capability.setRepairTickOPArmor(capability.getRepairTickOPArmor() + 1);
 								if (capability.getRepairTickOPArmor() > (OPWeaponsCommonConfig.repairCooldown.get() * 20)) {

@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "condensedbofg",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "opweapons:condensedbofg"
         }
-      ]
+      ],
+      "name": "blocks/condensedbofg",
+      "rolls": 1.0
     }
   ]
 }

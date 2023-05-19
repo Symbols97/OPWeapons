@@ -11,14 +11,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.client.gui.widget.ExtendedButton;
 
 public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
-	protected Component screentitle  = new TextComponent("");
-	private Component button_label = new TextComponent("");
+	protected Component screentitle  = Component.literal("");
+	private Component button_label = Component.literal("");
 	protected Component playerInventoryTitle;
 	private static ResourceLocation TEXTURE = new ResourceLocation("opweapons:textures/gui/freezergui.png");
 	
@@ -28,7 +27,7 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
 		
 		
 			
-		this.playerInventoryTitle = new TextComponent("§fInventory");
+		this.playerInventoryTitle = Component.literal("§fInventory");
 	}
 
 	@Override
@@ -36,8 +35,8 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
 		 int x = (width - imageWidth) / 2;
 	     int y = (height - imageHeight) / 2;
 		this.addRenderableWidget(
-				new ExtendedButton(x + 155, y - 25, 16, 16, new TextComponent("?"), button -> {
-					Minecraft.getInstance().setScreen(new FuelScreen(new TextComponent(""), 3));		
+				new ExtendedButton(x + 155, y - 25, 16, 16, Component.literal("?"), button -> {
+					Minecraft.getInstance().setScreen(new FuelScreen(Component.literal(""), 3));		
 				}));
 		super.init();
 	}
@@ -65,9 +64,9 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
 				this.minecraft.player.clientSideCloseContainer();
 
 				if (menu.getBlockEntity().getMode() == Mode.FREEZER) {
-					this.minecraft.player.displayClientMessage(new TextComponent("§cCannot switch to Cooler mode while Freezer is active."), false);
+					this.minecraft.player.displayClientMessage(Component.literal("§cCannot switch to Cooler mode while Freezer is active."), false);
 				} else {
-					this.minecraft.player.displayClientMessage(new TextComponent("§cCannot switch to Freezer mode while Cooler is active."), false);
+					this.minecraft.player.displayClientMessage(Component.literal("§cCannot switch to Freezer mode while Cooler is active."), false);
 				}
 
 			} else {
@@ -93,12 +92,12 @@ public class FreezerScreen extends AbstractContainerScreen<FreezerMenu> {
 	@Override
 	protected void renderLabels(PoseStack p_97808_, int p_97809_, int p_97810_) {
 		if (menu.getBlockEntity().getMode() == Mode.FREEZER) {
-			screentitle = new TextComponent("§fFreezer");
-			button_label = new TextComponent("§fCooler");
+			screentitle = Component.literal("§fFreezer");
+			button_label = Component.literal("§fCooler");
 		
 		} else if (menu.getBlockEntity().getMode() == Mode.COOLER) {
-			screentitle = new TextComponent("§fCooler");
-			button_label = new TextComponent("§fFreezer");
+			screentitle = Component.literal("§fCooler");
+			button_label = Component.literal("§fFreezer");
 			
 		}
 		

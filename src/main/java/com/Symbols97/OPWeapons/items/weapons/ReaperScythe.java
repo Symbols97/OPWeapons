@@ -9,7 +9,6 @@ import com.Symbols97.OPWeapons.items.init.OPWItems;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -47,28 +46,28 @@ public class ReaperScythe extends HoeItem {
 		return super.hurtEnemy(stack, target, attacker);
 	}
 
-	@SuppressWarnings("deprecation")
+	 
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level p_41422_, List<Component> tooltip, TooltipFlag p_41424_) {
 		int timesUsed = OPWItems.reaper_scythe.get().getDamage(itemstack);
-		int totalUses = OPWItems.reaper_scythe.get().getMaxDamage();
+		int totalUses = new ItemStack(OPWItems.reaper_scythe.get()).getMaxDamage();
 		String tooltip1 = String.format("§7The Reaper's Scythe inflicts 9 torturous ailments.");
 		String durability = String.format("§7Times Used: %d / Total: %d", timesUsed, totalUses);
-		tooltip.add(new TextComponent(String.format("%s", tooltip1)));
-		tooltip.add(new TextComponent(String.format("%s", durability)));
+		tooltip.add(Component.literal(String.format("%s", tooltip1)));
+		tooltip.add(Component.literal(String.format("%s", durability)));
 
 		if (Screen.hasShiftDown()) {
-			tooltip.add(new TextComponent("§7Slownesss"));
-			tooltip.add(new TextComponent("§7Weakness"));
-			tooltip.add(new TextComponent("§7Blindness"));
-			tooltip.add(new TextComponent("§7Fatigue"));
-			tooltip.add(new TextComponent("§7Hunger"));
-			tooltip.add(new TextComponent("§7Poison"));
-			tooltip.add(new TextComponent("§7Wither"));
-			tooltip.add(new TextComponent("§7Confusion"));
-			tooltip.add(new TextComponent("§7Grounding"));
+			tooltip.add(Component.literal("§7Slownesss"));
+			tooltip.add(Component.literal("§7Weakness"));
+			tooltip.add(Component.literal("§7Blindness"));
+			tooltip.add(Component.literal("§7Fatigue"));
+			tooltip.add(Component.literal("§7Hunger"));
+			tooltip.add(Component.literal("§7Poison"));
+			tooltip.add(Component.literal("§7Wither"));
+			tooltip.add(Component.literal("§7Confusion"));
+			tooltip.add(Component.literal("§7Grounding"));
 		} else {
-			tooltip.add(new TextComponent("§7Hold §fSHIFT §7for more info"));
+			tooltip.add(Component.literal("§7Hold §fSHIFT §7for more info"));
 		}
 
 		super.appendHoverText(itemstack, p_41422_, tooltip, p_41424_);
@@ -85,11 +84,11 @@ public class ReaperScythe extends HoeItem {
 							ServerLevel world = (ServerLevel) level;
 							world.setDayTime((long) 18000);
 						} else {
-							player.displayClientMessage(new TextComponent("§7Only the Earth sky may be manipulated."), false);
+							player.displayClientMessage(Component.literal("§7Only the Earth sky may be manipulated."), false);
 						}
 
 					} else {
-						player.displayClientMessage(new TextComponent("§7Only The Reaper may manipulate the sky."), false);
+						player.displayClientMessage(Component.literal("§7Only The Reaper may manipulate the sky."), false);
 					}
 
 				});

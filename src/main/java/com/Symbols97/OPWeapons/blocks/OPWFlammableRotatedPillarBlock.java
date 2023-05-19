@@ -6,11 +6,9 @@ import com.Symbols97.OPWeapons.blocks.init.OPWBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -41,11 +39,11 @@ public class OPWFlammableRotatedPillarBlock extends RotatedPillarBlock {
 	}
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 	Mirror mirror;
-	@SuppressWarnings({"removal"})
 	@Nullable
 	@Override
-	public BlockState getToolModifiedState(BlockState state, Level world, BlockPos pos, Player player, ItemStack stack, ToolAction toolAction) {
-		if (stack.getItem() instanceof AxeItem) {
+	public BlockState getToolModifiedState(BlockState state, UseOnContext context,
+			ToolAction toolAction, boolean simulate) {
+		if (context.getItemInHand().getItem() instanceof AxeItem) {
 
 			if (state.is(OPWBlocks.demon_wood.get())) {
 				return OPWBlocks.demon_statue.get().defaultBlockState();
@@ -60,7 +58,7 @@ public class OPWFlammableRotatedPillarBlock extends RotatedPillarBlock {
 			
 		}
 
-		return super.getToolModifiedState(state, world, pos, player, stack, toolAction);
+		return super.getToolModifiedState(state, context, toolAction, simulate);
 	}
 
 

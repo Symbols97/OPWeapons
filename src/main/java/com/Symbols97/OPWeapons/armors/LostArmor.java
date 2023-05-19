@@ -9,7 +9,6 @@ import com.Symbols97.OPWeapons.management.IDamageHandlingArmor;
 import com.Symbols97.OPWeapons.management.Management;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -36,10 +35,10 @@ public class LostArmor extends ArmorItem implements IDamageHandlingArmor{
 	@Override
 	public void appendHoverText(ItemStack itemStack, Level p_41422_, List<Component> textList, TooltipFlag p_41424_) {
 		if(itemStack.getItem().equals(OPWItems.op_leggings.get())){
-		textList.add(new TextComponent("§7Legging grants Speed"));
+		textList.add(Component.literal("§7Legging grants Speed"));
 		}
 		if(itemStack.getItem().equals(OPWItems.op_boots.get())){
-		textList.add(new TextComponent("§7Boots grant Fall Damage Negation"));
+		textList.add(Component.literal("§7Boots grant Fall Damage Negation"));
 		}
 	}
 	
@@ -78,7 +77,7 @@ public class LostArmor extends ArmorItem implements IDamageHandlingArmor{
 					if (tick > 1) {
 						String playername = null;
 						playername =  player.getScoreboardName();
-						player.displayClientMessage(new TextComponent(String.format("§7%s is now a Reaper!" , playername)), false);
+						player.displayClientMessage(Component.literal(String.format("§7%s is now a Reaper!" , playername)), false);
 						tick = 0;
 					}
 				}

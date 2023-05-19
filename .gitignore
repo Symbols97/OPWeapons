@@ -1,3 +1,4 @@
 .gitattributes
 .DS_Store
 Delete_DS_Store.command
+.cache

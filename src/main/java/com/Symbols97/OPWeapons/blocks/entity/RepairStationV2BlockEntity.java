@@ -1,7 +1,6 @@
 package com.Symbols97.OPWeapons.blocks.entity;
 
 import java.util.Optional;
-import java.util.Random;
 
 import javax.annotation.Nonnull;
 
@@ -18,7 +17,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -30,8 +29,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
@@ -86,7 +85,7 @@ public class RepairStationV2BlockEntity extends BlockEntity implements MenuProvi
 
 	@Override
 	public Component getDisplayName() {
-		return new TextComponent("§0Repair Station V2");
+		return Component.literal("§0Repair Station V2");
 	}
 
 	@Nullable
@@ -98,7 +97,7 @@ public class RepairStationV2BlockEntity extends BlockEntity implements MenuProvi
 	@Nonnull
 	@Override
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
-		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+		if (cap == ForgeCapabilities.ITEM_HANDLER) {
 			return lazyItemHandler.cast();
 		}
 
@@ -209,7 +208,7 @@ public class RepairStationV2BlockEntity extends BlockEntity implements MenuProvi
 					.getRecipeFor(RepairStationRecipe.Type.INSTANCE, inventory, level);
 
 			if (match.isPresent()) {
-				entity.itemHandler.getStackInSlot(0).hurt(1, new Random(), null);
+				entity.itemHandler.getStackInSlot(0).hurt(1, RandomSource.create(), null);
 				entity.itemHandler.extractItem(1, 1, false);
 				entity.itemHandler.setStackInSlot(2, new ItemStack(match.get().getResultItem().getItem(),
 						entity.itemHandler.getStackInSlot(2).getCount() + 1));

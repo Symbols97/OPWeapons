@@ -2,6 +2,7 @@ package com.Symbols97.OPWeapons.integration.theforge;
 
 import com.Symbols97.OPWeapons.OPWeapons;
 import com.Symbols97.OPWeapons.blocks.init.OPWBlocks;
+import com.Symbols97.OPWeapons.integration.JEIOPWeaponsModePlugin;
 import com.Symbols97.OPWeapons.recipe.theforge.TheForgeRecipe;
 
 import mezz.jei.api.constants.VanillaTypes;
@@ -10,9 +11,9 @@ import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -33,19 +34,19 @@ public class TheForgeRecipeCategory implements IRecipeCategory<TheForgeRecipe> {
 		ResourceLocation location = TEXTURE;
 		background = guiHelper.createDrawable(location, 0, 0, width, height);
 		icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(OPWBlocks.the_forge.get()));
-		localizedName = new TextComponent("The Forge");
+		localizedName = Component.literal("The Forge");
 		
 	}
 
-	@Override
-	public ResourceLocation getUid() {
-		return UID;
-	}
-
-	@Override
-	public Class<? extends TheForgeRecipe> getRecipeClass() {
-		return TheForgeRecipe.class;
-	}
+//	@Override
+//	public ResourceLocation getUid() {
+//		return UID;
+//	}
+//
+//	@Override
+//	public Class<? extends TheForgeRecipe> getRecipeClass() {
+//		return TheForgeRecipe.class;
+//	}
 
 	@Override
 	public Component getTitle() {
@@ -82,6 +83,11 @@ public class TheForgeRecipeCategory implements IRecipeCategory<TheForgeRecipe> {
 		}
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 124, 35).addItemStack(recipe.getResultItem());
 
+	}
+
+	@Override
+	public RecipeType<TheForgeRecipe> getRecipeType() {
+		return JEIOPWeaponsModePlugin.Forge_Crafting;
 	}
 
 }

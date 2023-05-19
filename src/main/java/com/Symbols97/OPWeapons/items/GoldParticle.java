@@ -3,7 +3,6 @@ package com.Symbols97.OPWeapons.items;
 import java.util.List;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -18,7 +17,7 @@ public class GoldParticle extends Item{
 	
 	@Override
 	public void appendHoverText(ItemStack p_41421_, Level p_41422_, List<Component> tooltip, TooltipFlag p_41424_) {
-		tooltip.add(new TextComponent("§6Burn Gold Nuggets to get the Gold Particle\nWrap around Iron Ingots to make Synthetic Gold"));
+		tooltip.add(Component.literal("§6Burn Gold Nuggets to get the Gold Particle\nWrap around Iron Ingots to make Synthetic Gold"));
 		super.appendHoverText(p_41421_, p_41422_, tooltip, p_41424_);
 	}
 

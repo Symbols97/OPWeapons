@@ -3,7 +3,6 @@ package com.Symbols97.OPWeapons.items;
 import java.util.List;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
@@ -19,8 +18,8 @@ public class LostPickaxe extends PickaxeItem{
 	
 	@Override
 	public void appendHoverText(ItemStack p_41421_, Level p_41422_, List<Component> tooltip, TooltipFlag p_41424_) {
-		tooltip.add(new TextComponent("§7Used to mine the Block O' Enchanting"));
-		tooltip.add(new TextComponent("§7Used for nothing else"));
+		tooltip.add(Component.literal("§7Used to mine the Block O' Enchanting"));
+		tooltip.add(Component.literal("§7Used for nothing else"));
 		super.appendHoverText(p_41421_, p_41422_, tooltip, p_41424_);
 	}
 

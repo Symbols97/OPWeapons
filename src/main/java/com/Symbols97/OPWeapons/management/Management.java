@@ -5,23 +5,29 @@ import org.apache.maven.artifact.versioning.ComparableVersion;
 import com.Symbols97.OPWeapons.OPWeapons;
 import com.Symbols97.OPWeapons.capabilities.Capabilities;
 import com.Symbols97.OPWeapons.capabilities.isWearingOPWArmor;
+import com.Symbols97.OPWeapons.entity.OPWEntities;
 import com.Symbols97.OPWeapons.items.init.OPWItems;
 import com.Symbols97.OPWeapons.world.dimension.OPWDimensions;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
@@ -38,31 +44,95 @@ import net.minecraftforge.items.wrapper.PlayerMainInvWrapper;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Management {
 
-    @SubscribeEvent
-    public static void armorAttackHandler(LivingDamageEvent event) {
-        if (event.getEntityLiving() instanceof Player) {
-            Player player = (Player) event.getEntityLiving();
-            LazyOptional<isWearingOPWArmor> entityCapability = player.getCapability(Capabilities.WEARING_OPW_ARMOR_CAPABILITY);
-            entityCapability.ifPresent(capability -> {
-                if ((capability.isWearingOPArmor() || capability.isWearingLostArmor()) && player.getAirSupply() > 0) {
-                    event.setCanceled(true);
-                    return;
-                }
-                if (capability.isWearingDemonArmor() && !player.isUnderWater()) {
-                    event.setCanceled(true);
-                    return;
-                }
-                if (capability.isWearingFrostArmor()) {
-                    event.setCanceled(true);
-                    return;
-                }
-                if (capability.isWearingReaperArmor()) {
-                    event.setCanceled(true);
-                    return;
-                }
-            });
-        }
-    }
+	@SubscribeEvent
+	public static void registerSpawnPlacement(SpawnPlacementRegisterEvent event) {
+		event.register(OPWEntities.DEADWOLF.get(), 
+				SpawnPlacements.Type.ON_GROUND,
+				Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, 
+				Animal::checkAnimalSpawnRules,
+				SpawnPlacementRegisterEvent.Operation.OR);
+		
+		event.register(OPWEntities.FROSTYOSTRICH.get(),
+                SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Animal::checkAnimalSpawnRules,
+                SpawnPlacementRegisterEvent.Operation.OR);
+		
+		 event.register(OPWEntities.OPGOBLIN.get(),
+                 SpawnPlacements.Type.ON_GROUND,
+                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                 Monster::checkMonsterSpawnRules,
+ 				SpawnPlacementRegisterEvent.Operation.OR);
+         
+		 event.register(OPWEntities.DEMONGOBLIN.get(),
+                 SpawnPlacements.Type.ON_GROUND,
+                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                 Monster::checkMonsterSpawnRules,
+ 				SpawnPlacementRegisterEvent.Operation.OR);
+         
+		 event.register(OPWEntities.FROSTGOBLIN.get(),
+                 SpawnPlacements.Type.ON_GROUND,
+                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                 Monster::checkMonsterSpawnRules,
+ 				SpawnPlacementRegisterEvent.Operation.OR);
+         
+		 event.register(OPWEntities.REAPER.get(),
+                 SpawnPlacements.Type.ON_GROUND,
+                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                 Monster::checkMonsterSpawnRules,
+ 				SpawnPlacementRegisterEvent.Operation.OR);
+         
+		 event.register(OPWEntities.DEMON.get(),
+                 SpawnPlacements.Type.ON_GROUND,
+                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                 Monster::checkMonsterSpawnRules,
+ 				SpawnPlacementRegisterEvent.Operation.OR);
+         
+		 event.register(OPWEntities.OPGUARDIAN.get(),
+                 SpawnPlacements.Type.ON_GROUND,
+                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                 Monster::checkMonsterSpawnRules,
+ 				SpawnPlacementRegisterEvent.Operation.OR);
+         
+		 event.register(OPWEntities.DEMONGUARDIAN.get(),
+                 SpawnPlacements.Type.ON_GROUND,
+                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                 Monster::checkMonsterSpawnRules,
+ 				SpawnPlacementRegisterEvent.Operation.OR);
+         
+		 event.register(OPWEntities.FROSTGUARDIAN.get(),
+                 SpawnPlacements.Type.ON_GROUND,
+                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                 Monster::checkMonsterSpawnRules,
+ 				SpawnPlacementRegisterEvent.Operation.OR);
+	}
+
+	@SubscribeEvent
+	public static void armorAttackHandler(LivingDamageEvent event) {
+		if (event.getEntity() instanceof Player) {
+			Player player = (Player) event.getEntity();
+			LazyOptional<isWearingOPWArmor> entityCapability = player
+					.getCapability(Capabilities.WEARING_OPW_ARMOR_CAPABILITY);
+			entityCapability.ifPresent(capability -> {
+				if ((capability.isWearingOPArmor() || capability.isWearingLostArmor()) && player.getAirSupply() > 0) {
+					event.setCanceled(true);
+					return;
+				}
+				if (capability.isWearingDemonArmor() && !player.isUnderWater()) {
+					event.setCanceled(true);
+					return;
+				}
+				if (capability.isWearingFrostArmor()) {
+					event.setCanceled(true);
+					return;
+				}
+				if (capability.isWearingReaperArmor()) {
+					event.setCanceled(true);
+					return;
+				}
+			});
+		}
+	}
 
 	public static void removeItems(Player player, ItemStack itemstack) {
 		IItemHandler inventory = new PlayerMainInvWrapper(player.getInventory());
@@ -84,11 +154,13 @@ public class Management {
 		return string;
 
 	}
+
 	public static final String KEY = "opweapons.joinedBefore";
+
 	@SubscribeEvent
 	public static void firstJoin(PlayerLoggedInEvent event) {
-		if (event.getPlayer() instanceof Player) {
-			Player player = (Player) event.getPlayer();
+		if (event.getEntity() instanceof Player) {
+			Player player = (Player) event.getEntity();
 			CompoundTag data = player.getPersistentData();
 
 			if (!data.getBoolean(KEY)) {
@@ -102,33 +174,45 @@ public class Management {
 	@SubscribeEvent
 	public static void onJoin(PlayerLoggedInEvent event) {
 
-		if (event.getPlayer() instanceof Player) {
-			Player player = (Player) event.getPlayer();
+		if (event.getEntity() instanceof Player) {
+			Player player = (Player) event.getEntity();
 			ModContainer modContainer = ModList.get().getModContainerById(OPWeapons.MOD_ID).get();
 			IModInfo info = modContainer.getModInfo();
 			ComparableVersion updatedVersion = VersionChecker.getResult(info).target();
-		
+
 			if (VersionChecker.getResult(info).status() == Status.OUTDATED) {
-				player.displayClientMessage(new TextComponent(String.format("OPWeapons is §cOUTDATED§f. Installed: §c%s §fLatest: §a%s", OPWeapons.ModVersion, updatedVersion)),
+				player.displayClientMessage(
+						Component.literal(String.format("OPWeapons is §cOUTDATED§f. Installed: §c%s §fLatest: §a%s",
+								OPWeapons.ModVersion, updatedVersion)),
 						false);
 			}
 			if (VersionChecker.getResult(info).status() == Status.BETA_OUTDATED) {
-				player.displayClientMessage(
-						new TextComponent(String.format("OPWeapons Beta is §cOUTDATED§f. Installed: §c%s §fLatest: §a%s", OPWeapons.ModVersion, updatedVersion)), false);
+				player.displayClientMessage(Component
+						.literal(String.format("OPWeapons Beta is §cOUTDATED§f. Installed: §c%s §fLatest: §a%s",
+								OPWeapons.ModVersion, updatedVersion)),
+						false);
 			}
 			if (VersionChecker.getResult(info).status() == Status.UP_TO_DATE) {
-				player.displayClientMessage(new TextComponent(String.format("OPWeapons is §aUp to Date§f. Installed: §a%s", OPWeapons.ModVersion)), false);
+				player.displayClientMessage(
+						Component.literal(
+								String.format("OPWeapons is §aUp to Date§f. Installed: §a%s", OPWeapons.ModVersion)),
+						false);
 			}
 			if (VersionChecker.getResult(info).status() == Status.BETA) {
-				player.displayClientMessage(
-						new TextComponent(String.format("OPWeapons Beta is §aUp to Date§f. Installed: §a%s §fLatest: §a%s", OPWeapons.ModVersion, updatedVersion)), false);
+				player.displayClientMessage(Component
+						.literal(String.format("OPWeapons Beta is §aUp to Date§f. Installed: §a%s §fLatest: §a%s",
+								OPWeapons.ModVersion, updatedVersion)),
+						false);
 			}
 			if (VersionChecker.getResult(info).status() == Status.FAILED) {
-				player.displayClientMessage(new TextComponent(String.format("OPWeapons §cfailed§f to check for an update. Try again later", OPWeapons.ModVersion, updatedVersion)),
+				player.displayClientMessage(
+						Component.literal(String.format("OPWeapons §cfailed§f to check for an update. Try again later",
+								OPWeapons.ModVersion, updatedVersion)),
 						false);
 			}
 
-			player.displayClientMessage(new TextComponent("§6Join the OPWeapons Discord! §9https://discord.gg/qcqAA98"), false);
+			player.displayClientMessage(Component.literal("§6Join the OPWeapons Discord! §9https://discord.gg/qcqAA98"),
+					false);
 
 		}
 	}
@@ -201,23 +285,24 @@ public class Management {
 		}
 	}
 
-
 	@SubscribeEvent
 	public static void dimensionCheck(PlayerTickEvent event) {
 
 		if (event.player instanceof Player) {
 			Player player = (Player) event.player;
-			LazyOptional<isWearingOPWArmor> entityCapability = player.getCapability(Capabilities.WEARING_OPW_ARMOR_CAPABILITY);
+			LazyOptional<isWearingOPWArmor> entityCapability = player
+					.getCapability(Capabilities.WEARING_OPW_ARMOR_CAPABILITY);
 			entityCapability.ifPresent(capability -> {
-			if (player.level.dimension() == OPWDimensions.FZ_KEY) {
-				if (!capability.isWearingFrostArmor() && !player.getAbilities().instabuild && !player.getMainHandItem().getItem().equals(OPWItems.frost_axe.get())
-						&& !player.getOffhandItem().getItem().equals(OPWItems.frost_axe.get())) {
-					player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 3));
-					player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 3));
-					player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 10, 3));
-				}
+				if (player.level.dimension() == OPWDimensions.FZ_KEY) {
+					if (!capability.isWearingFrostArmor() && !player.getAbilities().instabuild
+							&& !player.getMainHandItem().getItem().equals(OPWItems.frost_axe.get())
+							&& !player.getOffhandItem().getItem().equals(OPWItems.frost_axe.get())) {
+						player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 3));
+						player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 3));
+						player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 10, 3));
+					}
 
-			} 
+				}
 			});
 		}
 	}
@@ -227,7 +312,8 @@ public class Management {
 		if (event.player instanceof Player) {
 			Player player = (Player) event.player;
 
-			if (player.getMainHandItem().getItem() == OPWItems.demon_hammer.get() || player.getOffhandItem().getItem() == OPWItems.demon_hammer.get()) {
+			if (player.getMainHandItem().getItem() == OPWItems.demon_hammer.get()
+					|| player.getOffhandItem().getItem() == OPWItems.demon_hammer.get()) {
 				player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20, 1000));
 			}
 		}
@@ -239,7 +325,8 @@ public class Management {
 		if (event.player instanceof Player) {
 			Player player = (Player) event.player;
 
-			if (player.getMainHandItem().getItem() == OPWItems.frost_axe.get() || player.getOffhandItem().getItem() == OPWItems.frost_axe.get()) {
+			if (player.getMainHandItem().getItem() == OPWItems.frost_axe.get()
+					|| player.getOffhandItem().getItem() == OPWItems.frost_axe.get()) {
 				frostImmunity(player);
 
 				if (player.isInWater()) {
@@ -260,25 +347,28 @@ public class Management {
 	@SubscribeEvent
 	public static void customPunches(AttackEntityEvent event) {
 
-		LivingEntity attacker = (LivingEntity) event.getPlayer();
+		LivingEntity attacker = (LivingEntity) event.getEntity();
 		Entity checkedtarget = event.getTarget();
 
 		boolean hasDemonRing = false;
 		boolean hasFrostRing = false;
 		boolean hasBoth = false;
 
-		if (event.getPlayer() == attacker && attacker instanceof Player && event.getTarget() == checkedtarget && checkedtarget instanceof LivingEntity) {
+		if (event.getEntity() == attacker && attacker instanceof Player && event.getTarget() == checkedtarget
+				&& checkedtarget instanceof LivingEntity) {
 
-			Player player = (Player) event.getPlayer();
+			Player player = (Player) event.getEntity();
 			LivingEntity target = (LivingEntity) event.getTarget();
 
 			int hotbarcheck;
 			for (hotbarcheck = 0; hotbarcheck < 9; hotbarcheck++) {
 
-				if (player.getInventory().getItem(hotbarcheck).getItem().equals(OPWItems.demon_ring.get()) || player.getOffhandItem().getItem().equals(OPWItems.demon_ring.get())) {
+				if (player.getInventory().getItem(hotbarcheck).getItem().equals(OPWItems.demon_ring.get())
+						|| player.getOffhandItem().getItem().equals(OPWItems.demon_ring.get())) {
 					hasDemonRing = true;
 				}
-				if (player.getInventory().getItem(hotbarcheck).getItem().equals(OPWItems.frost_ring.get()) || player.getOffhandItem().getItem().equals(OPWItems.frost_ring.get())) {
+				if (player.getInventory().getItem(hotbarcheck).getItem().equals(OPWItems.frost_ring.get())
+						|| player.getOffhandItem().getItem().equals(OPWItems.frost_ring.get())) {
 					hasFrostRing = true;
 				}
 

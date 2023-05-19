@@ -21,7 +21,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class MenuTypes {
 	
 	public static final DeferredRegister<MenuType<?>> MENUS =
-            DeferredRegister.create(ForgeRegistries.CONTAINERS, OPWeapons.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.MENU_TYPES, OPWeapons.MOD_ID);
 
     public static final RegistryObject<MenuType<OPCraftingStationMenu>> opcs_menu =
             registerMenuType(OPCraftingStationMenu::new, "opcs_menu");

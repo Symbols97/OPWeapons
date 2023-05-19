@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "opweapons:frost_zone_biome"
+  ],
+  "spawners": {
+    "type": "opweapons:frost_guardian",
+    "weight": 1,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

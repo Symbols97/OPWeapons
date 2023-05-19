@@ -1,7 +1,6 @@
 package com.Symbols97.OPWeapons.items;
 
-import java.util.Random;
-
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.FlintAndSteelItem;
 import net.minecraft.world.item.ItemStack;
 
@@ -14,14 +13,14 @@ public class OPFlintandSteel extends FlintAndSteelItem {
 	}
 
 	@Override
-	public boolean hasContainerItem(ItemStack itemstack) {
+	public boolean hasCraftingRemainingItem(ItemStack itemstack) {
 		return true;
 	}
 
 	@Override
-	public ItemStack getContainerItem(ItemStack stack) {
+	public ItemStack getCraftingRemainingItem(ItemStack stack) {
 		ItemStack result = stack.copy();
-		result.hurt(1, new Random(), null);
+		result.hurt(1, RandomSource.create(), null);
 
 		return result;
 	}

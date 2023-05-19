@@ -4,7 +4,6 @@ import com.Symbols97.OPWeapons.screen.opcraftingstation.OPCraftingStationMenu;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -19,7 +18,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class OPCraftingStation extends Block {
 
-	private static final Component CONTAINER_TITLE = new TextComponent("§0OP Crafting Station");
+	private static final Component CONTAINER_TITLE = Component.literal("§0OP Crafting Station");
 
 	public OPCraftingStation(Properties p_49224_) {
 		super(p_49224_);

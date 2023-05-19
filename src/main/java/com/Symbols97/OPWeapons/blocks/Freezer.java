@@ -67,6 +67,7 @@ public class Freezer extends BaseEntityBlock {
 		builder.add(FACING, LIT);
 	}
 
+	 
 	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirror) {
@@ -151,7 +152,7 @@ public class Freezer extends BaseEntityBlock {
 		if (level != null && !level.isClientSide) {
 			BlockEntity blockentity = level.getBlockEntity(pos);
 			if (blockentity instanceof FreezerBlockEntity) {
-				NetworkHooks.openGui(((ServerPlayer) player), (FreezerBlockEntity) blockentity, pos);
+				NetworkHooks.openScreen(((ServerPlayer) player), (FreezerBlockEntity) blockentity, pos);
 			}
 		}
 		return InteractionResult.sidedSuccess(level.isClientSide());

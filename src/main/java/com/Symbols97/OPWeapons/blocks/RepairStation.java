@@ -57,6 +57,7 @@ public class RepairStation extends BaseEntityBlock {
 		return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
 	}
 
+	 
 	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState mirror(BlockState pState, Mirror pMirror) {
@@ -75,6 +76,7 @@ public class RepairStation extends BaseEntityBlock {
 		return RenderShape.MODEL;
 	}
 
+	 
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
@@ -94,7 +96,7 @@ public class RepairStation extends BaseEntityBlock {
 			BlockEntity entity = pLevel.getBlockEntity(pPos);
 			
 			if (entity instanceof RepairStationBlockEntity) {
-				NetworkHooks.openGui(((ServerPlayer) pPlayer), (RepairStationBlockEntity) entity, pPos);
+				NetworkHooks.openScreen(((ServerPlayer) pPlayer), (RepairStationBlockEntity) entity, pPos);
 			} else {
 				throw new IllegalStateException("Our Container provider is missing!");
 			}

@@ -3,7 +3,6 @@ package com.Symbols97.OPWeapons.management;
 import com.Symbols97.OPWeapons.OPWeapons;
 import com.Symbols97.OPWeapons.armors.ReaperArmor;
 import com.Symbols97.OPWeapons.armors.models.ReaperArmorRenderer;
-import com.Symbols97.OPWeapons.blocks.init.OPWBlocks;
 import com.Symbols97.OPWeapons.entity.OPWEntities;
 import com.Symbols97.OPWeapons.entity.deadwolf.DeadWolfRenderer;
 import com.Symbols97.OPWeapons.entity.demon.DemonRenderer;
@@ -28,13 +27,11 @@ import com.Symbols97.OPWeapons.screen.theforge.TheForgeScreen;
 import com.Symbols97.OPWeapons.util.OPWItemProperties;
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.gui.ForgeIngameGui;
-import net.minecraftforge.client.gui.OverlayRegistry;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -47,6 +44,7 @@ public class ClientRendering {
 	public static void registerRenderers(final EntityRenderersEvent.AddLayers event) {
 		GeoArmorRenderer.registerArmorRenderer(ReaperArmor.class, () -> new ReaperArmorRenderer());
 	}
+
 	@SubscribeEvent
 	public static void clientSetup(final FMLClientSetupEvent event) {
 
@@ -58,20 +56,17 @@ public class ClientRendering {
 		MenuScreens.register(MenuTypes.demonfurnace_menu.get(), DemonFurnaceScreen::new);
 		MenuScreens.register(MenuTypes.freezer_menu.get(), FreezerScreen::new);
 		
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.repair_station.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.repair_station_v2.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.the_forge.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.freezer.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.demon_statue.get(), RenderType.translucent());
+//		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.repair_station.get(), RenderType.translucent());
+//		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.repair_station_v2.get(), RenderType.translucent());
+//		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.the_forge.get(), RenderType.translucent());
+		//ItemBlockRenderTypes.setRenderLayer(OPWBlocks.freezer.get(), RenderType.translucent());
+		//ItemBlockRenderTypes.setRenderLayer(OPWBlocks.demon_statue.get(), RenderType.translucent());
 		
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.dead_zone_portal_block.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.frost_zone_portal_block.get(), RenderType.translucent());
+		//ItemBlockRenderTypes.setRenderLayer(OPWBlocks.dead_zone_portal_block.get(), RenderType.translucent());
+		//ItemBlockRenderTypes.setRenderLayer(OPWBlocks.frost_zone_portal_block.get(), RenderType.translucent());
 		
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.frost_sapling.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.demon_sapling.get(), RenderType.cutout());
-		
-		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.HOTBAR_ELEMENT, "durability", PlayerHUD.HUD_DURABILITY);
-		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.HOTBAR_ELEMENT, "name", PlayerHUD.safety);
+		//ItemBlockRenderTypes.setRenderLayer(OPWBlocks.frost_sapling.get(), RenderType.cutout());
+		//ItemBlockRenderTypes.setRenderLayer(OPWBlocks.demon_sapling.get(), RenderType.cutout());
 
 		EntityRenderers.register(OPWEntities.DEADWOLF.get(), DeadWolfRenderer::new);
 		EntityRenderers.register(OPWEntities.REAPER.get(), ReaperRenderer::new);
@@ -88,7 +83,14 @@ public class ClientRendering {
 		
 		OPWItemProperties.addCustomItemProperties();
 		
+		
+		
 	}
 
-
+	@SubscribeEvent
+	public static void onRegisterOverlays(RegisterGuiOverlaysEvent event) {
+	    event.registerAbove(VanillaGuiOverlay.HOTBAR.id(), "durability", PlayerHUD.HUD_DURABILITY);
+	    event.registerAbove(VanillaGuiOverlay.HOTBAR.id(), "name", PlayerHUD.safety);
+	}
+	
 }

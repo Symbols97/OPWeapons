@@ -8,17 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class FrostyOstrichModel extends AnimatedGeoModel<FrostyOstrichEntity> {
 	
     @Override
-    public ResourceLocation getModelLocation(FrostyOstrichEntity object) {
+    public ResourceLocation getModelResource(FrostyOstrichEntity object) {
         return new ResourceLocation(OPWeapons.MOD_ID, "geo/frosty_ostrich.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(FrostyOstrichEntity object) {
+    public ResourceLocation getTextureResource(FrostyOstrichEntity object) {
     	return new ResourceLocation(OPWeapons.MOD_ID, "textures/models/entity/frosty_ostrich.png");
     }
 
     @Override
-    public ResourceLocation getAnimationFileLocation(FrostyOstrichEntity animatable) {
+    public ResourceLocation getAnimationResource(FrostyOstrichEntity animatable) {
         return new ResourceLocation(OPWeapons.MOD_ID, "animations/frosty_ostrich.animation.json");
     }
 }

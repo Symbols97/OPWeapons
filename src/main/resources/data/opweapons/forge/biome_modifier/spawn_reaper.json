@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:jungle","minecraft:dark_forest"
+  ],
+  "spawners": {
+    "type": "opweapons:reaper",
+    "weight": 20,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

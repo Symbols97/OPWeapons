@@ -21,10 +21,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.client.gui.ForgeIngameGui;
-import net.minecraftforge.client.gui.IIngameOverlay;
+import net.minecraftforge.client.gui.overlay.ForgeGui;
+import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
-public class PlayerHUD extends ForgeIngameGui {
+public class PlayerHUD extends ForgeGui {
 
 	public PlayerHUD(Minecraft mc) {
 		super(mc);
@@ -32,16 +32,6 @@ public class PlayerHUD extends ForgeIngameGui {
 	}
 
 	static ResourceLocation texture = new ResourceLocation(OPWeapons.MOD_ID, "textures/gui/shades.png");
-
-	public static boolean displayItemDurability = OPWeaponsClientConfig.displayItemDurability.get();
-	public static boolean displayArmorDurability = OPWeaponsClientConfig.displayArmorDurability.get();
-
-	public static boolean displayItemPercent = OPWeaponsClientConfig.displayItemPercent.get();
-	public static boolean displayArmorPercent = OPWeaponsClientConfig.displayArmorPercent.get();
-
-	public static float durabilityPercent;
-	public static int durabilityNumeric1;
-	public static int durabilityNumeric2;
 
 	public static String color = "§2";
 
@@ -51,39 +41,52 @@ public class PlayerHUD extends ForgeIngameGui {
 	}
 
 	@SuppressWarnings("resource")
-	public static final IIngameOverlay safety = (gui, poseStack, partialTicks, width, height) -> {
+	public static final IGuiOverlay safety = (gui, poseStack, partialTicks, width, height) -> {
 		int left = width;
 		int top = height;
 		Player player = Minecraft.getInstance().player;
-		//ItemStack item = player.getMainHandItem();
+		// ItemStack item = player.getMainHandItem();
 
-		if (Minecraft.getInstance().options.getCameraType().isFirstPerson() && player.getItemBySlot(EquipmentSlot.HEAD).getItem().equals(OPWItems.demon_helmet_shaded.get()) && player.level.dimension() == OPWDimensions.DZ_KEY) {
+		if (Minecraft.getInstance().options.getCameraType().isFirstPerson()
+				&& player.getItemBySlot(EquipmentSlot.HEAD).getItem().equals(OPWItems.demon_helmet_shaded.get())
+				&& player.level.dimension() == OPWDimensions.DZ_KEY) {
 			// renderTextureOverlay
 			RenderSystem.disableDepthTest();
-		      RenderSystem.depthMask(false);
-		      RenderSystem.enableBlend();
-		      RenderSystem.defaultBlendFunc();
-		      RenderSystem.setShader(GameRenderer::getPositionTexShader);
-		      RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 2F);
-		      RenderSystem.setShaderTexture(0, texture);
-		      Tesselator tesselator = Tesselator.getInstance();
-		      BufferBuilder bufferbuilder = tesselator.getBuilder();
-		      bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-		      bufferbuilder.vertex(0.0D, (double)top, -90.0D).uv(0.0F, 1.0F).endVertex();
-		      bufferbuilder.vertex((double)left, (double)top, -90.0D).uv(1.0F, 1.0F).endVertex();
-		      bufferbuilder.vertex((double)left, 0.0D, -90.0D).uv(1.0F, 0.0F).endVertex();
-		      bufferbuilder.vertex(0.0D, 0.0D, -90.0D).uv(0.0F, 0.0F).endVertex();
-		      tesselator.end();
-		      RenderSystem.depthMask(true);
-		      RenderSystem.enableDepthTest();
-		      RenderSystem.disableBlend();
-		      RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+			RenderSystem.depthMask(false);
+			RenderSystem.enableBlend();
+			RenderSystem.defaultBlendFunc();
+			RenderSystem.setShader(GameRenderer::getPositionTexShader);
+			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 2F);
+			RenderSystem.setShaderTexture(0, texture);
+			Tesselator tesselator = Tesselator.getInstance();
+			BufferBuilder bufferbuilder = tesselator.getBuilder();
+			bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+			bufferbuilder.vertex(0.0D, (double) top, -90.0D).uv(0.0F, 1.0F).endVertex();
+			bufferbuilder.vertex((double) left, (double) top, -90.0D).uv(1.0F, 1.0F).endVertex();
+			bufferbuilder.vertex((double) left, 0.0D, -90.0D).uv(1.0F, 0.0F).endVertex();
+			bufferbuilder.vertex(0.0D, 0.0D, -90.0D).uv(0.0F, 0.0F).endVertex();
+			tesselator.end();
+			RenderSystem.depthMask(true);
+			RenderSystem.enableDepthTest();
+			RenderSystem.disableBlend();
+			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		}
 
 	};
 
 	@SuppressWarnings("resource")
-	public static final IIngameOverlay HUD_DURABILITY = (gui, poseStack, partialTicks, width, height) -> {
+	public static final IGuiOverlay HUD_DURABILITY = (gui, poseStack, partialTicks, width, height) -> {
+
+		boolean displayItemDurability = OPWeaponsClientConfig.displayItemDurability.get();
+		boolean displayArmorDurability = OPWeaponsClientConfig.displayArmorDurability.get();
+
+		boolean displayItemPercent = OPWeaponsClientConfig.displayItemPercent.get();
+		boolean displayArmorPercent = OPWeaponsClientConfig.displayArmorPercent.get();
+
+		float durabilityPercent = 0;
+		int durabilityNumeric1 = 0;
+		int durabilityNumeric2 = 0;
+
 		int left = width / 2 - 91;
 		int top = height - 39;
 		Player player = Minecraft.getInstance().player;
@@ -139,23 +142,25 @@ public class PlayerHUD extends ForgeIngameGui {
 		if (OPWeaponsClientConfig.displayColor.get().equals("Yellow")) {
 			color = "§e";
 		}
-		
+
 		// Display Armor Durability
 		if (displayArmorDurability) {
-			if ( (OPArmor.isWearingOPArmorClient || LostArmor.isWearingLostArmorClient || DemonArmor.isWearingDemonArmorClient || FrostArmor.isWearingFrostArmorClient || ReaperArmor.isWearingReaperArmorClient) && !player.getItemBySlot(EquipmentSlot.HEAD).isEmpty() ) {
+			if ((OPArmor.isWearingOPArmorClient || LostArmor.isWearingLostArmorClient
+					|| DemonArmor.isWearingDemonArmorClient || FrostArmor.isWearingFrostArmorClient
+					|| ReaperArmor.isWearingReaperArmorClient) && !player.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
 				int yaxis = 10;
-				
+
 				if (player.isUnderWater()) {
 					yaxis = 20;
 				}
-				
+
 				if (displayArmorPercent) {
 
 					String durability_percent = String.format(color + "Armor: %.2f%%", durabilityPercent);
 					String low_durability_percent = String.format("§cArmor: %.2f%%", durabilityPercent);
-					
+
 					if (durabilityPercent <= 50.00) {
-						
+
 						gui.getFont().draw(poseStack, low_durability_percent, left + 105, top - yaxis, 0xffffffff);
 					} else {
 
@@ -164,8 +169,10 @@ public class PlayerHUD extends ForgeIngameGui {
 
 				} else if (!displayArmorPercent) {
 
-					String durability_numeric = String.format(color + "Armor: %d/%d", durabilityNumeric1, durabilityNumeric2);
-					String low_durability_numeric = String.format("§cArmor: %d/%d", durabilityNumeric1, durabilityNumeric2);
+					String durability_numeric = String.format(color + "Armor: %d/%d", durabilityNumeric1,
+							durabilityNumeric2);
+					String low_durability_numeric = String.format("§cArmor: %d/%d", durabilityNumeric1,
+							durabilityNumeric2);
 					if (durabilityNumeric1 <= (durabilityNumeric2 / 2)) {
 
 						gui.getFont().draw(poseStack, low_durability_numeric, left + 90, top - yaxis, 0xffffffff);
@@ -184,7 +191,8 @@ public class PlayerHUD extends ForgeIngameGui {
 			if (!item.isEmpty() && item.isDamageableItem()) {
 
 				if (displayItemPercent) {
-					float durability_percent = ((float) item.getMaxDamage() - (float) item.getDamageValue()) * (float) 100 / (float) item.getMaxDamage();
+					float durability_percent = ((float) item.getMaxDamage() - (float) item.getDamageValue())
+							* (float) 100 / (float) item.getMaxDamage();
 
 					String percent_display = String.format(color + "Durability: %.2f%%", durability_percent);
 					String low_percent_display = String.format("§cDurability: %.2f%%", durability_percent);
@@ -200,8 +208,10 @@ public class PlayerHUD extends ForgeIngameGui {
 					int durability_numeric1 = item.getMaxDamage() - item.getDamageValue();
 					int durability_numeric2 = item.getMaxDamage();
 
-					String numeric_display = String.format(color + "Durability: %d/%d", durability_numeric1, durability_numeric2);
-					String low_numeric_display = String.format("§cDurability: %d/%d", durability_numeric1, durability_numeric2);
+					String numeric_display = String.format(color + "Durability: %d/%d", durability_numeric1,
+							durability_numeric2);
+					String low_numeric_display = String.format("§cDurability: %d/%d", durability_numeric1,
+							durability_numeric2);
 
 					if (durability_numeric1 <= (durability_numeric2 / 6)) {
 						gui.getFont().draw(poseStack, low_numeric_display, left - 115, top + 5, 0xffffffff);

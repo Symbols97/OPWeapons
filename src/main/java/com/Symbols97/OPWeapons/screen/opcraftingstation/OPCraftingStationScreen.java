@@ -6,7 +6,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -19,7 +18,7 @@ public class OPCraftingStationScreen extends AbstractContainerScreen<OPCraftingS
 
 	public OPCraftingStationScreen(OPCraftingStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
 		super(pMenu, pPlayerInventory, pTitle);
-		this.playerInventoryTitle =  new TextComponent("§0Inventory");
+		this.playerInventoryTitle =  Component.literal("§0Inventory");
 	}
 
 	@Override

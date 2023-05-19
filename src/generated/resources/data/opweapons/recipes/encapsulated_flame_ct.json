@@ -1,21 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "f  ",
-    " n ",
-    "  c"
-  ],
   "key": {
+    "c": {
+      "item": "opweapons:capsule"
+    },
     "f": {
       "item": "opweapons:op_flint_and_steel"
     },
     "n": {
       "item": "minecraft:netherrack"
-    },
-    "c": {
-      "item": "opweapons:capsule"
     }
   },
+  "pattern": [
+    "f  ",
+    " n ",
+    "  c"
+  ],
   "result": {
     "item": "opweapons:encapsulated_flame"
   }

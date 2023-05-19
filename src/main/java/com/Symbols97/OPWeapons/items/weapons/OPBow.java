@@ -13,7 +13,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 
@@ -28,7 +27,7 @@ public class OPBow extends BowItem{
 	public void releaseUsing(ItemStack p_40667_, Level p_40668_, LivingEntity p_40669_, int p_40670_) {
 	      if (p_40669_ instanceof Player) {
 	         Player player = (Player)p_40669_;
-	         boolean flag = player.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, p_40667_) > 0;
+	         boolean flag = player.getAbilities().instabuild || p_40667_.getEnchantmentLevel(Enchantments.INFINITY_ARROWS) > 0;
 	         ItemStack itemstack = player.getProjectile(p_40667_);
 
 	         int i = this.getUseDuration(p_40667_) - p_40670_;

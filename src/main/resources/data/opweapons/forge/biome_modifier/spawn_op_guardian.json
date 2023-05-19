@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:plains"
+  ],
+  "spawners": {
+    "type": "opweapons:op_guardian",
+    "weight": 30,
+    "minCount": 1,
+    "maxCount": 4
+  }
+}

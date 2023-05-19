@@ -1,7 +1,5 @@
 package com.Symbols97.OPWeapons.blocks;
 
-import java.util.Random;
-
 import javax.annotation.Nullable;
 
 import com.Symbols97.OPWeapons.blocks.entity.DemonFurnaceBlockEntity;
@@ -14,6 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -65,6 +64,7 @@ public class DemonFurnace extends BaseEntityBlock {
 		builder.add(FACING, LIT);
 	}
 
+	 
 	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirror) {
@@ -120,7 +120,7 @@ public class DemonFurnace extends BaseEntityBlock {
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void animateTick(BlockState p_53635_, Level p_53636_, BlockPos p_53637_, Random p_53638_) {
+	public void animateTick(BlockState p_53635_, Level p_53636_, BlockPos p_53637_, RandomSource p_53638_) {
 		if (p_53635_.getValue(LIT)) {
 		
 			double d0 = (double) p_53637_.getX() + 0.5D;
@@ -149,7 +149,7 @@ public class DemonFurnace extends BaseEntityBlock {
 		if (level != null && !level.isClientSide) {
 			BlockEntity blockentity = level.getBlockEntity(pos);
 			if (blockentity instanceof DemonFurnaceBlockEntity) {
-				NetworkHooks.openGui(((ServerPlayer) player), (DemonFurnaceBlockEntity) blockentity, pos);
+				NetworkHooks.openScreen(((ServerPlayer) player), (DemonFurnaceBlockEntity) blockentity, pos);
 			}
 		}
 		return InteractionResult.sidedSuccess(level.isClientSide());

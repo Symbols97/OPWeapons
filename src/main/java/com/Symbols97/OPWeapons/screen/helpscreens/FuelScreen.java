@@ -11,7 +11,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -55,9 +54,9 @@ public class FuelScreen extends Screen{
 		int y = (height - 170) / 2;
 		this.blit(pPoseStack, x, y, 0, 0, 256, 256);
 		
-		this.font.draw(pPoseStack, new TextComponent("Fuel Items"), x + 12, y + 5, 0xffffff);
-		this.font.draw(pPoseStack, new TextComponent("Fuel Times / 1 Item"), x + 140, y + 5, 0xffffff);
-		this.font.draw(pPoseStack, new TextComponent("------------------------------------------"), x + 2, y + 12, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("Fuel Items"), x + 12, y + 5, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("Fuel Times / 1 Item"), x + 140, y + 5, 0xffffff);
+		this.font.draw(pPoseStack, Component.literal("------------------------------------------"), x + 2, y + 12, 0xffffff);
 		
 
 		String name = null;
@@ -78,10 +77,10 @@ public class FuelScreen extends Screen{
 			name = element.toString().replace("_", " ");
 			name = Management.capatilize(name);
 			fuel_duration = fuel_duration / 20 ;
-			this.font.draw(pPoseStack, new TextComponent("|"), x + 5, (y + 20) + k, 0xffffff);
-			this.font.draw(pPoseStack, new TextComponent(String.format("%s", name)), x + 12, (y + 20) + k, 0xffffff);
-			this.font.draw(pPoseStack, new TextComponent(String.format("| %.2f seconds", fuel_duration)), x + 140, (y + 20) + k, 0xffffff);
-			this.font.draw(pPoseStack, new TextComponent("------------------------------------------"), x + 2, (y + 30) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal("|"), x + 5, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format("%s", name)), x + 12, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal(String.format("| %.2f seconds", fuel_duration)), x + 140, (y + 20) + k, 0xffffff);
+			this.font.draw(pPoseStack, Component.literal("------------------------------------------"), x + 2, (y + 30) + k, 0xffffff);
 			k += 20;
 		}
 

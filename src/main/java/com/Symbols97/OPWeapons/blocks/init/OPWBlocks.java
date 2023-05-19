@@ -27,7 +27,6 @@ import com.Symbols97.OPWeapons.world.features.Trees.FrostTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -38,8 +37,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -105,7 +104,7 @@ public class OPWBlocks {
 			OPWeapons.tabOPWeapons);
 
 	public static final RegistryObject<Block> block_o_enchanting = registerBlock("block_o_enchanting",
-			() -> new OreBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY).strength(10.0f).sound(SoundType.METAL).requiresCorrectToolForDrops(),
+			() -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY).strength(10.0f).sound(SoundType.METAL).requiresCorrectToolForDrops(),
 					UniformInt.of(100000, 100000)),
 			OPWeapons.tabOPWeapons);
 
@@ -267,7 +266,8 @@ public class OPWBlocks {
 		return OPWItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)) {
 			@Override
 			public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-				pTooltip.add(new TranslatableComponent(tooltipKey));
+				pTooltip.add(Component.translatable(tooltipKey));
+				
 			}
 		});
 	}

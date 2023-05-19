@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "frost_planks",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "opweapons:frost_planks"
         }
-      ]
+      ],
+      "name": "blocks/frost_planks",
+      "rolls": 1.0
     }
   ]
 }

@@ -27,7 +27,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
 
 @JeiPlugin
-public class JEIOPWeaponsModePlugin implements IModPlugin{
+public class JEIOPWeaponsModePlugin implements IModPlugin {
+
+	public static RecipeType<OPCSRecipe> OP_Crafting = new RecipeType<>(OPCSRecipeCategory.UID, OPCSRecipe.class);
+	public static RecipeType<TheForgeRecipe> Forge_Crafting = new RecipeType<>(TheForgeRecipeCategory.UID,TheForgeRecipe.class);
+	public static RecipeType<OPFurnaceRecipe> OP_Furnace = new RecipeType<>(OPFurnaceRecipeCategory.UID,OPFurnaceRecipe.class);
+	public static RecipeType<DemonFurnaceRecipe> Demon_Furnace = new RecipeType<>(DemonFurnaceRecipeCategory.UID,DemonFurnaceRecipe.class);
+	public static RecipeType<FreezerRecipe> Freezer = new RecipeType<>(FreezerRecipeCategory.UID, FreezerRecipe.class);
+	public static RecipeType<CoolerRecipe> Cooler = new RecipeType<>(CoolerRecipeCategory.UID, CoolerRecipe.class);
 
 	@Override
 	public ResourceLocation getPluginUid() {
@@ -35,39 +42,39 @@ public class JEIOPWeaponsModePlugin implements IModPlugin{
 		return new ResourceLocation(OPWeapons.MOD_ID, "jei_plugin");
 	}
 
-	
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registration) {
-		
+
 		registration.addRecipeCategories(new OPCSRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 		registration.addRecipeCategories(new TheForgeRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
-		
+
 		registration.addRecipeCategories(new OPFurnaceRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 		registration.addRecipeCategories(new DemonFurnaceRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 		registration.addRecipeCategories(new FreezerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 		registration.addRecipeCategories(new CoolerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 	}
-	
+
 	@SuppressWarnings("resource")
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
 		RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
-        List<OPCSRecipe> OPCS = rm.getAllRecipesFor(OPCSRecipe.Type.INSTANCE);
-        registration.addRecipes(new RecipeType<>(OPCSRecipeCategory.UID, OPCSRecipe.class), OPCS);
-        
-        List<TheForgeRecipe> forge = rm.getAllRecipesFor(TheForgeRecipe.Type.INSTANCE);
-        registration.addRecipes(new RecipeType<>(TheForgeRecipeCategory.UID, TheForgeRecipe.class), forge);
-       
-        List<OPFurnaceRecipe> OPFurnace = rm.getAllRecipesFor(OPFurnaceRecipe.Type.INSTANCE);
-        registration.addRecipes(new RecipeType<>(OPFurnaceRecipeCategory.UID, OPFurnaceRecipe.class), OPFurnace);
-        
-        List<DemonFurnaceRecipe> DemonFurnace = rm.getAllRecipesFor(DemonFurnaceRecipe.Type.INSTANCE);
-        registration.addRecipes(new RecipeType<>(DemonFurnaceRecipeCategory.UID, DemonFurnaceRecipe.class), DemonFurnace);
-        
-        List<FreezerRecipe> Freezer = rm.getAllRecipesFor(FreezerRecipe.Type.INSTANCE);
-        registration.addRecipes(new RecipeType<>(FreezerRecipeCategory.UID, FreezerRecipe.class), Freezer);
-        
-        List<CoolerRecipe> Cooler = rm.getAllRecipesFor(CoolerRecipe.Type.INSTANCE);
-        registration.addRecipes(new RecipeType<>(CoolerRecipeCategory.UID, CoolerRecipe.class), Cooler);
+
+		List<OPCSRecipe> OPCS = rm.getAllRecipesFor(OPCSRecipe.Type.INSTANCE);
+		registration.addRecipes(OP_Crafting, OPCS);
+
+		List<TheForgeRecipe> forge = rm.getAllRecipesFor(TheForgeRecipe.Type.INSTANCE);
+		registration.addRecipes(Forge_Crafting, forge);
+
+		List<OPFurnaceRecipe> OPFurnace = rm.getAllRecipesFor(OPFurnaceRecipe.Type.INSTANCE);
+		registration.addRecipes(OP_Furnace, OPFurnace);
+
+		List<DemonFurnaceRecipe> DemonFurnace = rm.getAllRecipesFor(DemonFurnaceRecipe.Type.INSTANCE);
+		registration.addRecipes(Demon_Furnace, DemonFurnace);
+
+		List<FreezerRecipe> FreezerMachine = rm.getAllRecipesFor(FreezerRecipe.Type.INSTANCE);
+		registration.addRecipes(Freezer, FreezerMachine);
+
+		List<CoolerRecipe> CoolerMachine = rm.getAllRecipesFor(CoolerRecipe.Type.INSTANCE);
+		registration.addRecipes(Cooler, CoolerMachine);
 	}
 }

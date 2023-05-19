@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "opweapons:frost_zone_biome",
+  "features": "opweapons:frost_zone_ore_placed",
+  "step": "underground_ores"
+}

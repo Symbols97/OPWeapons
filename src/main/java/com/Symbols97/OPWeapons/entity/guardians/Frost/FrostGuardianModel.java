@@ -8,17 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class FrostGuardianModel extends AnimatedGeoModel<FrostGuardianEntity> {
 	
     @Override
-    public ResourceLocation getModelLocation(FrostGuardianEntity object) {
+    public ResourceLocation getModelResource(FrostGuardianEntity object) {
         return new ResourceLocation(OPWeapons.MOD_ID, "geo/guardians.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(FrostGuardianEntity object) {
+    public ResourceLocation getTextureResource(FrostGuardianEntity object) {
     	return new ResourceLocation(OPWeapons.MOD_ID, "textures/models/entity/guardians/op_guardian.png");
     }
 
     @Override
-    public ResourceLocation getAnimationFileLocation(FrostGuardianEntity animatable) {
+    public ResourceLocation getAnimationResource(FrostGuardianEntity animatable) {
         return new ResourceLocation(OPWeapons.MOD_ID, "animations/guardians.animation.json");
     }
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SimpleFoiledItem;
 import net.minecraft.world.item.TooltipFlag;
@@ -21,7 +20,7 @@ public class UltimateNetherStar extends SimpleFoiledItem {
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
 
-		tooltip.add(new TextComponent("§7Has various uses. Can also repair special weapons"));
+		tooltip.add(Component.literal("§7Has various uses. Can also repair special weapons"));
 
 		super.appendHoverText(stack, level, tooltip, flag);
 	}

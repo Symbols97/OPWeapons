@@ -11,10 +11,10 @@ import com.Symbols97.OPWeapons.datagen.server.OPWRecipeProvider;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(modid = OPWeapons.MOD_ID, bus = Bus.MOD)
 public class OPWeaponsDataGeneration {
@@ -27,9 +27,9 @@ public class OPWeaponsDataGeneration {
 		if (event.includeClient()) {
 			
 			// Client Data Generation
-			generator.addProvider(new OPWBlockStateProvider(generator, helper));
-			generator.addProvider(new OPWItemModelProvider(generator, helper));
-			generator.addProvider(new EnUsProvider(generator));
+			generator.addProvider(true, new OPWBlockStateProvider(generator, helper));
+			generator.addProvider(true,new OPWItemModelProvider(generator, helper));
+			generator.addProvider(true,new EnUsProvider(generator));
 		}
 		
 		if (event.includeServer()) {
@@ -37,10 +37,10 @@ public class OPWeaponsDataGeneration {
 			OPWBlockTagsProvider blockTags = new OPWBlockTagsProvider(generator, helper);
 			
 			// Server Data Generation
-			generator.addProvider(new OPWRecipeProvider(generator));
-			generator.addProvider(blockTags);
-			generator.addProvider(new OPWItemTagsProvider(generator, blockTags, helper));
-			generator.addProvider(new OPWLootTableProvider(generator));
+			generator.addProvider(true,new OPWRecipeProvider(generator));
+			generator.addProvider(true, blockTags);
+			generator.addProvider(true,new OPWItemTagsProvider(generator, blockTags, helper));
+			generator.addProvider(true,new OPWLootTableProvider(generator));
 			
 		}
 	}
