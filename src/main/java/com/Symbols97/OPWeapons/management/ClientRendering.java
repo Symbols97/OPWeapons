@@ -58,15 +58,10 @@ public class ClientRendering {
 		MenuScreens.register(MenuTypes.demonfurnace_menu.get(), DemonFurnaceScreen::new);
 		MenuScreens.register(MenuTypes.freezer_menu.get(), FreezerScreen::new);
 		
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.repair_station.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.repair_station_v2.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.the_forge.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.freezer.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.demon_statue.get(), RenderType.translucent());
-		
 		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.dead_zone_portal_block.get(), RenderType.translucent());
 		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.frost_zone_portal_block.get(), RenderType.translucent());
-		
 		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.frost_sapling.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.demon_sapling.get(), RenderType.cutout());
 		

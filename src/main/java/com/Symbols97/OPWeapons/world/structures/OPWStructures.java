@@ -24,7 +24,7 @@ public class OPWStructures {
      * Registers the base structure itself and sets what its path is. In this case,
      * this base structure will have the resourcelocation of structure_tutorial:sky_structures.
      */
-    public static final RegistryObject<StructureFeature<?>> SKY_STRUCTURES = DEFERRED_REGISTRY_STRUCTURE.register("demon_light", DemonLight::new);
+    public static final RegistryObject<StructureFeature<?>> SKY_STRUCTURES = DEFERRED_REGISTRY_STRUCTURE.register("sky_light", SkyLight::new);
 
 	public static void register(IEventBus eventbus) {
 		DEFERRED_REGISTRY_STRUCTURE.register(eventbus);

@@ -33,16 +33,7 @@ public class PlayerHUD extends ForgeIngameGui {
 
 	static ResourceLocation texture = new ResourceLocation(OPWeapons.MOD_ID, "textures/gui/shades.png");
 
-	public static boolean displayItemDurability = OPWeaponsClientConfig.displayItemDurability.get();
-	public static boolean displayArmorDurability = OPWeaponsClientConfig.displayArmorDurability.get();
-
-	public static boolean displayItemPercent = OPWeaponsClientConfig.displayItemPercent.get();
-	public static boolean displayArmorPercent = OPWeaponsClientConfig.displayArmorPercent.get();
-
-	public static float durabilityPercent;
-	public static int durabilityNumeric1;
-	public static int durabilityNumeric2;
-
+	
 	public static String color = "§2";
 
 	@Override
@@ -84,6 +75,19 @@ public class PlayerHUD extends ForgeIngameGui {
 
 	@SuppressWarnings("resource")
 	public static final IIngameOverlay HUD_DURABILITY = (gui, poseStack, partialTicks, width, height) -> {
+		
+		boolean displayItemDurability = OPWeaponsClientConfig.displayItemDurability.get();
+		boolean displayArmorDurability = OPWeaponsClientConfig.displayArmorDurability.get();
+
+		boolean displayItemPercent = OPWeaponsClientConfig.displayItemPercent.get();
+		boolean displayArmorPercent = OPWeaponsClientConfig.displayArmorPercent.get();
+
+	    float durabilityPercent = 0;
+		int durabilityNumeric1 = 0;
+		int durabilityNumeric2 = 0;
+
+		
+		
 		int left = width / 2 - 91;
 		int top = height - 39;
 		Player player = Minecraft.getInstance().player;

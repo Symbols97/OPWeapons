@@ -1,5 +1,5 @@
 {
-    // The base structure class to use for the behavior of the structure. (Like extra terrain checks and such)
+  // The base structure class to use for the behavior of the structure. (Like extra terrain checks and such)
   "type": "minecraft:village",
 
   "config": {
@@ -11,15 +11,25 @@
     "size": 2
   },
 
-    // The biome tag to use for what biomes that this structure can spawn in"
-  "biomes": "#opweapons:has_structure/dz_oasis_house_biomes",
+  // The biome tag to use for what biomes that this structure can spawn in"
+  "biomes": "#opweapons:has_structure/structure_dead_zone_biomes",
 
-    // If true, land will be add around the bottom of the structure. (Based on the starting piece's y value)
+  // If true, land will be add around the bottom of the structure. (Based on the starting piece's y value)
   "adapt_noise": true,
 
-    // What mobs can spawn over time in the structure.
-    // Make sure you add the mob to the right category (monster, creature, etc)
+  // What mobs can spawn over time in the structure.
+  // Make sure you add the mob to the right category (monster, creature, etc)
   "spawn_overrides": {
-
+   // "creature": {
+    //  "bounding_box": "piece",
+    //  "spawns": [
+    //    {
+     //     "type": "minecraft:parrot",
+     //     "weight": 1,
+     //     "minCount": 1,
+     //     "maxCount": 4
+     //   }
+    //  ]
+    //}
   }
 }
