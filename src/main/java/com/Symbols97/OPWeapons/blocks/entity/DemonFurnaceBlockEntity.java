@@ -333,7 +333,7 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 	}
 
 	private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-		return inventory.getItem(2).getItem() == output.getItem() || inventory.getItem(3).isEmpty();
+		return inventory.getItem(2).getItem() == output.getItem() || inventory.getItem(2).isEmpty();
 	}
 
 	private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
