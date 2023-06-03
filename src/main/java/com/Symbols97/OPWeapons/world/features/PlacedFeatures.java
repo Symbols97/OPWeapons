@@ -28,7 +28,7 @@ public class PlacedFeatures {
 	  public static final RegistryObject<PlacedFeature> OVERWORLD_ORE_PLACED = PLACED_FEATURES.register("overworld_ore_placed",
 	            () -> new PlacedFeature(Features.OVERWORLD_ORE_GEN.getHolder().get(),
 	                    commonOrePlacement(15, // VeinsPerChunk
-	                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(60)))));
+	                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(20)))));
 	  
 	  
 	  public static final RegistryObject<PlacedFeature> RARE_OVERWORLD_ORE_PLACED = PLACED_FEATURES.register("rare_overworld_ore_placed",

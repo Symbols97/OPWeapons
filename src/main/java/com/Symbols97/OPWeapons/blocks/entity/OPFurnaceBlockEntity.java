@@ -225,14 +225,18 @@ public class OPFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 
 				if (blockentity.isLit()) {
 					flag1 = true;
-					if (itemstack.hasCraftingRemainingItem())
+					if (itemstack.hasCraftingRemainingItem()) {
 						blockentity.items.set(1, itemstack.getCraftingRemainingItem());
+					}
 					else if (!itemstack.isEmpty()) {
 						// Item item = itemstack.getItem();
 						itemstack.shrink(1);
 						if (itemstack.isEmpty()) {
 							blockentity.items.set(1, itemstack.getCraftingRemainingItem());
 						}
+					}
+					if (itemstack.equals(new ItemStack(Items.LAVA_BUCKET), true)) {
+						blockentity.itemHandler.setStackInSlot(1, new ItemStack(Items.BUCKET, itemstack.getCount()));
 					}
 
 				}

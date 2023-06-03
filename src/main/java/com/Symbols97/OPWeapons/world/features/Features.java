@@ -82,7 +82,7 @@ public class Features {
 
 	 //Gen
 	 public static final RegistryObject<ConfiguredFeature<?, ?>> OVERWORLD_ORE_GEN = CONFIGURED_FEATURES.register("overworld_ore_gen",
-	            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_ORES.get(),15)));
+	            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_ORES.get(),4)));
 	 
 	 public static final RegistryObject<ConfiguredFeature<?, ?>> RARE_OVERWORLD_ORE_GEN = CONFIGURED_FEATURES.register("rare_overworld_ore_gen",
 	            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(RARE_OVERWORLD_ORES.get(),5)));
