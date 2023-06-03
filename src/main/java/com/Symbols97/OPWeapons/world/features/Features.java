@@ -71,7 +71,7 @@ public class Features {
 
 	// Setup
 	public static final Holder<ConfiguredFeature<OreConfiguration, ?>> op_gem_ore_gen = FeatureUtils.register("op_gem_ore_gen", Feature.ORE,
-			new OreConfiguration(op_gem_ore_block, 15)); // Vein Size
+			new OreConfiguration(op_gem_ore_block, 4)); // Vein Size
 
 	public static final Holder<ConfiguredFeature<OreConfiguration, ?>> steel_scrap_ore_gen = FeatureUtils.register("steel_scrap_ore_gen", Feature.ORE,
 			new OreConfiguration(steel_scrap_ore_block, 5)); // Vein Size

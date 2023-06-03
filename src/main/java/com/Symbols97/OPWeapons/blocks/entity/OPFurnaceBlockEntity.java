@@ -192,7 +192,7 @@ public class OPFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 		CompoundTag compoundtag = new CompoundTag();
 		nbt.put("RecipesUsed", compoundtag);
 	}
-	
+
 	@Override
 	public void load(CompoundTag nbt) {
 		super.load(nbt);
@@ -226,14 +226,19 @@ public class OPFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 
 				if (blockentity.isLit()) {
 					flag1 = true;
-					if (itemstack.hasContainerItem())
+
+					if (itemstack.hasContainerItem()) {
 						blockentity.items.set(1, itemstack.getContainerItem());
-					else if (!itemstack.isEmpty()) {
+					} else if (!itemstack.isEmpty()) {
 						// Item item = itemstack.getItem();
 						itemstack.shrink(1);
 						if (itemstack.isEmpty()) {
 							blockentity.items.set(1, itemstack.getContainerItem());
 						}
+
+					}
+					if (itemstack.equals(new ItemStack(Items.LAVA_BUCKET), true)) {
+						blockentity.itemHandler.setStackInSlot(1, new ItemStack(Items.BUCKET, itemstack.getCount()));
 					}
 
 				}

@@ -45,14 +45,14 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 		protected void onContentsChanged(int slot) {
 			setChanged();
 		}
-		
+
 		@Override
 		public boolean isItemValid(int i, ItemStack itemstack) {
 
 			if (i == 1) {
-				return isFuel(itemstack);//itemstack.is(OPWTags.Items.IS_OPFURNACEFUEL);
+				return isFuel(itemstack);// itemstack.is(OPWTags.Items.IS_OPFURNACEFUEL);
 			} else if (i == 0) {
-				return !isFuel(itemstack);//itemstack.is(OPWTags.Items.IS_OPFURNACEFUEL);
+				return !isFuel(itemstack);// itemstack.is(OPWTags.Items.IS_OPFURNACEFUEL);
 
 			} else if (i == 2) {
 				return false;
@@ -64,58 +64,57 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 	};
 
 	private IItemHandler hopperHandler = new IItemHandler() {
-		
-		 @Override
-	        public int getSlots() {
-	            return itemHandler.getSlots();
-	        }
 
-	        @NotNull
-	        @Override
-	        public ItemStack getStackInSlot(int slot) {
-	            return itemHandler.getStackInSlot(slot);
-	        }
+		@Override
+		public int getSlots() {
+			return itemHandler.getSlots();
+		}
 
-	        @NotNull
-	        @Override
-	        public ItemStack extractItem(int slot, int amount, boolean simulate) {
+		@NotNull
+		@Override
+		public ItemStack getStackInSlot(int slot) {
+			return itemHandler.getStackInSlot(slot);
+		}
 
-	            if((slot == 2)){
-	                return itemHandler.extractItem(slot, amount, simulate);
-	            }
-	            return ItemStack.EMPTY;
-	        }
-	        
-	        @NotNull
-	        @Override
-	        public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-	            if(stack.isEmpty()){
-	                return stack;
-	            }
+		@NotNull
+		@Override
+		public ItemStack extractItem(int slot, int amount, boolean simulate) {
 
-	            if(slot != 0 && isItemValid(slot, stack)){
-	                return itemHandler.insertItem(slot, stack, simulate);
-	            }
-	            if(slot == 0 && !isFuel(stack)){
-	                return itemHandler.insertItem(slot, stack, simulate);
-	            }
-	            return stack;
-	        }
+			if ((slot == 2)) {
+				return itemHandler.extractItem(slot, amount, simulate);
+			}
+			return ItemStack.EMPTY;
+		}
 
-	        @Override
-	        public int getSlotLimit(int slot) {
-	            return itemHandler.getSlotLimit(slot);
-	        }
+		@NotNull
+		@Override
+		public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
+			if (stack.isEmpty()) {
+				return stack;
+			}
 
-	        @Override
-	        public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-	            return itemHandler.isItemValid(slot, stack);
-	        }
-	    };
+			if (slot != 0 && isItemValid(slot, stack)) {
+				return itemHandler.insertItem(slot, stack, simulate);
+			}
+			if (slot == 0 && !isFuel(stack)) {
+				return itemHandler.insertItem(slot, stack, simulate);
+			}
+			return stack;
+		}
 
-	    private LazyOptional<IItemHandler> lazyItemHandlerOptional = LazyOptional.of(() -> itemHandler);
-	    private LazyOptional<IItemHandler> hopperHandlerOptional = LazyOptional.of(() -> hopperHandler);
-		
+		@Override
+		public int getSlotLimit(int slot) {
+			return itemHandler.getSlotLimit(slot);
+		}
+
+		@Override
+		public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+			return itemHandler.isItemValid(slot, stack);
+		}
+	};
+
+	private LazyOptional<IItemHandler> lazyItemHandlerOptional = LazyOptional.of(() -> itemHandler);
+	private LazyOptional<IItemHandler> hopperHandlerOptional = LazyOptional.of(() -> hopperHandler);
 
 	protected final ContainerData data;
 	public int litTime; // how long the furnace has been lit for
@@ -128,33 +127,33 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 		this.data = new ContainerData() {
 			public int get(int index) {
 				switch (index) {
-				case 0:
-					return DemonFurnaceBlockEntity.this.litTime;
-				case 1:
-					return DemonFurnaceBlockEntity.this.litDuration;
-				case 2:
-					return DemonFurnaceBlockEntity.this.cookingProgress;
-				case 3:
-					return DemonFurnaceBlockEntity.this.cookingTotalTime;
-				default:
-					return 0;
+					case 0 :
+						return DemonFurnaceBlockEntity.this.litTime;
+					case 1 :
+						return DemonFurnaceBlockEntity.this.litDuration;
+					case 2 :
+						return DemonFurnaceBlockEntity.this.cookingProgress;
+					case 3 :
+						return DemonFurnaceBlockEntity.this.cookingTotalTime;
+					default :
+						return 0;
 				}
 			}
 
 			public void set(int index, int value) {
 				switch (index) {
-				case 0:
-					DemonFurnaceBlockEntity.this.litTime = value;
-					break;
-				case 1:
-					DemonFurnaceBlockEntity.this.litDuration = value;
-					break;
-				case 2:
-					DemonFurnaceBlockEntity.this.cookingProgress = value;
-					break;
-				case 3:
-					DemonFurnaceBlockEntity.this.cookingTotalTime = value;
-					break;
+					case 0 :
+						DemonFurnaceBlockEntity.this.litTime = value;
+						break;
+					case 1 :
+						DemonFurnaceBlockEntity.this.litDuration = value;
+						break;
+					case 2 :
+						DemonFurnaceBlockEntity.this.cookingProgress = value;
+						break;
+					case 3 :
+						DemonFurnaceBlockEntity.this.cookingTotalTime = value;
+						break;
 				}
 			}
 
@@ -190,7 +189,7 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 		CompoundTag compoundtag = new CompoundTag();
 		nbt.put("RecipesUsed", compoundtag);
 	}
-	
+
 	@Override
 	public void load(CompoundTag nbt) {
 		super.load(nbt);
@@ -225,14 +224,19 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
 				if (blockentity.isLit()) {
 					flag1 = true;
-					if (itemstack.hasContainerItem())
+
+					if (itemstack.hasContainerItem()) {
 						blockentity.items.set(1, itemstack.getContainerItem());
+					}
 					else if (!itemstack.isEmpty()) {
 						// Item item = itemstack.getItem();
 						itemstack.shrink(1);
 						if (itemstack.isEmpty()) {
 							blockentity.items.set(1, itemstack.getContainerItem());
 						}
+					}
+					if (itemstack.equals(new ItemStack(Items.LAVA_BUCKET), true)) {
+						blockentity.itemHandler.setStackInSlot(1, new ItemStack(Items.BUCKET, itemstack.getCount()));
 					}
 
 				}
@@ -275,11 +279,11 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 			if (item == Items.COPPER_INGOT) {
 				return 1667;
 			}
-			
+
 			if (item == Items.COPPER_BLOCK) {
 				return 15000;
 			}
-			
+
 			if (item == Items.IRON_INGOT) {
 				return 3333;
 			}
@@ -307,11 +311,9 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 			inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
 		}
 
-		Optional<DemonFurnaceRecipe> match = level.getRecipeManager().getRecipeFor(DemonFurnaceRecipe.Type.INSTANCE,
-				inventory, level);
+		Optional<DemonFurnaceRecipe> match = level.getRecipeManager().getRecipeFor(DemonFurnaceRecipe.Type.INSTANCE, inventory, level);
 
-		return match.isPresent() && canInsertAmountIntoOutputSlot(inventory, match.get().getResultItem())
-				&& canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
+		return match.isPresent() && canInsertAmountIntoOutputSlot(inventory, match.get().getResultItem()) && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
 	}
 
 	private static void smeltItem(DemonFurnaceBlockEntity entity) {
@@ -321,13 +323,12 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 			inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
 		}
 
-		Optional<DemonFurnaceRecipe> match = level.getRecipeManager().getRecipeFor(DemonFurnaceRecipe.Type.INSTANCE,
-				inventory, level);
+		Optional<DemonFurnaceRecipe> match = level.getRecipeManager().getRecipeFor(DemonFurnaceRecipe.Type.INSTANCE, inventory, level);
 
 		if (match.isPresent()) {
 			entity.itemHandler.extractItem(0, 1, false);
-			entity.itemHandler.setStackInSlot(2, new ItemStack(match.get().getResultItem().getItem(),
-					entity.itemHandler.getStackInSlot(2).getCount() + match.get().getResultItem().getCount()));
+			entity.itemHandler.setStackInSlot(2,
+					new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(2).getCount() + match.get().getResultItem().getCount()));
 
 		}
 	}
@@ -349,30 +350,30 @@ public class DemonFurnaceBlockEntity extends BlockEntity implements MenuProvider
 	@Override
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
 		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            if (side == null) {
-                return lazyItemHandlerOptional.cast();
-            } else{
-                return hopperHandlerOptional.cast();
-            }
+			if (side == null) {
+				return lazyItemHandlerOptional.cast();
+			} else {
+				return hopperHandlerOptional.cast();
+			}
 
-        }
+		}
 
-        return super.getCapability(cap, side);
-    }
+		return super.getCapability(cap, side);
+	}
 
-	 @Override
-	    public void onLoad() {
-	        super.onLoad();
-	        lazyItemHandlerOptional = LazyOptional.of(() -> itemHandler);
-	        hopperHandlerOptional = LazyOptional.of(() -> hopperHandler);
+	@Override
+	public void onLoad() {
+		super.onLoad();
+		lazyItemHandlerOptional = LazyOptional.of(() -> itemHandler);
+		hopperHandlerOptional = LazyOptional.of(() -> hopperHandler);
 
-	    }
+	}
 
-	    @Override
-	    public void invalidateCaps()  {
-	        super.invalidateCaps();
-	        lazyItemHandlerOptional.invalidate();
-	        hopperHandlerOptional.invalidate();
-	    }
-	
+	@Override
+	public void invalidateCaps() {
+		super.invalidateCaps();
+		lazyItemHandlerOptional.invalidate();
+		hopperHandlerOptional.invalidate();
+	}
+
 }

@@ -21,7 +21,7 @@ public class EntityGeneration {
 		 addEntityToSpecificBiomes(event, OPWEntities.DEMON.get(), 7, 1, 3, Biomes.NETHER_WASTES);
 		 addEntityToSpecificBiomes(event, OPWEntities.DEMONGUARDIAN.get(), 10, 1, 4, OPWBiomes.DEAD_ZONE);
 		 
-		 addEntityToSpecificBiomes(event, OPWEntities.OPGUARDIAN.get(), 30, 1, 4, Biomes.PLAINS);
+		 addEntityToSpecificBiomes(event, OPWEntities.OPGUARDIAN.get(), 20, 1, 2, Biomes.PLAINS);
 		 
 		 addEntityToSpecificBiomes(event, OPWEntities.FROSTYOSTRICH.get(), 19, 3, 4, OPWBiomes.FROST_ZONE);
 		 addEntityToSpecificBiomes(event, OPWEntities.FROSTGUARDIAN.get(), 1, 1, 2, OPWBiomes.FROST_ZONE);
