@@ -193,7 +193,7 @@ public class FrostyOstrichEntity extends TamableAnimal implements IAnimatable, I
 					itemstack.shrink(1);
 				}
 
-				if (this.random.nextInt(3) == 0 && !ForgeEventFactory.onAnimalTame(this, player)) {
+				if (this.random.nextInt(15) == 0 && !ForgeEventFactory.onAnimalTame(this, player)) {
 					this.tame(player);
 					this.navigation.stop();
 

@@ -155,6 +155,8 @@ public class ReaperArmor extends GeoArmorItem implements IDamageHandlingArmor, I
 									capability.setRepairTickReaperArmor(0);
 								}
 							}
+						} else {
+							capability.setRepairTickReaperArmor(0);
 						}
 					} else {
 						capability.setRepairTickReaperArmor(0);

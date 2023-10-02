@@ -16,7 +16,7 @@
 		{
 			"type": "patchouli:text",
 			"title": "Description",
-			"text": "The Guardians protect their factions from outsiders. They are the all-powerful in each faction. $(br)Locations:§1 Plains, Dead Zone, §1Frost Zone Biome$(br)Variants:$(li)§1OP $(li)§1Demon $(li)§1Frost$(br)Size:§1 2x scale $(br)Weapon: §1N/A$(br)Hostility:§1 Hostile; unless §1wearing the same armor as the §1variant $(br)Health:§1 12,500 $(br)Damage:§1 200 $(br)Tier:§1 3"
+			"text": "The Guardians protect their factions from outsiders. They are the all-powerful in each faction. $(br)Locations:§1 Plains, Dead Zone, §1Frost Zone Biome$(br)Variants:$(li)§1OP $(li)§1Demon $(li)§1Frost$(br)Size:§1 2x scale $(br)Weapon: §1N/A$(br)Hostility:§1 Hostile; unless §1wearing the same armor as the §1variant $(br)Health:§1 12,500 $(br)Damage: §3400 §0: §d100 $(br)Tier:§1 3"
 		}
 	]
 }

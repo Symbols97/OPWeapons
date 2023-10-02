@@ -35,9 +35,9 @@ public class GoblinEntity extends Monster implements IAnimatable, ILoopType {
 		return Monster.createMobAttributes()
 				.add(Attributes.FOLLOW_RANGE, 8.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double) 0.5F)
-				.add(Attributes.MAX_HEALTH, 300.0D)
+				.add(Attributes.MAX_HEALTH, 60.0D)
 				.add(Attributes.ATTACK_SPEED, 1.0D)
-				.add(Attributes.ATTACK_DAMAGE, 30.0D).build();
+				.add(Attributes.ATTACK_DAMAGE, 6.0D).build();
 	}
 
 	@Override

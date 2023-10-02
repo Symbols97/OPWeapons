@@ -16,14 +16,15 @@ public class OPWTags {
         
         public static final TagKey<Block> NEEDS_LOST_TOOL = tag("needs_lost_tool");
 
+    	public static final TagKey<Block> NEEDS_NETHERITE_TOOL = forgeTag("needs_netherite_tool");
       
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(OPWeapons.MOD_ID, name));
         }
 
-//        private static TagKey<Block> forgeTag(String name) {
-//            return BlockTags.create(new ResourceLocation("forge", name));
-//        }
+        private static TagKey<Block> forgeTag(String name) {
+            return BlockTags.create(new ResourceLocation("forge", name));
+        }
     }
 
     public static class Items {
@@ -39,14 +40,15 @@ public class OPWTags {
     	public static final TagKey<Item> IS_DEMONFURNACEFUEL = tag("is_demonfurnacefuel");
     	public static final TagKey<Item> IS_FCFUEL = tag("is_fcfuel");
     	
-    	public static final TagKey<Item> STEEL = forgeTag("ingots/steel");
+    	//public static final TagKey<Item> STEEL = forgeTag("ingots/steel");
+
     	
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(OPWeapons.MOD_ID, name));
         }
 
-        private static TagKey<Item> forgeTag(String name) {
-            return ItemTags.create(new ResourceLocation("forge", name));
-        }
+//        private static TagKey<Item> forgeTag(String name) {
+//            return ItemTags.create(new ResourceLocation("forge", name));
+//        }
     }
 }

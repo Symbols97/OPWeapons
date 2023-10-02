@@ -1,6 +1,6 @@
 {
     "name": "Mobs",
-    "description": "There are many new mobs added by OPWeapons. Each mob needs to be handled differently and carefully.",
+    "description": "There are many new mobs added by OPWeapons. Each mob needs to be handled differently and carefully.$(br)**Damage Descriptions Example:$(br)§3No Armor §0: §dArmor§0",
     "icon": "opweapons:op_guardian_spawn_egg",
     "sortnum": 3
 }

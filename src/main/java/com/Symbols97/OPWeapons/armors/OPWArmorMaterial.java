@@ -15,22 +15,22 @@ import net.minecraft.world.item.crafting.Ingredient;
 @SuppressWarnings("deprecation")
 public enum OPWArmorMaterial implements ArmorMaterial {
 	//String Name, Durability mult, How Much each armor protects (hp) , Enchant Value, Toughness , KnockBack Resistance
-	OP("op", 750, new int[] { 10,10,10,10 }, 400, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
+	OP("op", 60, new int[] { 10,10,10,10 }, 400, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
 		return Ingredient.of(OPWItems.op_gem.get());
 	}),
-	LOST("lost", 100, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
+	LOST("lost", 30, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
 		return Ingredient.of(OPWItems.op_gem.get());
 	}),
-	DEMON("demon", 2500, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 100.0F, 20.0F, () -> {
+	DEMON("demon", 200, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 100.0F, 20.0F, () -> {
 		return Ingredient.of();
 	}),
-	DEMON_SHADED("demon_shaded", 2500, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 100.0F, 20.0F, () -> {
+	DEMON_SHADED("demon_shaded", 200, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 100.0F, 20.0F, () -> {
 		return Ingredient.of();
 	}),
-	FROST("frost", 2500, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 100.0F, 20.0F, () -> {
+	FROST("frost", 200, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 100.0F, 20.0F, () -> {
 		return Ingredient.of();
 	}),
-	REAPER("reaper", 5000, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 200.0F, 40.0F, () -> {
+	REAPER("reaper", 1000, new int[] { 10,10,10,10 }, 0, SoundEvents.ARMOR_EQUIP_DIAMOND, 200.0F, 40.0F, () -> {
 		return Ingredient.of();
 	});
 

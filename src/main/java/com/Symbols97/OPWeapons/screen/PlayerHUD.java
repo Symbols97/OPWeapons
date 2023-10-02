@@ -147,11 +147,16 @@ public class PlayerHUD extends ForgeIngameGui {
 		// Display Armor Durability
 		if (displayArmorDurability) {
 			if ( (OPArmor.isWearingOPArmorClient || LostArmor.isWearingLostArmorClient || DemonArmor.isWearingDemonArmorClient || FrostArmor.isWearingFrostArmorClient || ReaperArmor.isWearingReaperArmorClient) && !player.getItemBySlot(EquipmentSlot.HEAD).isEmpty() ) {
-				int yaxis = 10;
+				int yaxis = 10 + OPWeaponsClientConfig.yArmorValue.get();
 				
-				if (player.isUnderWater()) {
+				if (player.isUnderWater() || (player.getAirSupply() < player.getMaxAirSupply()) && (OPWeaponsClientConfig.yArmorValue.get() == 0 && OPWeaponsClientConfig.xArmorValue.get() == 0)) {
 					yaxis = 20;
 				}
+				
+				if (player.isCreative() && (OPWeaponsClientConfig.yArmorValue.get() == 0 && OPWeaponsClientConfig.xArmorValue.get() == 0)) {
+					yaxis = -7;
+				}
+				
 				
 				if (displayArmorPercent) {
 
@@ -160,10 +165,10 @@ public class PlayerHUD extends ForgeIngameGui {
 					
 					if (durabilityPercent <= 50.00) {
 						
-						gui.getFont().draw(poseStack, low_durability_percent, left + 105, top - yaxis, 0xffffffff);
+						gui.getFont().draw(poseStack, low_durability_percent, (left + 105 + OPWeaponsClientConfig.xArmorValue.get()), top - yaxis, 0xffffffff);
 					} else {
 
-						gui.getFont().draw(poseStack, durability_percent, left + 105, top - yaxis, 0xffffffff);
+						gui.getFont().draw(poseStack, durability_percent, (left + 105 + OPWeaponsClientConfig.xArmorValue.get()), top - yaxis, 0xffffffff);
 					}
 
 				} else if (!displayArmorPercent) {
@@ -172,10 +177,10 @@ public class PlayerHUD extends ForgeIngameGui {
 					String low_durability_numeric = String.format("§cArmor: %d/%d", durabilityNumeric1, durabilityNumeric2);
 					if (durabilityNumeric1 <= (durabilityNumeric2 / 2)) {
 
-						gui.getFont().draw(poseStack, low_durability_numeric, left + 90, top - yaxis, 0xffffffff);
+						gui.getFont().draw(poseStack, low_durability_numeric, (left + 90 + OPWeaponsClientConfig.xArmorValue.get()), top - yaxis, 0xffffffff);
 					} else {
 
-						gui.getFont().draw(poseStack, durability_numeric, left + 90, top - yaxis, 0xffffffff);
+						gui.getFont().draw(poseStack, durability_numeric, (left + 90 + OPWeaponsClientConfig.xArmorValue.get()), top - yaxis, 0xffffffff);
 					}
 
 				}
@@ -194,9 +199,9 @@ public class PlayerHUD extends ForgeIngameGui {
 					String low_percent_display = String.format("§cDurability: %.2f%%", durability_percent);
 
 					if (durability_percent <= 15.00) {
-						gui.getFont().draw(poseStack, low_percent_display, left - 95, top + 5, 0xffffffff);
+						gui.getFont().draw(poseStack, low_percent_display, (left - 95  + OPWeaponsClientConfig.xItemValue.get()), (top + 5 - OPWeaponsClientConfig.yItemValue.get()), 0xffffffff);
 					} else {
-						gui.getFont().draw(poseStack, percent_display, left - 95, top + 5, 0xffffffff);
+						gui.getFont().draw(poseStack, percent_display, (left - 95  + OPWeaponsClientConfig.xItemValue.get()), (top + 5 - OPWeaponsClientConfig.yItemValue.get()), 0xffffffff);
 					}
 
 				} else if (!displayItemPercent) {
@@ -208,9 +213,9 @@ public class PlayerHUD extends ForgeIngameGui {
 					String low_numeric_display = String.format("§cDurability: %d/%d", durability_numeric1, durability_numeric2);
 
 					if (durability_numeric1 <= (durability_numeric2 / 6)) {
-						gui.getFont().draw(poseStack, low_numeric_display, left - 115, top + 5, 0xffffffff);
+						gui.getFont().draw(poseStack, low_numeric_display, (left - 115  + OPWeaponsClientConfig.xItemValue.get()), (top + 5 - OPWeaponsClientConfig.yItemValue.get()), 0xffffffff);
 					} else {
-						gui.getFont().draw(poseStack, numeric_display, left - 115, top + 5, 0xffffffff);
+						gui.getFont().draw(poseStack, numeric_display, (left - 115  + OPWeaponsClientConfig.xItemValue.get()) , (top + 5 - OPWeaponsClientConfig.yItemValue.get()), 0xffffffff);
 					}
 				}
 

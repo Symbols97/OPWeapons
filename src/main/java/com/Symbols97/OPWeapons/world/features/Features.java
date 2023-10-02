@@ -54,8 +54,8 @@ public class Features {
 	public static final List<OreConfiguration.TargetBlockState> op_gem_ore_block = List
 			.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, OPWBlocks.op_gem_ore.get().defaultBlockState()));
 
-	public static final List<OreConfiguration.TargetBlockState> steel_scrap_ore_block = List
-			.of(OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, OPWBlocks.steel_scrap_ore.get().defaultBlockState()));
+	public static final List<OreConfiguration.TargetBlockState> kysanite_scrap_ore_block = List
+			.of(OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, OPWBlocks.kysanite_scrap_ore.get().defaultBlockState()));
 
 	public static final List<OreConfiguration.TargetBlockState> soul_block = List
 			.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, OPWBlocks.soul_ore.get().defaultBlockState()));
@@ -73,8 +73,8 @@ public class Features {
 	public static final Holder<ConfiguredFeature<OreConfiguration, ?>> op_gem_ore_gen = FeatureUtils.register("op_gem_ore_gen", Feature.ORE,
 			new OreConfiguration(op_gem_ore_block, 4)); // Vein Size
 
-	public static final Holder<ConfiguredFeature<OreConfiguration, ?>> steel_scrap_ore_gen = FeatureUtils.register("steel_scrap_ore_gen", Feature.ORE,
-			new OreConfiguration(steel_scrap_ore_block, 5)); // Vein Size
+	public static final Holder<ConfiguredFeature<OreConfiguration, ?>> kysanite_scrap_ore_gen = FeatureUtils.register("kysanite_scrap_ore_gen", Feature.ORE,
+			new OreConfiguration(kysanite_scrap_ore_block, 5)); // Vein Size
 
 	public static final Holder<ConfiguredFeature<OreConfiguration, ?>> soul_block_gen = FeatureUtils.register("soul_block_gen", Feature.ORE, new OreConfiguration(soul_block, 4)); // Vein
 																																													// Size

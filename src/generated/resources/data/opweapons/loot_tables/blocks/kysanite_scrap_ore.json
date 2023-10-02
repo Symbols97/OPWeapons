@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "steel_scrap_ore",
+      "name": "kysanite_scrap_ore",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "opweapons:steel_scrap_ore"
+          "name": "opweapons:kysanite_scrap_ore"
         }
       ]
     }

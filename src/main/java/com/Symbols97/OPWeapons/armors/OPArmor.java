@@ -108,12 +108,14 @@ public class OPArmor extends ArmorItem implements IDamageHandlingArmor {
 						if (biome.getRegistryName().equals(Biomes.PLAINS.location()) || biome.getRegistryName().equals(Biomes.MEADOW.location())) {
 							if (itemstack.getDamageValue() > 0) {
 								capability.setRepairTickOPArmor(capability.getRepairTickOPArmor() + 1);
-								if (capability.getRepairTickOPArmor() > (OPWeaponsCommonConfig.repairCooldown.get() * 20)) {
+								if (capability.getRepairTickOPArmor() > (OPWeaponsCommonConfig.repairCooldown.get() * 20 * 3)) {
 									damage = itemstack.getDamageValue() - OPWeaponsCommonConfig.repairAmount.get();
 									itemstack.setDamageValue(damage);
 									capability.setRepairTickOPArmor(0);
 								}
 							}
+						} else {
+							capability.setRepairTickOPArmor(0);
 						}
 					} else {
 						capability.setRepairTickOPArmor(0);

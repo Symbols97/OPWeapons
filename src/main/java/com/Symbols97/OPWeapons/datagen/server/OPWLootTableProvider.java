@@ -25,7 +25,7 @@ public class OPWLootTableProvider extends BaseLootTableProvider {
 		dropSelf(OPWBlocks.condensedbodg.get());
 		dropSelf(OPWBlocks.condensedbofg.get());
 		dropSelf(OPWBlocks.op_crafting_station.get());
-		dropSelf(OPWBlocks.steel_scrap_ore.get());
+		dropSelf(OPWBlocks.kysanite_scrap_ore.get());
 		dropSelf(OPWBlocks.repair_station.get());
 		dropSelf(OPWBlocks.repair_station_v2.get());
 		dropSelf(OPWBlocks.the_forge.get());

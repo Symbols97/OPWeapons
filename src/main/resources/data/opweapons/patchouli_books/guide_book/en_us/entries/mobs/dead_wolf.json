@@ -16,7 +16,7 @@
 		{
 			"type": "patchouli:text",
 			"title": "Description",
-			"text": "The Dead Wolf is a tamable mob that can be ridden. $(br)Locations:§1 Dead Zone$(br)Variants: $(li)§1Wild $(li)§1Angry $(li)§1Tamed $(br)Favorite Food:§1 Magic Food$(br)Size:§1 2x scale $(br)Weapon: §1N/A$(br)Hostility:§1 Neutral unless §1provoked$(br)Health:§1 10,000 (Tamed: 50,000) $(br)Damage:§1 2 (Tamed: 4) $(br)Tier:§1 2"
+			"text": "The Dead Wolf is a tamable mob that can be ridden. $(br)Locations:§1 Dead Zone$(br)Variants: $(li)§1Wild $(li)§1Angry $(li)§1Tamed $(br)Favorite Food:§1 $(l:opweapons:food/demon_food/spicy_chicken)Spicy Chicken$()$(br)Size:§1 2x scale $(br)Weapon: §1N/A$(br)Hostility:§1 Neutral unless §1provoked$(br)Health:§1 10,000 (Tamed: 50,000) $(br)Damage:§1 2 (Tamed: 4) $(br)Tier:§1 2"
 		}
 	]
 }

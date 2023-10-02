@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "opweapons:item/steel_ingot"
+    "layer0": "opweapons:item/kysanite_ingot"
   }
 }

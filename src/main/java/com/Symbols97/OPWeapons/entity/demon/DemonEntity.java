@@ -44,7 +44,7 @@ public class DemonEntity extends Monster implements IAnimatable, ILoopType{
 	    		  .add(Attributes.MOVEMENT_SPEED, (double)0.3F)
 	    		  .add(Attributes.MAX_HEALTH, 10000.0D)//10000.0D)
 	    		  .add(Attributes.ATTACK_SPEED, 0.5D)
-	    		  .add(Attributes.ATTACK_DAMAGE, 150.0D).build();
+	    		  .add(Attributes.ATTACK_DAMAGE, 80.0D).build();
 	   }
 
 	@Override

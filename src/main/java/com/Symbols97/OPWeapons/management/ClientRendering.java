@@ -65,7 +65,7 @@ public class ClientRendering {
 		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.frost_sapling.get(), RenderType.cutout());
 		ItemBlockRenderTypes.setRenderLayer(OPWBlocks.demon_sapling.get(), RenderType.cutout());
 		
-		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.HOTBAR_ELEMENT, "durability", PlayerHUD.HUD_DURABILITY);
+		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.ARMOR_LEVEL_ELEMENT, "durability", PlayerHUD.HUD_DURABILITY);
 		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.HOTBAR_ELEMENT, "name", PlayerHUD.safety);
 
 		EntityRenderers.register(OPWEntities.DEADWOLF.get(), DeadWolfRenderer::new);

@@ -10,11 +10,11 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 public class PlacedFeatures {
 	
 	 public static final Holder<PlacedFeature> op_gem_ore_placed = PlacementUtils.register("op_gem_ore",
-	            Features.op_gem_ore_gen, OrePlacement.commonOrePlacement(15, // VeinsPerChunk
-	                    HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(25))));
+	            Features.op_gem_ore_gen, OrePlacement.commonOrePlacement(7, // VeinsPerChunk
+	                    HeightRangePlacement.uniform(VerticalAnchor.absolute(-15), VerticalAnchor.absolute(15))));
 	 
-	 public static final Holder<PlacedFeature> steel_scrap_ore_placed = PlacementUtils.register("steel_scrap_ore",
-	            Features.steel_scrap_ore_gen, OrePlacement.commonOrePlacement(20, // VeinsPerChunk
+	 public static final Holder<PlacedFeature> kysanite_scrap_ore_placed = PlacementUtils.register("kysanite_scrap_ore",
+	            Features.kysanite_scrap_ore_gen, OrePlacement.commonOrePlacement(20, // VeinsPerChunk
 	                    HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(0))));
 	 
 	 public static final Holder<PlacedFeature> soul_block_placed = PlacementUtils.register("soul_block",

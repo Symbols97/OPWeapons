@@ -143,13 +143,16 @@ public class DeadWolfEntity extends Wolf implements IAnimatable, ILoopType {
 					this.setOrderedToSit(!this.isOrderedToSit());
 
 				}
+				if (player.isCrouching() && hand == InteractionHand.MAIN_HAND && !this.isInSittingPose()) {
+					this.setOrderedToSit(this.isOrderedToSit());;
+				}
 
 			} else if (itemstack.is(tameableItem) && !this.isAngry()) {
 				if (!player.getAbilities().instabuild) {
 					itemstack.shrink(1);
 				}
 
-				if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+				if (this.random.nextInt(15) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
 					this.tame(player);
 					this.navigation.stop();
 					this.setTarget((LivingEntity) null);

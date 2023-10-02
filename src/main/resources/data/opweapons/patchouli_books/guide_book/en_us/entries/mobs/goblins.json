@@ -16,7 +16,7 @@
 		{
 			"type": "patchouli:text",
 			"title": "Description",
-			"text": "Goblins are small and extremly angry. Will attack on sight.$(br)Locations:§1 Plains, Badlands, & §1Cold Areas$(br)Variants: $(li)§1OP $(li)§1Demon $(li)§1Frost $(br)Size:§1 .75 scale $(br)Weapon: §1Spear$(br)Hostility:§1 Goblins will attack §1all players at any time $(br)Health:§1 300$(br)Damage:§1 30$(br)Tier:§1 1"
+			"text": "Goblins are small and extremly angry. Will attack on sight.$(br)Locations:§1 Plains, Badlands, & §1Cold Areas$(br)Variants: $(li)§1OP $(li)§1Demon $(li)§1Frost $(br)Size:§1 .75 scale $(br)Weapon: §1Spear$(br)Hostility:§1 Goblins will attack §1all players at any time $(br)Health:§1 60 $(br)Damage: §38 §0: §d2 $(br)Tier:§1 1"
 		}
 	]
 }

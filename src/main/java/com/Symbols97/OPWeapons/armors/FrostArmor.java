@@ -135,7 +135,7 @@ public class FrostArmor extends ArmorItem implements IDamageHandlingArmor {
 				entityCapability.ifPresent(capability -> {
 
 					if (capability.isWearingFrostArmor() && OPWeaponsCommonConfig.canRepair.get() == true) {
-						if (player.isUnderWater() || player.isInWater()) {
+						if (player.isUnderWater() || player.isInWaterOrRain()) {
 							if (itemstack.getDamageValue() > 0) {
 								capability.setRepairTickFrostArmor(capability.getRepairTickFrostArmor() + 1);
 								if (capability.getRepairTickFrostArmor() > (OPWeaponsCommonConfig.repairCooldown.get() * 20)) {
@@ -144,6 +144,8 @@ public class FrostArmor extends ArmorItem implements IDamageHandlingArmor {
 									capability.setRepairTickFrostArmor(0);
 								}
 							}
+						} else {
+							capability.setRepairTickFrostArmor(0);
 						}
 					} else {
 						capability.setRepairTickFrostArmor(0);

@@ -30,7 +30,7 @@ public class OreGeneration {
 	        	base.add(PlacedFeatures.frost_gold_ore_block_placed);
 	        } else {
 	        	 base.add(PlacedFeatures.op_gem_ore_placed);
-	        	 base.add(PlacedFeatures.steel_scrap_ore_placed);
+	        	 base.add(PlacedFeatures.kysanite_scrap_ore_placed);
 	        
 	        }
 	       

@@ -67,14 +67,14 @@ public class OPWItems {
 			() -> new SimpleFoiledItem(new Item.Properties().tab(OPWeapons.tabOPWeapons)));
 	public static final RegistryObject<Item> lost_gem = ITEMS.register("lost_gem",
 			() -> new Item(new Item.Properties().tab(OPWeapons.tabOPWeapons)));
-	public static final RegistryObject<Item> steel_scrap = ITEMS.register("steel_scrap",
+	public static final RegistryObject<Item> kysanite_scrap = ITEMS.register("kysanite_scrap",
 			() -> new Item(new Item.Properties().tab(OPWeapons.tabOPWeapons)));
-	public static final RegistryObject<Item> steel_ingot = ITEMS.register("steel_ingot",
+	public static final RegistryObject<Item> kysanite_ingot = ITEMS.register("kysanite_ingot",
 			() -> new Item(new Item.Properties().tab(OPWeapons.tabOPWeapons)));
 	
-	public static final RegistryObject<Item> steel_pipe = ITEMS.register("steel_pipe",
+	public static final RegistryObject<Item> kysanite_pipe = ITEMS.register("kysanite_pipe",
 			() -> new Item(new Item.Properties().tab(OPWeapons.tabOPWeapons)));
-	public static final RegistryObject<Item> triple_steel_pipe = ITEMS.register("triple_steel_pipe",
+	public static final RegistryObject<Item> triple_kysanite_pipe = ITEMS.register("triple_kysanite_pipe",
 			() -> new Item(new Item.Properties().tab(OPWeapons.tabOPWeapons)));
 	public static final RegistryObject<Item> vent = ITEMS.register("vent",
 			() -> new Item(new Item.Properties().tab(OPWeapons.tabOPWeapons)));

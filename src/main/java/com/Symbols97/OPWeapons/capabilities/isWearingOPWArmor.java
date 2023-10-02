@@ -12,7 +12,6 @@ public class isWearingOPWArmor implements INBTSerializable<CompoundTag> {
 	private int repairTickOPArmor = 0;
 	String reapirtickOPArmor = "repairTickOPArmor";
 
-	
 	private boolean isWearingLostArmor = false;
 	String lostarmor = "isWearingLostArmor";
 	

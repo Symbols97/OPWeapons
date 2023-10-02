@@ -7,6 +7,13 @@
 		{
 			"type": "patchouli:text",
 			"text": "Snow Cone grants these effects upon consumption: $(br)$(li)Water Breathing - 2:00 Minutes$(li)Speed 2 - 2:00 Minutes"
+		},
+		{
+			"type": "patchouli:image",
+			"title": "",
+			"images": [
+				"opweapons:textures/gui/book/snow_cone.png"
+			]
 		}
 	]
 }

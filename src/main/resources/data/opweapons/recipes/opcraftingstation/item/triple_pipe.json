@@ -5,10 +5,10 @@
   ],
   "key": {
     "p": {
-      "item": "opweapons:steel_pipe"
+      "item": "opweapons:kysanite_pipe"
     }
   },
   "result": {
-    "item": "opweapons:triple_steel_pipe"
+    "item": "opweapons:triple_kysanite_pipe"
   }
 }

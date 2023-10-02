@@ -55,17 +55,17 @@ public class OPWBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, OPWeapons.MOD_ID);
 	public static final DeferredRegister<Item> ITEMS = OPWItems.ITEMS;
 
-	public static ToIntFunction<BlockState> orelightLevel = BlockState -> 6;
+	public static ToIntFunction<BlockState> orelightLevel = BlockState -> 8;
 
-	public static ToIntFunction<BlockState> soulblocklightLevel = BlockState -> 9;
+	public static ToIntFunction<BlockState> soulblocklightLevel = BlockState -> 11;
 
-	public static ToIntFunction<BlockState> lamps = BlockState -> 14;
+	public static ToIntFunction<BlockState> lamps = BlockState -> 20;
 
 	public static final RegistryObject<Block> op_gem_ore = registerBlock("op_gem_ore", () -> new Block(
 			BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).strength(5.0f).sound(SoundType.STONE).requiresCorrectToolForDrops().lightLevel(orelightLevel)),
 			OPWeapons.tabOPWeapons);
 
-	public static final RegistryObject<Block> steel_scrap_ore = registerBlock("steel_scrap_ore",
+	public static final RegistryObject<Block> kysanite_scrap_ore = registerBlock("kysanite_scrap_ore",
 			() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).strength(5.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()),
 			OPWeapons.tabOPWeapons);
 

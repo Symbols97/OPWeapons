@@ -7,13 +7,13 @@
   ],
   "key": {
     "s": {
-      "item": "opweapons:steel_scrap"
+      "item": "opweapons:kysanite_scrap"
     },
     "i": {
       "item": "minecraft:iron_ingot"
     }
   },
   "result": {
-    "item": "opweapons:steel_ingot"
+    "item": "opweapons:kysanite_ingot"
   }
 }
