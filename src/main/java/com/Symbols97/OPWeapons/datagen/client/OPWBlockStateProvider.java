@@ -18,7 +18,7 @@ public class OPWBlockStateProvider extends BlockStateProvider {
 		simpleBlock(OPWBlocks.op_gem_ore.get());
 		simpleBlock(OPWBlocks.op_crafting_station.get());
 		simpleBlock(OPWBlocks.block_of_op_gem.get());
-		simpleBlock(OPWBlocks.steel_scrap_ore.get());
+		simpleBlock(OPWBlocks.kysanite_scrap_ore.get());
 		simpleBlock(OPWBlocks.repair_station.get());
 		simpleBlock(OPWBlocks.repair_station_v2.get());
 		simpleBlock(OPWBlocks.the_forge.get());

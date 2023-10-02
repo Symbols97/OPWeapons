@@ -27,7 +27,7 @@ public class OPWBlockTagsProvider extends BlockTagsProvider {
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(OPWBlocks.block_of_demon_gem.get());
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(OPWBlocks.block_of_frost_gem.get());
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(OPWBlocks.block_of_lost_gem.get());
-		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(OPWBlocks.steel_scrap_ore.get());
+		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(OPWBlocks.kysanite_scrap_ore.get());
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(OPWBlocks.condensedbodg.get());
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(OPWBlocks.condensedbofg.get());
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(OPWBlocks.the_forge.get());
@@ -83,7 +83,7 @@ public class OPWBlockTagsProvider extends BlockTagsProvider {
 		tag(OPWTags.Blocks.NEEDS_OP_TOOL).add(OPWBlocks.demon_gold_ore.get());
 		tag(OPWTags.Blocks.NEEDS_OP_TOOL).add(OPWBlocks.frost_gold_ore.get());
 		
-		tag(BlockTags.NEEDS_DIAMOND_TOOL).add(OPWBlocks.op_gem_ore.get());
+		tag(OPWTags.Blocks.NEEDS_NETHERITE_TOOL).add(OPWBlocks.op_gem_ore.get());
 		tag(BlockTags.NEEDS_DIAMOND_TOOL).add(OPWBlocks.block_of_op_gem.get());
 		tag(BlockTags.NEEDS_DIAMOND_TOOL).add(OPWBlocks.block_of_demon_gem.get());
 		tag(BlockTags.NEEDS_DIAMOND_TOOL).add(OPWBlocks.block_of_frost_gem.get());
@@ -91,7 +91,7 @@ public class OPWBlockTagsProvider extends BlockTagsProvider {
 		tag(BlockTags.NEEDS_DIAMOND_TOOL).add(OPWBlocks.condensedbodg.get());
 		tag(BlockTags.NEEDS_DIAMOND_TOOL).add(OPWBlocks.condensedbofg.get());
 		
-		tag(BlockTags.NEEDS_IRON_TOOL).add(OPWBlocks.steel_scrap_ore.get());
+		tag(OPWTags.Blocks.NEEDS_OP_TOOL).add(OPWBlocks.kysanite_scrap_ore.get());
 	
 		
 		

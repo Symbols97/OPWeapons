@@ -130,7 +130,7 @@ public class DemonArmor extends ArmorItem implements IDamageHandlingArmor {
 				entityCapability.ifPresent(capability -> {
 
 					if (capability.isWearingDemonArmor() && OPWeaponsCommonConfig.canRepair.get() == true) {
-						if (player.isInLava()) {
+						if (player.isInLava() || player.isOnFire()) {
 							if (itemstack.getDamageValue() > 0) {
 								capability.setRepairTickDemonArmor(capability.getRepairTickDemonArmor() + 1);
 								if (capability.getRepairTickDemonArmor() > (OPWeaponsCommonConfig.repairCooldown.get() * 20)) {
@@ -139,6 +139,8 @@ public class DemonArmor extends ArmorItem implements IDamageHandlingArmor {
 									capability.setRepairTickDemonArmor(0);
 								}
 							}
+						} else {
+							capability.setRepairTickDemonArmor(0);
 						}
 					} else {
 						capability.setRepairTickDemonArmor(0);

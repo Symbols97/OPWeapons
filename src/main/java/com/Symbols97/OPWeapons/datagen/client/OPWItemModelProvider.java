@@ -62,7 +62,7 @@ public class OPWItemModelProvider extends ItemModelProvider {
 		blocks(OPWBlocks.op_gem_ore);
 		blocks(OPWBlocks.op_crafting_station);
 		blocks(OPWBlocks.block_of_op_gem);
-		blocks(OPWBlocks.steel_scrap_ore);
+		blocks(OPWBlocks.kysanite_scrap_ore);
 		blocks(OPWBlocks.repair_station);
 		blocks(OPWBlocks.repair_station_v2);
 		blocks(OPWBlocks.the_forge);
@@ -106,8 +106,8 @@ public class OPWItemModelProvider extends ItemModelProvider {
 		items(OPWItems.capsule);
 		items(OPWItems.op_flint_and_steel);
 		items(OPWItems.encapsulated_flame);
-		items(OPWItems.steel_scrap);
-		items(OPWItems.steel_ingot);
+		items(OPWItems.kysanite_scrap);
+		items(OPWItems.kysanite_ingot);
 		items(OPWItems.demon_gem);
 		items(OPWItems.repair_module);
 		items(OPWItems.ultimate_nether_star);
@@ -128,8 +128,8 @@ public class OPWItemModelProvider extends ItemModelProvider {
 		items(OPWItems.defrosted_soul);
 		items(OPWItems.soul_harvester);
 		items(OPWItems.reaper_immunity_patch);
-		items(OPWItems.steel_pipe);
-		items(OPWItems.triple_steel_pipe);
+		items(OPWItems.kysanite_pipe);
+		items(OPWItems.triple_kysanite_pipe);
 		items(OPWItems.vent);
 		items(OPWItems.gold_particle);
 		items(OPWItems.synthetic_gold);

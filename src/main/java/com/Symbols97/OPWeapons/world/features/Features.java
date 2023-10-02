@@ -68,7 +68,7 @@ public class Features {
 	            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, OPWBlocks.op_gem_ore.get().defaultBlockState())));
 	 
 	 public static final Supplier<List<OreConfiguration.TargetBlockState>> RARE_OVERWORLD_ORES = Suppliers.memoize(() -> List.of(
-	            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, OPWBlocks.steel_scrap_ore.get().defaultBlockState())));
+	            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, OPWBlocks.kysanite_scrap_ore.get().defaultBlockState())));
 	 
 	 public static final Supplier<List<OreConfiguration.TargetBlockState>> DEAD_ZONE_ORES = Suppliers.memoize(() -> List.of(
 	            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, OPWBlocks.soul_ore.get().defaultBlockState()),

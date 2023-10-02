@@ -7,10 +7,10 @@
   ],
   "key": {
     "s": {
-      "item": "opweapons:steel_ingot"
+      "item": "opweapons:kysanite_ingot"
     }
   },
   "result": {
-    "item": "opweapons:steel_pipe"
+    "item": "opweapons:kysanite_pipe"
   }
 }

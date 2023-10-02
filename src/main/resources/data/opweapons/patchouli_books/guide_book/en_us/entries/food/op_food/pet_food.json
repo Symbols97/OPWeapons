@@ -7,6 +7,13 @@
 		{
 			"type": "patchouli:text",
 			"text": "Pet Food will fully heal the tameable animals in this mod."
+		},
+		{
+			"type": "patchouli:image",
+			"title": "",
+			"images": [
+				"opweapons:textures/gui/book/pet_food.png"
+			]
 		}
 	]
 }

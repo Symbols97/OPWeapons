@@ -65,8 +65,8 @@ public class EnUsProvider extends LanguageProvider {
 		add(OPWItems.capsule.get(), "Capsule");
 		add(OPWItems.op_flint_and_steel.get(), "OP Flint and Steel");
 		add(OPWItems.encapsulated_flame.get(), "Encapsulated Flame");
-		add(OPWItems.steel_scrap.get(), "Steel Scrap");
-		add(OPWItems.steel_ingot.get(), "Steel Ingot");
+		add(OPWItems.kysanite_scrap.get(), "Kysanite Scrap");
+		add(OPWItems.kysanite_ingot.get(), "Kysanite Ingot");
 		add(OPWItems.demon_gem.get(), "Demon Gem");
 		add(OPWItems.repair_module.get(), "Repair Module");
 		add(OPWItems.ultimate_nether_star.get(), "Ultimate Nether Star");
@@ -91,8 +91,8 @@ public class EnUsProvider extends LanguageProvider {
 		add(OPWItems.neutral_staff.get(), "Neutral Staff");
 		add(OPWItems.dead_zone_staff.get(), "Dead Zone Staff");
 		add(OPWItems.frost_zone_staff.get(), "Frost Zone Staff");
-		add(OPWItems.steel_pipe.get(), "Steel Pipe");
-		add(OPWItems.triple_steel_pipe.get(), "Triple Steel Pipe");
+		add(OPWItems.kysanite_pipe.get(), "Kysanite Pipe");
+		add(OPWItems.triple_kysanite_pipe.get(), "Triple Kysanite Pipe");
 		add(OPWItems.vent.get(), "Vent");
 		add(OPWItems.gold_particle.get(), "Gold Particle");
 		add(OPWItems.synthetic_gold.get(), "Synthetic Gold");
@@ -162,7 +162,7 @@ public class EnUsProvider extends LanguageProvider {
 		add(OPWBlocks.op_gem_ore.get(), "OP Gem Ore");
 		add(OPWBlocks.op_crafting_station.get(), "OP Crafting Station");
 		add(OPWBlocks.block_of_op_gem.get(), "Block of OP Gem");
-		add(OPWBlocks.steel_scrap_ore.get(), "Steel Scrap Ore");
+		add(OPWBlocks.kysanite_scrap_ore.get(), "Kysanite Scrap Ore");
 		add(OPWBlocks.repair_station.get(), "Repair Station");
 		add(OPWBlocks.repair_station_v2.get(), "Repair Station V2");
 		add(OPWBlocks.the_forge.get(), "The Forge");

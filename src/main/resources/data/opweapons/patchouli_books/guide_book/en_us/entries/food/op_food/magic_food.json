@@ -7,6 +7,13 @@
 		{
 			"type": "patchouli:text",
 			"text": "Magic Food grants these effects upon consumption: $(br)$(li)Night Vision - 5:00 Minutes$(li)Strength 4 - 5:00 Minutes$(li)Resistance 4 - 5:00 Minutes$(li)Regeneration - 5:00 Minutes"
+		},
+		{
+			"type": "patchouli:image",
+			"title": "",
+			"images": [
+				"opweapons:textures/gui/book/magic_food.png"
+			]
 		}
 	]
 }

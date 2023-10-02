@@ -31,7 +31,7 @@ public class BaseGuardianEntity extends Monster implements IAnimatable, ILoopTyp
 				.add(Attributes.MOVEMENT_SPEED, (double) 0.4F)
 				.add(Attributes.MAX_HEALTH, 12500.0D)
 				.add(Attributes.ATTACK_SPEED, 1.0D)
-				.add(Attributes.ATTACK_DAMAGE, 200.0D).build();
+				.add(Attributes.ATTACK_DAMAGE, 400.0D).build();
 	}
 
 	@Override

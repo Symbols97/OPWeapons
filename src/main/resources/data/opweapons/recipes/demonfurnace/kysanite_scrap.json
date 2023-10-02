@@ -2,11 +2,11 @@
   "type": "opweapons:demon_furnace",
   "ingredients": [
     {
-      "item": "opweapons:steel_scrap_ore"
+      "item": "opweapons:kysanite_scrap_ore"
     }
   ],
   "output": {
-    "item": "opweapons:steel_scrap",
+    "item": "opweapons:kysanite_scrap",
     "count": 1
   }
 }

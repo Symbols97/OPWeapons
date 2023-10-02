@@ -6,10 +6,10 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "opweapons:steel_scrap_ore"
+          "name": "opweapons:kysanite_scrap_ore"
         }
       ],
-      "name": "blocks/steel_scrap_ore",
+      "name": "blocks/kysanite_scrap_ore",
       "rolls": 1.0
     }
   ]

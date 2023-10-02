@@ -7,6 +7,13 @@
 		{
 			"type": "patchouli:text",
 			"text": "Magic Mutton grants these effects upon consumption: $(br)$(li)Jump Bost 3 - 5:00 Minutes$(li)Water Breathing - 5:00 Minutes$(li)Speed 4 - 5:00 Minutes$(li)Haste 4 - 5:00 Minutes$(li)Saturation 5 - 5:00 Minutes"
+		},
+		{
+			"type": "patchouli:image",
+			"title": "",
+			"images": [
+				"opweapons:textures/gui/book/magic_mutton.png"
+			]
 		}
 	]
 }

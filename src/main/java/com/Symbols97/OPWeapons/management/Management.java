@@ -16,6 +16,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
@@ -130,7 +131,20 @@ public class Management {
 					event.setCanceled(true);
 					return;
 				}
+				
+				if(player.getItemBySlot(EquipmentSlot.HEAD).isEmpty()
+						|| player.getItemBySlot(EquipmentSlot.CHEST).isEmpty()
+						|| player.getItemBySlot(EquipmentSlot.LEGS).isEmpty()
+						|| player.getItemBySlot(EquipmentSlot.FEET).isEmpty()) {
+					
+					player.getCapability(Capabilities.WEARING_OPW_ARMOR_CAPABILITY).invalidate();
+					
+				}
+				
 			});
+			
+			
+			
 		}
 	}
 

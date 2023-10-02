@@ -15,16 +15,16 @@ import net.minecraftforge.common.TierSortingRegistry;
 public class weapon_tooltiers {
 
 	// Mining Level, Durability, Speed, AttackDamage (+1), Enchantment Value
-	public static final ForgeTier opSword = new ForgeTier(5, 4000, 10.0F, 74.0F, 400, BlockTags.NEEDS_DIAMOND_TOOL,
+	public static final ForgeTier opSword = new ForgeTier(5, 4000, 10.0F, 14.0F, 400, BlockTags.NEEDS_DIAMOND_TOOL,
 			() -> Ingredient.of(/* repair me with */));
 
 	public static final Tier opTool = TierSortingRegistry.registerTier(new ForgeTier(5, 6000, 100.0F, 3.0F, 400, OPWTags.Blocks.NEEDS_OP_TOOL,
-			() -> Ingredient.of(/* repair me with */)), new ResourceLocation("op_tool"), List.of(Tiers.DIAMOND), List.of());
+			() -> Ingredient.of(/* repair me with */)), new ResourceLocation("op_tool"), List.of(Tiers.NETHERITE), List.of());
 	
 	public static final Tier lostTool = TierSortingRegistry.registerTier(new ForgeTier(100, 64, 70.0F, 3.0F, 0, OPWTags.Blocks.NEEDS_LOST_TOOL,
 			() -> Ingredient.of(/* repair me with */)), new ResourceLocation("lost_tool"), List.of(weapon_tooltiers.opTool), List.of());
 	
-	public static final ForgeTier tier2Sword = new ForgeTier(5, 5000, 10.0F, 124.0F, 0, BlockTags.NEEDS_DIAMOND_TOOL,
+	public static final ForgeTier tier2Sword = new ForgeTier(5, 5000, 10.0F, 74.0F, 0, BlockTags.NEEDS_DIAMOND_TOOL,
 			() -> Ingredient.of(/* repair me with */));
 	
 	public static final ForgeTier scythe = new ForgeTier(0, 50, 0.0F, 0.0F, 0, BlockTags.NEEDS_DIAMOND_TOOL,

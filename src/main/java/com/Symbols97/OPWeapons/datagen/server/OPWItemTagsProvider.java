@@ -64,7 +64,6 @@ public class OPWItemTagsProvider extends ItemTagsProvider {
 		tag(OPWTags.Items.IS_FCFUEL).add(OPWItems.ultimate_nether_star.get());
 		tag(OPWTags.Items.IS_FCFUEL).add(OPWItems.frost_vial.get());
 		
-		tag(OPWTags.Items.STEEL).add(OPWItems.steel_ingot.get());
 	}
 
 }
